@@ -5,16 +5,20 @@
   "projected_nps_lift_points": 0.26,
   "projected_revisit_lift_pct": 0.0047,
   "annual_system_revenue_usd": 36208352.52,
-  "revenue_at_risk_usd": 399725.13,
-  "recoverable_revenue_usd": 43170.31,
+  "pilot_scope": "urgent_tier_stores",
+  "revenue_at_risk_usd": 2097568.19,
+  "system_revenue_at_risk_usd": 5117395.26,
+  "recoverable_revenue_usd": 314635.23,
   "implementation_cost_usd": 85000,
-  "net_annual_impact_usd": -41829.69,
+  "net_annual_impact_usd": 229635.23,
   "urgent_store_count": 8,
   "urgent_store_annual_revenue_usd": 14841434.88,
-  "meets_100k_threshold": false,
+  "meets_100k_threshold": true,
+  "elasticity_based_revenue_usd": 43170.31,
   "assumptions": {
     "nps_to_revisit_elasticity": 0.018,
-    "recovery_rate_applied": 0.6,
-    "implementation_scope": "peak-hour staffing + mobile order pickup workflow"
+    "detractor_recovery_rate": 0.15,
+    "nps_gap_recovery_factor": 0.6,
+    "implementation_scope": "peak-hour staffing + mobile order pickup workflow at urgent-tier stores"
   }
 }

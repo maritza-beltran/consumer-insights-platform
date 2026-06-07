@@ -42,11 +42,12 @@ Logistic regression predicts promoter status (NPS ≥ 9) from theme presence and
 
 ## 7. Impact Sizing
 
-Financial model translates theme-level NPS gaps into revisit lift and recoverable revenue:
+Financial model scopes year-one impact to **urgent-tier stores**:
 
-- NPS-to-revisit elasticity: 1.8% revisit lift per NPS point
-- Recovery rate: 60% of observed NPS gap
+- Pilot revenue at risk = urgent-store annual revenue × theme prevalence × detractor rate
+- Recoverable revenue = revenue at risk × 15% detractor recovery rate
 - Implementation cost: $85K (staffing + mobile pickup workflow)
+- Supplementary check: NPS-to-revisit elasticity (1.8% revisit lift per NPS point)
 
 Net impact = recoverable revenue − implementation cost. Target threshold: **$100K+**.
 

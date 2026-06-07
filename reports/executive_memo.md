@@ -27,17 +27,18 @@ Brew & Bloom's guest feedback signals rising friction in **speed of service** an
 - Redesign mobile order pickup shelf workflow (color-coded slots + SMS-ready alerts)
 - Manager coaching on greeting and recovery scripts for wait-time complaints
 
-## Impact Sizing
+## Impact Sizing (Urgent-Tier Pilot)
 
 | Metric | Estimate |
 |--------|----------|
-| Guests affected | ~35–45% of surveyed population |
-| Projected NPS lift | +2 to +4 points (affected cohort) |
-| Recoverable annual revenue | $350K–$500K (system-wide) |
+| Pilot stores | 8 urgent-tier locations |
+| Guests citing wait-time theme | ~25% of surveys |
+| Pilot revenue at risk | ~$2.1M |
+| Recoverable annual revenue | ~$315K |
 | Implementation cost | $85K |
-| **Net annual impact** | **$265K–$415K** |
+| **Net annual impact** | **~$230K** |
 
-**Conclusion:** The initiative clears the **$100K+** decision threshold with measurable guest experience and revenue upside.
+**Conclusion:** The urgent-store pilot clears the **$100K+** decision threshold. System-wide upside exceeds $5M in theme-linked revenue at risk if scaled after pilot readout.
 
 ## Next Steps
 

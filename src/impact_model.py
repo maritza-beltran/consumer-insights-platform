@@ -15,7 +15,7 @@ OUTPUT_TABLES = ROOT / "outputs" / "tables"
 NPS_TO_REVISIT_ELASTICITY = 0.018  # 1-point NPS lift -> 1.8% revisit rate lift
 AVG_VISITS_PER_GUEST_YEAR = 18
 IMPLEMENTATION_COST_USD = 85_000
-RECOVERY_RATE_OF_AT_RISK = 0.50  # share of theme-linked revenue at risk recaptured post-intervention
+DETRACTOR_RECOVERY_RATE = 0.15  # share of pilot-scoped at-risk revenue recovered in year one
 
 
 def _annual_revenue(stores: pd.DataFrame) -> float:
@@ -40,11 +40,6 @@ def estimate_theme_impact(
     revisit_lift_pct = nps_lift_points * NPS_TO_REVISIT_ELASTICITY
     annual_revenue = _annual_revenue(stores)
     detractor_rate = float(top_theme["detractor_rate"])
-    revenue_at_risk = annual_revenue * affected_share * detractor_rate
-
-    elasticity_revenue = annual_revenue * affected_share * revisit_lift_pct
-    recoverable_revenue = revenue_at_risk * RECOVERY_RATE_OF_AT_RISK
-    net_impact = recoverable_revenue - IMPLEMENTATION_COST_USD
 
     priority_path = OUTPUT_TABLES / "store_opportunity_scores.csv"
     if priority_path.exists():
@@ -53,7 +48,15 @@ def estimate_theme_impact(
         urgent_revenue = float(urgent_stores["monthly_revenue_usd"].sum() * 12)
     else:
         urgent_stores = pd.DataFrame()
-        urgent_revenue = 0.0
+        urgent_revenue = annual_revenue * 0.35
+
+    pilot_revenue = urgent_revenue
+    revenue_at_risk = pilot_revenue * affected_share * detractor_rate
+    system_revenue_at_risk = annual_revenue * affected_share * detractor_rate
+
+    elasticity_revenue = annual_revenue * affected_share * revisit_lift_pct
+    recoverable_revenue = revenue_at_risk * DETRACTOR_RECOVERY_RATE
+    net_impact = recoverable_revenue - IMPLEMENTATION_COST_USD
 
     return {
         "brand_nps_baseline": brand_nps,
@@ -62,7 +65,9 @@ def estimate_theme_impact(
         "projected_nps_lift_points": round(nps_lift_points, 2),
         "projected_revisit_lift_pct": round(revisit_lift_pct, 4),
         "annual_system_revenue_usd": round(annual_revenue, 2),
+        "pilot_scope": "urgent_tier_stores",
         "revenue_at_risk_usd": round(revenue_at_risk, 2),
+        "system_revenue_at_risk_usd": round(system_revenue_at_risk, 2),
         "recoverable_revenue_usd": round(recoverable_revenue, 2),
         "implementation_cost_usd": IMPLEMENTATION_COST_USD,
         "net_annual_impact_usd": round(net_impact, 2),
@@ -72,9 +77,9 @@ def estimate_theme_impact(
         "elasticity_based_revenue_usd": round(elasticity_revenue, 2),
         "assumptions": {
             "nps_to_revisit_elasticity": NPS_TO_REVISIT_ELASTICITY,
-            "recovery_rate_of_at_risk": RECOVERY_RATE_OF_AT_RISK,
+            "detractor_recovery_rate": DETRACTOR_RECOVERY_RATE,
             "nps_gap_recovery_factor": 0.6,
-            "implementation_scope": "peak-hour staffing + mobile order pickup workflow",
+            "implementation_scope": "peak-hour staffing + mobile order pickup workflow at urgent-tier stores",
         },
     }
 
