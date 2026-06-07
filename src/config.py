@@ -15,6 +15,17 @@ OUTPUT_CHARTS = ROOT / "outputs" / "charts"
 N_STORES = 90
 N_SURVEYS = 12_000
 
+STUDY_START = "2024-01-01"
+STUDY_END = "2024-06-30"
+
+EXPECTED_ROW_COUNTS = {
+    "stores": (75, 100),
+    "guest_surveys": (8_000, 15_000),
+    "guest_comments": (7_500, 15_000),
+    "product_feedback": (5_000, 12_000),
+    "loyalty_behavior": (8_000, 15_000),
+}
+
 REGIONS = ["Midwest", "Northeast", "South", "West"]
 STORE_TYPES = ["urban", "suburban", "drive_thru", "mall", "airport", "campus"]
 SEGMENTS = [

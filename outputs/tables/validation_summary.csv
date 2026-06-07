@@ -1,0 +1,33 @@
+check_name,status,records_checked,issue_count,notes
+unique_store_id,pass,90,0,Duplicate store_id values
+unique_survey_id,pass,12000,0,Duplicate survey_id values
+unique_comment_id,pass,11501,0,Duplicate comment_id values
+unique_feedback_id,pass,7661,0,Duplicate feedback_id values
+unique_loyalty_guest_id,pass,12000,0,Duplicate guest_id in loyalty
+survey_store_exists,pass,12000,0,Survey store_id must exist in stores
+comment_survey_exists,pass,11501,0,Comment survey_id must exist in guest_surveys
+product_feedback_survey_exists,pass,7661,0,Product feedback survey_id must exist in guest_surveys
+loyalty_guest_exists,pass,12000,0,Every survey guest_id must exist in loyalty_behavior
+nps_range_0_10,pass,12000,0,NPS must be between 0 and 10
+ratings_range_1_5,pass,120000,0,"CSAT, revisit_intent, and experience ratings must be 1–5"
+valid_guest_segment,pass,12000,0,"Allowed: ['loyalty_regular', 'occasional_guest', 'mobile_first_guest', 'price_sensitive_guest', 'seasonal_product_explorer', 'at_risk_guest']"
+valid_visit_channel,pass,12000,0,"Allowed: ['in_store', 'drive_thru', 'mobile_order', 'delivery']"
+valid_region,pass,90,0,"Allowed: ['Midwest', 'Northeast', 'South', 'West']"
+valid_store_type,pass,90,0,"Allowed: ['urban', 'suburban', 'drive_thru', 'mall', 'airport', 'campus']"
+valid_sentiment_label,pass,11501,0,"Allowed: ['positive', 'neutral', 'negative']"
+survey_date_in_study_period,pass,12000,0,Study period: 2024-01-01 to 2024-06-30
+comment_date_in_study_period,pass,11501,0,Study period: 2024-01-01 to 2024-06-30
+required_fields_stores,pass,720,0,Required columns populated for stores
+required_fields_guest_surveys,pass,120000,0,Required columns populated for guest_surveys
+required_fields_guest_comments,pass,92008,0,Required columns populated for guest_comments
+required_fields_product_feedback,pass,53627,0,Required columns populated for product_feedback
+required_fields_loyalty_behavior,pass,24000,0,Required columns populated for loyalty_behavior
+expected_row_count_stores,pass,90,0,Expected 75–100; found 90
+expected_row_count_guest_surveys,pass,12000,0,"Expected 8,000–15,000; found 12,000"
+expected_row_count_guest_comments,pass,11501,0,"Expected 7,500–15,000; found 11,501"
+expected_row_count_product_feedback,pass,7661,0,"Expected 5,000–12,000; found 7,661"
+expected_row_count_loyalty_behavior,pass,12000,0,"Expected 8,000–15,000; found 12,000"
+synthetic_data_label,pass,12000,0,All records must be labeled data_source=synthetic
+flag_straight_lining,warn,12000,57,All experience ratings identical on one survey
+flag_inconsistent_promoter_scores,warn,12000,1,NPS>=9 but CSAT<=2 and revisit_intent<=2
+flag_surveys_without_comments,warn,12000,499,Surveys missing linked guest comment

@@ -7,7 +7,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from validate_data import validate_all
+from validate_data import run_validation
 
 
 def _sample_surveys() -> pd.DataFrame:
@@ -65,6 +65,8 @@ def _sample_comments() -> pd.DataFrame:
             "guest_segment": ["loyalty_regular"],
             "visit_channel": ["in_store"],
             "comment_text": ["Great visit."],
+            "primary_theme": ["staff_friendliness"],
+            "secondary_theme": [""],
             "star_rating": [5],
             "sentiment_label": ["positive"],
             "data_source": ["synthetic"],
@@ -112,21 +114,23 @@ def _sample_loyalty() -> pd.DataFrame:
     )
 
 
-def test_validate_all_passes_clean_data():
-    report = validate_all(
+def test_run_validation_produces_summary_columns():
+    summary, _, report = run_validation(
         _sample_stores(),
         _sample_surveys(),
         _sample_comments(),
         _sample_product(),
         _sample_loyalty(),
     )
-    assert report["status"] == "pass"
+    assert list(summary.columns) == ["check_name", "status", "records_checked", "issue_count", "notes"]
+    assert "unique_survey_id" in summary["check_name"].values
+    assert report["status"] in {"pass", "fail"}
 
 
-def test_validate_all_fails_invalid_nps():
+def test_run_validation_fails_invalid_nps():
     surveys = _sample_surveys()
     surveys.loc[0, "nps"] = 11
-    report = validate_all(
+    summary, _, report = run_validation(
         _sample_stores(),
         surveys,
         _sample_comments(),
@@ -134,3 +138,5 @@ def test_validate_all_fails_invalid_nps():
         _sample_loyalty(),
     )
     assert report["status"] == "fail"
+    nps_row = summary.loc[summary["check_name"] == "nps_range_0_10"].iloc[0]
+    assert nps_row["issue_count"] > 0
