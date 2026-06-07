@@ -25,20 +25,31 @@ Analysis-first **Voice of Customer (VoC)** project for **Brew & Bloom Coffee Co.
 
 ## Quick Start
 
+On macOS, `python` and `pip` are often not on your PATH — use **`make`** (recommended) or **`python3`** / **`.venv/bin/python`** below.
+
 ```bash
-make setup
+make setup    # creates .venv and installs dependencies (first time only)
 make data
 make validate
 make build
 make app
 ```
 
-Or step-by-step:
+Or step-by-step with the project virtualenv:
 
 ```bash
-pip install -r requirements.txt
-python src/generate_data.py
-python src/validate_data.py
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python src/generate_data.py
+.venv/bin/python src/validate_data.py
+.venv/bin/python src/build_outputs.py
+.venv/bin/streamlit run app/streamlit_app.py
+```
+
+After `make setup`, you can activate the venv so `python` works in your shell:
+
+```bash
+source .venv/bin/activate
 python src/build_outputs.py
 streamlit run app/streamlit_app.py
 ```
