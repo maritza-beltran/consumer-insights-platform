@@ -121,7 +121,7 @@ def build_impact_sensitivity(
                 "improvement_window_days": scenario_window_days,
                 "expected_repeat_visit_lift": visit_lift,
                 "avg_daily_transactions": round(avg_txn, 2),
-                "avg_ticket" round(avg_ticket, 2),
+                "avg_ticket": round(avg_ticket, 2),
                 "estimated_incremental_revenue": round(estimated_revenue, 2),
                 "meets_100k_threshold": (
                     estimated_revenue >= IMPACT_DEFAULTS["min_incremental_revenue_usd"]
