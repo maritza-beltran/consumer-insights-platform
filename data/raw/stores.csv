@@ -1,0 +1,24 @@
+store_id,store_name,region,store_type,monthly_transactions,avg_ticket_usd,opened_year
+BB-001,North Judithbury Campus,Northeast,campus,17164,10.79,2019
+BB-002,East Jill Urban Flagship,Northeast,urban flagship,17763,6.97,2019
+BB-003,New Roberttown Drive-Thru Focused,Northeast,drive-thru focused,18300,10.43,2021
+BB-004,East Jessetown Airport,Northeast,airport,9793,8.75,2019
+BB-005,Lake Debra Suburban,Northeast,suburban,10555,9.72,2022
+BB-006,Robinsonshire Drive-Thru Focused,Southeast,drive-thru focused,15636,7.64,2019
+BB-007,Lisatown Urban Flagship,Southeast,urban flagship,15764,6.82,2022
+BB-008,Lake Roberto Drive-Thru Focused,Southeast,drive-thru focused,11874,10.29,2020
+BB-009,Ericmouth Campus,Southeast,campus,12963,11.35,2019
+BB-010,North Noahstad Drive-Thru Focused,Southeast,drive-thru focused,17490,7.47,2021
+BB-011,Cassandraton Suburban,Southeast,suburban,14534,6.72,2019
+BB-012,Herrerafurt Campus,Midwest,campus,17562,10.22,2018
+BB-013,New Kellystad Drive-Thru Focused,Midwest,drive-thru focused,13751,8.35,2018
+BB-014,Lake Chad Urban Flagship,Midwest,urban flagship,14573,7.45,2019
+BB-015,Port Keith Urban Flagship,Midwest,urban flagship,17610,7.63,2019
+BB-016,Port Jesseville Airport,Midwest,airport,17377,8.69,2017
+BB-017,Ramirezstad Campus,West,campus,17803,8.06,2021
+BB-018,West Michael Drive-Thru Focused,West,drive-thru focused,14093,8.44,2021
+BB-019,Jacquelineland Drive-Thru Focused,West,drive-thru focused,12036,9.91,2020
+BB-020,New Jessica Urban Flagship,West,urban flagship,19658,6.54,2017
+BB-021,South Noah Campus,West,campus,19016,9.82,2019
+BB-022,Lake Mark Campus,West,campus,11879,8.79,2021
+BB-023,East Lydiamouth Airport,West,airport,15962,7.2,2017

@@ -1,0 +1,12 @@
+{
+  "brand": "Brew & Bloom Coffee Co.",
+  "data_type": "synthetic",
+  "random_seed": 42,
+  "generated_at": "2026-06-07T18:25:29.692708Z",
+  "n_stores": 23,
+  "n_surveys": 6000,
+  "files": {
+    "stores": "data/raw/stores.csv",
+    "guest_surveys": "data/raw/guest_surveys.csv"
+  }
+}

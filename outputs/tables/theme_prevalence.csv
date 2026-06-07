@@ -1,0 +1,12 @@
+theme,mention_count,avg_nps,avg_csat,avg_revisit,pct_negative_sentiment,mention_share
+wait_time,1514,5.8567,2.9848,3.1896,0.6222,0.2523
+mobile_app,1347,5.9124,3.0111,3.2331,0.8114,0.2245
+menu_variety,1318,6.4059,3.2215,3.4029,0.5463,0.2197
+product_quality,1256,6.0971,3.0868,3.2906,0.785,0.2093
+staff_friendliness,1251,6.6882,3.3661,3.538,0.3349,0.2085
+speed_of_service,1193,5.881,2.9933,3.1911,0.6194,0.1988
+loyalty_program,1064,6.4746,3.2829,3.4727,0.593,0.1773
+cleanliness,1033,6.0784,3.0658,3.3127,0.7744,0.1722
+ambiance,774,6.5581,3.2829,3.4612,0.5233,0.129
+value_for_money,656,6.4573,3.2576,3.4024,0.3171,0.1093
+general_experience,141,6.1206,3.0709,3.3121,0.4681,0.0235

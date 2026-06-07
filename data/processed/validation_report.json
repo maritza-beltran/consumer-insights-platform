@@ -1,0 +1,16 @@
+{
+  "validated_at": "2026-06-07T18:25:30.782109Z",
+  "status": "pass",
+  "record_counts": {
+    "surveys": 6000,
+    "stores": 23
+  },
+  "quality_metrics": {
+    "comment_fill_rate": 1.0,
+    "brand_nps": -30.2,
+    "avg_csat": 3.18,
+    "avg_revisit_intent": 3.38
+  },
+  "issues": [],
+  "warnings": []
+}
