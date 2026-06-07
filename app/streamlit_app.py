@@ -422,6 +422,7 @@ def page_voc_deep_dive(surveys: pd.DataFrame) -> None:
             x="theme_frequency",
             y="theme_label",
             orientation="h",
+            labels={"theme_frequency": "Theme Frequency", "theme_label": "Theme"},
             color_discrete_sequence=[BRAND_COLOR],
             title="Theme Frequency",
         )
@@ -434,6 +435,7 @@ def page_voc_deep_dive(surveys: pd.DataFrame) -> None:
             x="negative_share",
             y="theme_label",
             orientation="h",
+            labels={"negative_share": "Negative Share", "theme_label": "Theme"},
             color="negative_share",
             color_continuous_scale="Reds",
             title="Negative Share by Theme",
@@ -448,6 +450,7 @@ def page_voc_deep_dive(surveys: pd.DataFrame) -> None:
             x="avg_nps",
             y="theme_label",
             orientation="h",
+            labels={"avg_nps": "Average NPS", "theme_label": "Theme"},
             color="avg_nps",
             color_continuous_scale="RdYlGn",
             title="Average NPS by Theme",
@@ -461,6 +464,7 @@ def page_voc_deep_dive(surveys: pd.DataFrame) -> None:
             x="avg_csat",
             y="theme_label",
             orientation="h",
+            labels={"avg_csat": "Average CSAT", "theme_label": "Theme"},
             color="avg_csat",
             color_continuous_scale="RdYlGn",
             title="Average CSAT by Theme",
@@ -474,6 +478,7 @@ def page_voc_deep_dive(surveys: pd.DataFrame) -> None:
             x="avg_revisit_intent",
             y="theme_label",
             orientation="h",
+            labels={"avg_revisit_intent": "Average Revisit Intent", "theme_label": "Theme"},
             color="avg_revisit_intent",
             color_continuous_scale="RdYlGn",
             title="Average Revisit Intent by Theme",
@@ -549,7 +554,7 @@ def page_drivers_segments(data: dict, surveys: pd.DataFrame) -> None:
             color="model_coefficient",
             color_continuous_scale=["#C0392B", "#F5F5F5", "#27AE60"],
             title="Driver Importance (Absolute Logistic Coefficient)",
-            labels={"driver_label": "Driver", "absolute_importance": "Importance"},
+            labels={"driver_label": "Driver", "absolute_importance": "Importance", "model_coefficient": "Model Coefficient"},
         )
         fig_drivers.update_layout(yaxis={"categoryorder": "total ascending"}, showlegend=False)
         st.plotly_chart(fig_drivers, use_container_width=True)
@@ -673,8 +678,8 @@ def page_opportunities(data: dict) -> None:
         y="store_name",
         color="top_negative_theme",
         orientation="h",
-        title="Top Stores by Opportunity Score",
-        labels={"top_negative_theme": "Top Negative Theme"},
+        labels={"opportunity_score": "Opportunity Score", "store_name": "Store Name", "top_negative_theme": "Top Negative Theme"},
+        title="Top Stores by Opportunity Score"
     )
     st.plotly_chart(fig_rank, use_container_width=True)
 
