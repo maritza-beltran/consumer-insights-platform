@@ -13,11 +13,10 @@ from impact_model import estimate_theme_impact
 def test_estimate_theme_impact_structure():
     theme_impact = pd.DataFrame(
         {
-            "theme": ["wait_time"],
-            "mention_count": [500],
-            "avg_nps": [4.5],
-            "nps_gap_vs_brand": [-3.0],
-            "detractor_rate": [0.45],
+            "primary_theme": ["wait_time"],
+            "theme_avg_nps": [4.5],
+            "theme_nps_gap": [-3.0],
+            "impact_rank": [1],
         }
     )
     stores = pd.DataFrame(
@@ -31,4 +30,5 @@ def test_estimate_theme_impact_structure():
     impact = estimate_theme_impact(theme_impact, stores, surveys)
     assert "net_annual_impact_usd" in impact
     assert impact["recommended_focus_theme"] == "wait_time"
+    assert impact["pilot_scope"] == "top_tertile_opportunity_stores"
     assert isinstance(impact["meets_100k_threshold"], bool)

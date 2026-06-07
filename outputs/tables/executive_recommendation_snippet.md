@@ -1,7 +1,7 @@
 ## Primary Recommendation
 
-Prioritize **Speed Of Service** across **30 urgent-tier stores**.
+Prioritize **Rewards Value** across **30 top-opportunity stores**.
 
-- Recoverable annual revenue: **$1,527,953**
+- Recoverable annual revenue: **$548,887**
 - Implementation cost: **$85,000**
-- **Net annual impact: $1,442,953**
+- **Net annual impact: $463,887**

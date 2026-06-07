@@ -1,17 +1,17 @@
 {
   "brand_nps_baseline": -44.8,
-  "recommended_focus_theme": "speed_of_service",
-  "affected_guest_share": 0.2061,
-  "pilot_scope": "urgent_tier_stores",
-  "revenue_at_risk_usd": 10186350.86,
-  "recoverable_revenue_usd": 1527952.63,
+  "recommended_focus_theme": "rewards_value",
+  "affected_guest_share": 0.0988,
+  "pilot_scope": "top_tertile_opportunity_stores",
+  "revenue_at_risk_usd": 3659244.59,
+  "recoverable_revenue_usd": 548886.69,
   "implementation_cost_usd": 85000,
-  "net_annual_impact_usd": 1442952.63,
+  "net_annual_impact_usd": 463886.69,
   "urgent_store_count": 30,
-  "urgent_store_annual_revenue_usd": 82257130.8,
+  "urgent_store_annual_revenue_usd": 80760768.7,
   "meets_100k_threshold": true,
   "assumptions": {
     "detractor_recovery_rate": 0.15,
-    "implementation_scope": "peak-hour staffing + mobile order pickup workflow at urgent-tier stores"
+    "implementation_scope": "peak-hour staffing + mobile order pickup workflow at top-opportunity stores"
   }
 }

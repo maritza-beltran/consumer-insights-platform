@@ -63,9 +63,14 @@ generate_data → validate_data → classify_voc_themes → analyze_themes
 
 ## Key Outputs
 
-- `outputs/tables/theme_impact.csv` — theme volume and NPS gaps
-- `outputs/tables/revisit_intent_drivers.csv` — experience rating predictors (Q3)
-- `outputs/tables/store_opportunity_scores.csv` — prioritized stores
+- `outputs/tables/theme_summary.csv` — theme volume, negative share, satisfaction metrics
+- `outputs/tables/theme_impact.csv` — theme gaps vs brand averages
+- `outputs/tables/detractor_theme_analysis.csv` — theme concentration among detractors
+- `outputs/tables/driver_importance.csv` — logistic revisit-intent drivers
+- `outputs/tables/model_metrics.csv` — classifier accuracy, precision, recall, ROC-AUC
+- `outputs/tables/segment_summary.csv` — segment profiles and recommended actions
+- `outputs/tables/segment_theme_matrix.csv` — segment × theme comment matrix
+- `outputs/tables/store_opportunity_ranking.csv` — prioritized stores with upside sizing
 - `outputs/tables/impact_sizing.json` — $100K+ opportunity sizing
 - `reports/executive_memo.md` — leadership recommendation
 

@@ -22,11 +22,13 @@ def load_data() -> dict:
         "stores": PROCESSED / "stores_clean.parquet",
     }
     csv_paths = {
+        "theme_summary": TABLES / "theme_summary.csv",
         "theme_impact": TABLES / "theme_impact.csv",
+        "detractor_themes": TABLES / "detractor_theme_analysis.csv",
         "segment_summary": TABLES / "segment_summary.csv",
-        "store_scores": TABLES / "store_opportunity_scores.csv",
-        "drivers": TABLES / "satisfaction_drivers.csv",
-        "revisit_drivers": TABLES / "revisit_intent_drivers.csv",
+        "store_scores": TABLES / "store_opportunity_ranking.csv",
+        "drivers": TABLES / "driver_importance.csv",
+        "model_metrics": TABLES / "model_metrics.csv",
         "channel_summary": TABLES / "channel_summary.csv",
     }
     for key, path in parquet_paths.items():
@@ -56,6 +58,7 @@ def main() -> None:
 
     data = load_data()
     surveys = data["surveys"]
+    theme_summary = data.get("theme_summary", pd.DataFrame())
     theme_impact = data.get("theme_impact", pd.DataFrame())
     segment_summary = data.get("segment_summary", pd.DataFrame())
     store_scores = data.get("store_scores", pd.DataFrame())
@@ -74,21 +77,34 @@ def main() -> None:
 
     with tab1:
         st.subheader("Theme Prevalence & NPS Impact")
-        if not theme_impact.empty:
+        if not theme_summary.empty:
             col_a, col_b = st.columns(2)
             with col_a:
-                fig = px.bar(theme_impact.head(10), x="mention_count", y="theme", orientation="h", color_discrete_sequence=["#6F4E37"])
-                fig.update_layout(yaxis={"categoryorder": "total ascending"}, title="Top Themes by Mentions")
+                fig = px.bar(
+                    theme_summary.head(10),
+                    x="comment_count",
+                    y="primary_theme",
+                    orientation="h",
+                    color_discrete_sequence=["#6F4E37"],
+                )
+                fig.update_layout(yaxis={"categoryorder": "total ascending"}, title="Top Themes by Comments")
                 st.plotly_chart(fig, use_container_width=True)
             with col_b:
-                fig2 = px.bar(theme_impact.head(10), x="nps_gap_vs_brand", y="theme", orientation="h", title="NPS Gap vs Brand")
-                fig2.update_layout(yaxis={"categoryorder": "total ascending"})
-                st.plotly_chart(fig2, use_container_width=True)
+                if not theme_impact.empty:
+                    fig2 = px.bar(
+                        theme_impact.head(10),
+                        x="theme_nps_gap",
+                        y="primary_theme",
+                        orientation="h",
+                        title="NPS Gap vs Brand",
+                    )
+                    fig2.update_layout(yaxis={"categoryorder": "total ascending"})
+                    st.plotly_chart(fig2, use_container_width=True)
 
     with tab2:
         st.subheader("Guest Segment & Dimension Performance")
         if not segment_summary.empty:
-            fig = px.bar(segment_summary, x="guest_segment", y="brand_nps", color="guest_segment", title="NPS by Segment")
+            fig = px.bar(segment_summary, x="guest_segment", y="avg_nps", color="guest_segment", title="Avg NPS by Segment")
             st.plotly_chart(fig, use_container_width=True)
         channel = data.get("channel_summary", pd.DataFrame())
         if not channel.empty:
@@ -107,10 +123,10 @@ def main() -> None:
         if not store_scores.empty:
             fig = px.scatter(
                 store_scores,
-                x="avg_nps",
+                x="nps",
                 y="opportunity_score",
-                size="survey_count",
-                color="priority_tier",
+                size="avg_daily_transactions",
+                color="region",
                 hover_name="store_name",
                 title="Store NPS vs Opportunity Score",
             )
@@ -119,18 +135,25 @@ def main() -> None:
 
     with tab4:
         drivers = data.get("drivers", pd.DataFrame())
+        metrics = data.get("model_metrics", pd.DataFrame())
         if not drivers.empty:
-            top = drivers.head(12).sort_values("coefficient")
-            fig = px.bar(top, x="coefficient", y="theme", orientation="h", title="Theme Drivers of NPS Promoter Status")
+            top = drivers.head(8).sort_values("model_coefficient")
+            fig = px.bar(
+                top,
+                x="model_coefficient",
+                y="driver",
+                orientation="h",
+                title="Experience Drivers of High Revisit Intent",
+            )
             st.plotly_chart(fig, use_container_width=True)
+        if not metrics.empty:
+            st.dataframe(metrics, use_container_width=True)
 
     with tab5:
-        revisit = data.get("revisit_drivers", pd.DataFrame())
+        revisit = data.get("drivers", pd.DataFrame())
         if not revisit.empty:
-            fig = px.bar(revisit.sort_values("coefficient"), x="coefficient", y="rating", orientation="h",
-                         title="Experience Ratings Predicting Revisit Intent")
-            st.plotly_chart(fig, use_container_width=True)
-            st.caption("Linear model on wait time, drink quality, staff, app, rewards, and value ratings.")
+            st.dataframe(revisit[["driver", "rank", "odds_ratio", "plain_english_interpretation"]], use_container_width=True)
+            st.caption("Logistic model: high revisit intent = revisit_intent >= 4.")
 
     with tab6:
         st.subheader("Executive Impact Sizing")

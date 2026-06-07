@@ -1,0 +1,9 @@
+driver,model_coefficient,odds_ratio,absolute_importance,rank,plain_english_interpretation
+drink_quality_rating,1.6678,5.3006,1.6678,1,A one standard-deviation increase in drink quality increases the odds of high revisit intent (revisit_intent >= 4) by a factor of 5.30.
+staff_friendliness_rating,0.841,2.3188,0.841,2,A one standard-deviation increase in staff friendliness increases the odds of high revisit intent (revisit_intent >= 4) by a factor of 2.32.
+mobile_app_experience_rating,0.5204,1.6826,0.5204,3,A one standard-deviation increase in mobile app experience increases the odds of high revisit intent (revisit_intent >= 4) by a factor of 1.68.
+order_accuracy_rating,0.4267,1.5321,0.4267,4,A one standard-deviation increase in order accuracy increases the odds of high revisit intent (revisit_intent >= 4) by a factor of 1.53.
+cleanliness_rating,0.359,1.4319,0.359,5,A one standard-deviation increase in cleanliness increases the odds of high revisit intent (revisit_intent >= 4) by a factor of 1.43.
+price_value_perception,0.3093,1.3624,0.3093,6,A one standard-deviation increase in price-value perception increases the odds of high revisit intent (revisit_intent >= 4) by a factor of 1.36.
+rewards_satisfaction,0.3044,1.3558,0.3044,7,A one standard-deviation increase in rewards satisfaction increases the odds of high revisit intent (revisit_intent >= 4) by a factor of 1.36.
+wait_time_rating,0.2571,1.2931,0.2571,8,A one standard-deviation increase in wait time increases the odds of high revisit intent (revisit_intent >= 4) by a factor of 1.29.

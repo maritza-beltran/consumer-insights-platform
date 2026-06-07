@@ -1,104 +1,94 @@
-"""Model NPS promoters and revisit intent drivers."""
+"""Logistic regression model for high revisit intent drivers."""
 
 from __future__ import annotations
 
-import json
-
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
-from sklearn.compose import ColumnTransformer
-from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.preprocessing import StandardScaler
 
-from config import EXPERIENCE_COLS, OUTPUT_CHARTS, OUTPUT_TABLES, PROCESSED_DIR, RANDOM_SEED, THEME_KEYWORDS
+from config import EXPERIENCE_COLS, OUTPUT_CHARTS, OUTPUT_TABLES, PROCESSED_DIR, RANDOM_SEED
 
-THEME_COLUMNS = list(THEME_KEYWORDS.keys()) + ["general_experience"]
+DRIVER_LABELS = {
+    "wait_time_rating": "wait time",
+    "drink_quality_rating": "drink quality",
+    "order_accuracy_rating": "order accuracy",
+    "staff_friendliness_rating": "staff friendliness",
+    "cleanliness_rating": "cleanliness",
+    "mobile_app_experience_rating": "mobile app experience",
+    "rewards_satisfaction": "rewards satisfaction",
+    "price_value_perception": "price-value perception",
+}
 
 
-def _theme_matrix(df: pd.DataFrame) -> pd.DataFrame:
-    exploded = df.explode("themes")[["survey_id", "themes"]].drop_duplicates()
-    dummies = (
-        exploded.assign(present=1)
-        .pivot_table(index="survey_id", columns="themes", values="present", fill_value=0, aggfunc="max")
-        .reindex(columns=THEME_COLUMNS, fill_value=0)
-        .clip(upper=1)
+def _interpret(driver: str, coefficient: float, odds_ratio: float) -> str:
+    label = DRIVER_LABELS.get(driver, driver.replace("_", " "))
+    direction = "increases" if coefficient > 0 else "decreases"
+    return (
+        f"A one standard-deviation increase in {label} {direction} the odds of "
+        f"high revisit intent (revisit_intent >= 4) by a factor of {odds_ratio:.2f}."
     )
-    context = df.set_index("survey_id")[["visit_channel", "guest_segment", "store_type", "region"]]
-    return context.join(dummies).reset_index()
 
 
-def train_nps_driver_model(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
-    features = _theme_matrix(df)
-    target = (df.set_index("survey_id")["nps"] >= 9).astype(int).reindex(features["survey_id"]).reset_index(drop=True)
-    x = features.drop(columns=["survey_id"])
-    categorical = ["visit_channel", "guest_segment", "store_type", "region"]
-    numeric = [c for c in x.columns if c not in categorical]
+def train_high_revisit_model(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Logistic regression predicting high_revisit_intent from experience ratings.
+
+    high_revisit_intent = 1 if revisit_intent >= 4 else 0.
+    """
+    x = df[EXPERIENCE_COLS].astype(float)
+    y = (df["revisit_intent"] >= 4).astype(int)
 
     model = Pipeline(
         steps=[
-            ("prep", ColumnTransformer([
-                ("cat", OneHotEncoder(handle_unknown="ignore"), categorical),
-                ("num", StandardScaler(), numeric),
-            ])),
+            ("scaler", StandardScaler()),
             ("clf", LogisticRegression(max_iter=1000, random_state=RANDOM_SEED, class_weight="balanced")),
         ]
     )
-    x_train, x_test, y_train, y_test = train_test_split(x, target, test_size=0.25, random_state=RANDOM_SEED, stratify=target)
+    x_train, x_test, y_train, y_test = train_test_split(
+        x, y, test_size=0.25, random_state=RANDOM_SEED, stratify=y
+    )
     model.fit(x_train, y_train)
-    names = model.named_steps["prep"].get_feature_names_out()
+    y_pred = model.predict(x_test)
+    y_prob = model.predict_proba(x_test)[:, 1]
+
     coefs = model.named_steps["clf"].coef_[0]
-    drivers = pd.DataFrame({"feature": names, "coefficient": coefs})
-    drivers["abs_coefficient"] = drivers["coefficient"].abs()
-    theme_drivers = drivers[drivers["feature"].str.startswith("num__")].copy()
-    theme_drivers["theme"] = theme_drivers["feature"].str.replace("num__", "", regex=False)
-    theme_drivers = theme_drivers.sort_values("abs_coefficient", ascending=False)
-    metrics = {"model": "nps_promoter", "test_accuracy": round(float(model.score(x_test, y_test)), 4)}
-    return theme_drivers, metrics
+    drivers = pd.DataFrame({"driver": EXPERIENCE_COLS, "model_coefficient": coefs})
+    drivers["odds_ratio"] = np.exp(drivers["model_coefficient"])
+    drivers["absolute_importance"] = drivers["model_coefficient"].abs()
+    drivers = drivers.sort_values("absolute_importance", ascending=False).reset_index(drop=True)
+    drivers["rank"] = range(1, len(drivers) + 1)
+    drivers["plain_english_interpretation"] = drivers.apply(
+        lambda row: _interpret(row["driver"], row["model_coefficient"], row["odds_ratio"]),
+        axis=1,
+    )
 
-
-def train_revisit_driver_model(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
-    x = df[EXPERIENCE_COLS + ["visit_channel", "guest_segment"]].copy()
-    y = df["revisit_intent"].astype(float)
-    categorical = ["visit_channel", "guest_segment"]
-    model = Pipeline(
-        steps=[
-            ("prep", ColumnTransformer([
-                ("cat", OneHotEncoder(handle_unknown="ignore"), categorical),
-                ("num", StandardScaler(), EXPERIENCE_COLS),
-            ])),
-            ("reg", LinearRegression()),
+    metrics = pd.DataFrame(
+        [
+            {
+                "accuracy": round(float(accuracy_score(y_test, y_pred)), 4),
+                "precision": round(float(precision_score(y_test, y_pred, zero_division=0)), 4),
+                "recall": round(float(recall_score(y_test, y_pred, zero_division=0)), 4),
+                "roc_auc": round(float(roc_auc_score(y_test, y_prob)), 4),
+            }
         ]
     )
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=RANDOM_SEED)
-    model.fit(x_train, y_train)
-    names = model.named_steps["prep"].get_feature_names_out()
-    coefs = model.named_steps["reg"].coef_
-    drivers = pd.DataFrame({"feature": names, "coefficient": coefs})
-    rating_drivers = drivers[drivers["feature"].str.startswith("num__")].copy()
-    rating_drivers["rating"] = rating_drivers["feature"].str.replace("num__", "", regex=False)
-    rating_drivers = rating_drivers.sort_values("coefficient", ascending=False)
-    r2 = float(model.score(x_test, y_test))
-    metrics = {"model": "revisit_intent", "test_r2": round(r2, 4)}
-    return rating_drivers, metrics
+    return drivers.round(4), metrics
 
 
-def save_charts(theme_drivers: pd.DataFrame, revisit_drivers: pd.DataFrame) -> None:
+def save_charts(drivers: pd.DataFrame) -> None:
     OUTPUT_CHARTS.mkdir(parents=True, exist_ok=True)
-    top = theme_drivers.head(10).sort_values("coefficient")
+    top = drivers.sort_values("model_coefficient")
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.barh(top["theme"], top["coefficient"], color=["#27AE60" if c > 0 else "#C0392B" for c in top["coefficient"]])
+    colors = ["#27AE60" if c > 0 else "#C0392B" for c in top["model_coefficient"]]
+    labels = [DRIVER_LABELS.get(d, d) for d in top["driver"]]
+    ax.barh(labels, top["model_coefficient"], color=colors)
     ax.axvline(0, color="black", linewidth=0.8)
-    ax.set_title("NPS Promoter Driver Model — Theme Coefficients")
-    fig.tight_layout()
-    fig.savefig(OUTPUT_CHARTS / "satisfaction_drivers.png", dpi=120)
-    plt.close(fig)
-
-    top_r = revisit_drivers.sort_values("coefficient")
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.barh(top_r["rating"], top_r["coefficient"], color="#6F4E37")
-    ax.set_title("Revisit Intent Driver Model — Experience Rating Coefficients")
+    ax.set_title("High Revisit Intent Driver Model — Logistic Coefficients")
     fig.tight_layout()
     fig.savefig(OUTPUT_CHARTS / "revisit_intent_drivers.png", dpi=120)
     plt.close(fig)
@@ -108,17 +98,13 @@ def main() -> None:
     OUTPUT_TABLES.mkdir(parents=True, exist_ok=True)
     df = pd.read_parquet(PROCESSED_DIR / "guest_surveys_classified.parquet")
 
-    theme_drivers, nps_metrics = train_nps_driver_model(df)
-    revisit_drivers, revisit_metrics = train_revisit_driver_model(df)
+    drivers, metrics = train_high_revisit_model(df)
+    drivers.to_csv(OUTPUT_TABLES / "driver_importance.csv", index=False)
+    metrics.to_csv(OUTPUT_TABLES / "model_metrics.csv", index=False)
+    save_charts(drivers)
 
-    theme_drivers.to_csv(OUTPUT_TABLES / "satisfaction_drivers.csv", index=False)
-    revisit_drivers.to_csv(OUTPUT_TABLES / "revisit_intent_drivers.csv", index=False)
-    (OUTPUT_TABLES / "driver_model_metrics.json").write_text(json.dumps([nps_metrics, revisit_metrics], indent=2))
-    save_charts(theme_drivers, revisit_drivers)
-
-    print(f"NPS promoter model accuracy: {nps_metrics['test_accuracy']}")
-    print(f"Revisit intent model R²: {revisit_metrics['test_r2']}")
-    print(f"Top revisit driver: {revisit_drivers.iloc[0]['rating']}")
+    print(f"High revisit intent model ROC-AUC: {metrics.iloc[0]['roc_auc']}")
+    print(f"Top driver: {drivers.iloc[0]['driver']} (rank {drivers.iloc[0]['rank']})")
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
-guest_segment,survey_count,avg_nps,avg_csat,avg_revisit,detractor_rate,brand_nps
-at_risk_guest,1773,2.6576,1.8861,1.1839,0.9972,-99.7
-loyalty_regular,2869,7.9188,4.3792,3.6908,0.1544,19.7
-mobile_first_guest,1639,6.2685,3.4924,2.5003,0.5558,-49.7
-occasional_guest,2657,5.9198,3.4204,2.6673,0.6541,-61.6
-price_sensitive_guest,1642,4.7868,2.7844,2.0201,0.8873,-88.4
-seasonal_product_explorer,1420,7.0296,3.8535,3.181,0.3535,-18.7
+guest_segment,survey_count,avg_nps,avg_csat,avg_revisit_intent,top_negative_theme,top_positive_theme,primary_driver,recommended_action
+loyalty_regular,2869,7.9188,4.3792,3.6908,speed_of_service,rewards_value,drink quality,For loyalty regular: address speed of service and improve drink quality. Add peak-hour staffing and queue management at high-traffic dayparts.
+occasional_guest,2657,5.9198,3.4204,2.6673,speed_of_service,general_experience,drink quality,For occasional guest: address speed of service and improve drink quality. Add peak-hour staffing and queue management at high-traffic dayparts.
+at_risk_guest,1773,2.6576,1.8861,1.1839,speed_of_service,general_experience,drink quality,For at risk guest: address speed of service and improve drink quality. Add peak-hour staffing and queue management at high-traffic dayparts.
+price_sensitive_guest,1642,4.7868,2.7844,2.0201,speed_of_service,mobile_app_issues,drink quality,For price sensitive guest: address speed of service and improve drink quality. Add peak-hour staffing and queue management at high-traffic dayparts.
+mobile_first_guest,1639,6.2685,3.4924,2.5003,mobile_app_issues,mobile_app_issues,drink quality,For mobile first guest: address mobile app issues and improve drink quality. Fix pickup timing notifications and order-ready status accuracy.
+seasonal_product_explorer,1420,7.0296,3.8535,3.181,speed_of_service,seasonal_menu_interest,drink quality,For seasonal product explorer: address speed of service and improve drink quality. Add peak-hour staffing and queue management at high-traffic dayparts.
