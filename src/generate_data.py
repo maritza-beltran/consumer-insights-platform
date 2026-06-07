@@ -110,12 +110,12 @@ SECONDARY_SNIPPETS: dict[str, list[str]] = {
 
 def _segment_profile(segment: str) -> dict:
     return {
-        "loyalty_regular": {"nps": 8.5, "loyalty": 0.92, "mobile": 0.45, "churn": 0.08},
-        "occasional_guest": {"nps": 7.0, "loyalty": 0.35, "mobile": 0.3, "churn": 0.2},
-        "mobile_first_guest": {"nps": 7.2, "loyalty": 0.55, "mobile": 0.88, "churn": 0.15},
-        "price_sensitive_guest": {"nps": 6.2, "loyalty": 0.4, "mobile": 0.35, "churn": 0.25},
-        "seasonal_product_explorer": {"nps": 7.8, "loyalty": 0.5, "mobile": 0.5, "churn": 0.12},
-        "at_risk_guest": {"nps": 4.5, "loyalty": 0.3, "mobile": 0.4, "churn": 0.55},
+        "loyalty_regular": {"nps": 9.0, "loyalty": 0.92, "mobile": 0.45, "churn": 0.08},
+        "occasional_guest": {"nps": 7.8, "loyalty": 0.35, "mobile": 0.3, "churn": 0.2},
+        "mobile_first_guest": {"nps": 8.0, "loyalty": 0.55, "mobile": 0.88, "churn": 0.15},
+        "price_sensitive_guest": {"nps": 7.3, "loyalty": 0.4, "mobile": 0.35, "churn": 0.25},
+        "seasonal_product_explorer": {"nps": 8.4, "loyalty": 0.5, "mobile": 0.5, "churn": 0.12},
+        "at_risk_guest": {"nps": 6.1, "loyalty": 0.3, "mobile": 0.4, "churn": 0.55},
     }[segment]
 
 
@@ -262,9 +262,9 @@ def _derive_outcomes(
     nps = int(np.clip(round(rng.normal(profile["nps"], 1.3)), 0, 10))
 
     if scores["wait_time_rating"] <= 2:
-        nps = int(np.clip(nps - 2, 0, 10))
-    elif scores["wait_time_rating"] == 3:
         nps = int(np.clip(nps - 1, 0, 10))
+        elif scores["wait_time_rating"] == 3:
+            nps = int(np.clip(nps - .5, 0, 10))
 
     csat_base = np.mean(list(scores.values()))
     if scores["staff_friendliness_rating"] >= 4:

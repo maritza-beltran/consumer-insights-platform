@@ -88,6 +88,48 @@ def build_impact_summary(
         ]
     )
 
+def build_impact_sensitivity(
+    store_ranking: pd.DataFrame,
+    *,
+    target_store_counts: tuple[int, ...] = (10,20,30),
+    visit_lifts: tuple[float, ...] = (0.01, 0.02, 0.03),
+    window_days: int | None = None,
+) -> pd.DataFrame:
+    """
+    Build a scenario table for lower/base/higher repeat-visit lift assumptions.
+    """
+    scenario_window_days = window_days or IMPACT_DEFAULTS["improvement_window_days"]
+    rows = []
+
+    for target_n in target_store_counts:
+        targets = store_ranking.head(target_n)
+        avg_txn = float(targets["avg_daily_transactions"].mean())
+        avg_ticket = float(targets["avg_ticket"].mean())
+        
+        for visit_lift in visit_lifts:
+            estimated_revenue = calculate_incremental_revenue(
+                target_n, 
+                avg_txn, 
+                avg_ticket, 
+                scenario_window_days, 
+                visit_lift
+            )
+            rows.append(
+                {
+                "scenario": f"{target_n} stores / {visit_lift:.0%} lift",
+                "target_store_count": target_n,
+                "improvement_window_days": scenario_window_days,
+                "expected_repeat_visit_lift": visit_lift,
+                "avg_daily_transactions": round(avg_txn, 2),
+                "avg_ticket" round(avg_ticket, 2),
+                "estimated_incremental_revenue": round(estimated_revenue, 2),
+                "meets_100k_threshold": (
+                    estimated_revenue >= IMPACT_DEFAULTS["min_incremental_revenue_usd"]
+                ),
+            }
+        )
+
+    return pd.DataFrame(rows)
 
 def estimate_theme_impact(theme_impact: pd.DataFrame, stores: pd.DataFrame, surveys: pd.DataFrame) -> dict:
     """Backward-compatible summary dict for dashboard and tests."""
