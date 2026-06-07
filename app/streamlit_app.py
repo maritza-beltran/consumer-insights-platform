@@ -484,44 +484,82 @@ def page_drivers_segments(data: dict, surveys: pd.DataFrame) -> None:
     segment_summary = data.get("segment_summary", pd.DataFrame())
     theme_matrix = data.get("segment_theme_matrix", pd.DataFrame())
 
-    st.subheader("High Revisit Intent Drivers")
-    st.caption("Logistic model: high revisit intent = revisit_intent ≥ 4 · Features standardized before fitting.")
-    if not drivers.empty:
-        plot_drivers = drivers.sort_values("model_coefficient")
-        fig = px.bar(
-            plot_drivers,
-            x="model_coefficient",
-            y="driver",
+    st.subheader("Satisfaction Drivers (Logistic Regression)")
+    st.caption(
+        "Target: high revisit intent (revisit_intent ≥ 4) · Features standardized · "
+        "Ranked by absolute coefficient importance."
+    )
+
+    if drivers.empty:
+        st.warning("driver_importance.csv not found — run the build pipeline.")
+    else:
+        ranked = drivers.sort_values("rank").copy()
+        ranked["driver_label"] = ranked["driver"].map(_driver_label)
+
+        fig_drivers = px.bar(
+            ranked.sort_values("absolute_importance"),
+            x="absolute_importance",
+            y="driver_label",
             orientation="h",
             color="model_coefficient",
             color_continuous_scale=["#C0392B", "#F5F5F5", "#27AE60"],
-            title="Experience Rating Drivers (Logistic Coefficients)",
+            title="Driver Importance (Absolute Logistic Coefficient)",
+            labels={"driver_label": "Driver", "absolute_importance": "Importance"},
         )
-        fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        fig_drivers.update_layout(yaxis={"categoryorder": "total ascending"}, showlegend=False)
+        st.plotly_chart(fig_drivers, use_container_width=True)
 
-        for _, row in drivers.sort_values("rank").head(3).iterrows():
-            st.write(f"**#{int(row['rank'])} {row['driver']}** — {row['plain_english_interpretation']}")
+        st.dataframe(
+            ranked[
+                [
+                    "rank",
+                    "driver_label",
+                    "model_coefficient",
+                    "odds_ratio",
+                    "absolute_importance",
+                    "plain_english_interpretation",
+                ]
+            ].rename(
+                columns={
+                    "driver_label": "driver",
+                    "model_coefficient": "coefficient",
+                    "plain_english_interpretation": "interpretation",
+                }
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
 
-    if not metrics.empty:
-        st.dataframe(metrics, use_container_width=True, hide_index=True)
+        if not metrics.empty:
+            m = metrics.iloc[0]
+            st.caption(
+                f"Model fit — accuracy: {m['accuracy']:.1%}, precision: {m['precision']:.1%}, "
+                f"recall: {m['recall']:.1%}, ROC-AUC: {m['roc_auc']:.3f}"
+            )
 
     st.subheader("Guest Segment Performance")
-    if not segment_summary.empty:
-        seg = segment_summary.copy()
+    if segment_summary.empty:
+        st.warning("segment_summary.csv not found — run the build pipeline.")
+    else:
+        seg = segment_summary.sort_values("avg_nps").copy()
         seg["segment_label"] = seg["guest_segment"].map(_label)
-        fig2 = px.bar(
+
+        fig_nps = px.bar(
             seg,
             x="segment_label",
             y="avg_nps",
             color="avg_nps",
             color_continuous_scale="RdYlGn",
-            title="Segment NPS (Standard Formula)",
-            labels={"avg_nps": "NPS", "segment_label": "Segment"},
+            title="Segment NPS",
+            labels={"avg_nps": "NPS", "segment_label": "Guest Segment"},
         )
-        st.plotly_chart(fig2, use_container_width=True)
+        fig_nps.update_layout(showlegend=False)
+        st.plotly_chart(fig_nps, use_container_width=True)
+
+        segment_table = segment_summary.copy()
+        segment_table["top_negative_theme"] = segment_table["top_negative_theme"].map(_label)
         st.dataframe(
-            segment_summary[
+            segment_table[
                 [
                     "guest_segment",
                     "survey_count",
@@ -531,53 +569,41 @@ def page_drivers_segments(data: dict, surveys: pd.DataFrame) -> None:
                     "top_negative_theme",
                     "recommended_action",
                 ]
-            ],
+            ].rename(
+                columns={
+                    "guest_segment": "segment",
+                    "avg_revisit_intent": "avg_revisit",
+                    "top_negative_theme": "top_negative_theme",
+                }
+            ),
             use_container_width=True,
             hide_index=True,
         )
 
     if not theme_matrix.empty:
-        st.subheader("Segment × Theme Matrix")
-        pivot = theme_matrix.pivot_table(
+        st.subheader("Segment Pain Point Matrix")
+        st.caption("Negative experience share by guest segment and VoC theme (darker = more pain).")
+        pain_pivot = theme_matrix.pivot_table(
             index="primary_theme",
             columns="guest_segment",
-            values="comment_count",
+            values="negative_share",
             fill_value=0,
         )
-        top_themes = pivot.sum(axis=1).sort_values(ascending=False).head(8).index
-        pivot = pivot.loc[top_themes]
-        fig3 = go.Figure(
+        top_themes = pain_pivot.max(axis=1).sort_values(ascending=False).head(8).index
+        pain_pivot = pain_pivot.loc[top_themes]
+        fig_pain = go.Figure(
             data=go.Heatmap(
-                z=pivot.values,
-                x=[_label(c) for c in pivot.columns],
-                y=[_label(i) for i in pivot.index],
-                colorscale="YlOrBr",
+                z=pain_pivot.values,
+                x=[_label(c) for c in pain_pivot.columns],
+                y=[_label(i) for i in pain_pivot.index],
+                colorscale="Reds",
+                zmin=0,
+                zmax=max(0.85, float(pain_pivot.values.max())),
+                colorbar={"title": "Negative share"},
             )
         )
-        fig3.update_layout(title="Comment Count by Segment and Theme", height=420)
-        st.plotly_chart(fig3, use_container_width=True)
-
-    channel = data.get("channel_summary", pd.DataFrame())
-    if not channel.empty:
-        st.subheader("Visit Channel Benchmarks")
-        fig4 = px.bar(
-            channel,
-            x="visit_channel",
-            y="avg_nps",
-            color="visit_channel",
-            title="Average Raw NPS Score by Channel",
-        )
-        st.plotly_chart(fig4, use_container_width=True)
-
-    with st.expander("Filtered segment drill-down"):
-        seg = st.selectbox("Segment", ["All"] + sorted(surveys["guest_segment"].unique()), key="seg_filter")
-        region = st.selectbox("Region", ["All"] + sorted(surveys["region"].unique()), key="region_filter")
-        filt = surveys.copy()
-        if seg != "All":
-            filt = filt[filt["guest_segment"] == seg]
-        if region != "All":
-            filt = filt[filt["region"] == region]
-        st.metric("Filtered NPS", brand_nps(filt))
+        fig_pain.update_layout(title="Segment Pain Point Matrix", height=440)
+        st.plotly_chart(fig_pain, use_container_width=True)
 
 
 def page_opportunities(data: dict) -> None:
