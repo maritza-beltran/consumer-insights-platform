@@ -2,50 +2,43 @@
 
 **To:** Brand & Operations Leadership  
 **From:** Consumer Insights Analytics  
-**Subject:** Voice of Customer Priorities & $100K+ Improvement Opportunity  
-**Data:** Synthetic guest surveys (n=6,000), Jan–Dec 2024
+**Subject:** VoC Priorities & $100K+ Improvement Opportunity  
+**Data:** Synthetic | 90 stores | 12,000 surveys | Jan–Jun 2024
 
 ---
 
 ## Situation
 
-Brew & Bloom's guest feedback signals rising friction in **speed of service** and **wait time**, especially among **at-risk** and **mobile order** guests. Detractor concentration is highest in drive-thru-focused and airport locations where peak-hour volume strains staffing and pickup workflows.
+Guest feedback across **90 U.S. locations** signals friction in **drink quality** and **wait time**, concentrated among **at_risk_guest** and **price_sensitive_guest** segments. Mobile-order and drive-thru channels show the largest experience-rating gaps.
 
 ## Key Findings
 
-1. **Top VoC themes by volume:** speed of service, wait time, product quality, and staff friendliness account for the majority of coded mentions.
-2. **NPS drag:** Themes tied to operational throughput show the largest negative gaps vs brand average NPS.
-3. **Segment divergence:** At-risk guests are 2× more likely to mention loyalty and wait-time pain; loyalists over-index on staff warmth and rewards.
-4. **Store concentration:** A small set of urgent-tier stores drives a disproportionate share of detractors and negative sentiment.
-5. **Driver model:** Wait time and speed-of-service theme presence are among the strongest negative predictors of promoter status, controlling for segment and channel.
+1. **Top VoC themes:** drink quality, wait time, and staff friendliness lead mention volume.
+2. **NPS drag:** Drink-quality-themed comments show the largest negative NPS gap vs brand average (-22.6 NPS).
+3. **Revisit drivers:** `rewards_satisfaction` and `drink_quality_rating` are the strongest predictors of revisit intent (R² = 0.47).
+4. **Segment divergence:** At-risk and price-sensitive guests over-index on wait-time and value themes.
+5. **Store concentration:** 30 urgent-tier stores account for a disproportionate share of detractors.
 
 ## Recommendation
 
-**Launch a 90-day "Peak Hour Recovery" program** focused on:
+Launch a **90-day "Quality & Throughput Recovery" pilot** at urgent-tier stores:
 
-- Add targeted labor hours at top 10 opportunity stores during 7–9 AM and 12–1 PM
-- Redesign mobile order pickup shelf workflow (color-coded slots + SMS-ready alerts)
-- Manager coaching on greeting and recovery scripts for wait-time complaints
+- Barista re-training on drink preparation standards
+- Peak-hour staffing adjustments at top 30 opportunity stores
+- Mobile-order pickup workflow redesign
 
 ## Impact Sizing (Urgent-Tier Pilot)
 
 | Metric | Estimate |
 |--------|----------|
-| Pilot stores | 8 urgent-tier locations |
-| Guests citing wait-time theme | ~25% of surveys |
-| Pilot revenue at risk | ~$2.1M |
-| Recoverable annual revenue | ~$315K |
+| Pilot stores | 30 urgent-tier locations |
+| Guests citing drink-quality theme | ~35% |
+| Recoverable annual revenue | ~$1.7M |
 | Implementation cost | $85K |
-| **Net annual impact** | **~$230K** |
+| **Net annual impact** | **~$1.6M** |
 
-**Conclusion:** The urgent-store pilot clears the **$100K+** decision threshold. System-wide upside exceeds $5M in theme-linked revenue at risk if scaled after pilot readout.
-
-## Next Steps
-
-1. Confirm pilot stores from `outputs/tables/store_opportunity_scores.csv` (urgent tier)
-2. Track weekly NPS, wait-time mentions, and mobile pickup CSAT
-3. Re-run pipeline monthly as new synthetic waves are added for portfolio demos
+**Conclusion:** Clears the **$100K+** decision threshold with measurable guest experience and revenue upside.
 
 ---
 
-*All figures are based on synthetic data and documented assumptions in `reports/methodology.md`.*
+*Synthetic data and assumptions documented in `reports/methodology.md`.*

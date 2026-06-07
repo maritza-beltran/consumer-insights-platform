@@ -1,0 +1,5 @@
+region,survey_count,avg_nps,avg_csat,avg_revisit,detractor_rate
+Midwest,2360,6.5428,3.4386,3.2441,0.4356
+Northeast,3392,6.653,3.4646,3.2412,0.4142
+South,2765,6.608,3.4145,3.1949,0.4387
+West,3483,6.6049,3.4381,3.2331,0.4186

@@ -1,13 +1,17 @@
-region,channel,survey_count,avg_nps,avg_csat,avg_revisit_intent,promoter_pct,detractor_pct,nps
-Southeast,mobile order,392,6.05,3.07,3.24,17.9,53.1,-35.2
-Northeast,mobile order,370,6.15,3.1,3.3,14.9,49.7,-34.9
-West,mobile order,514,6.09,3.09,3.36,16.7,51.0,-34.2
-Midwest,drive-thru,480,6.22,3.14,3.33,19.0,52.1,-33.1
-Midwest,in-store,551,6.19,3.14,3.34,19.1,52.1,-33.0
-Southeast,in-store,309,6.33,3.19,3.41,18.1,50.2,-32.0
-West,drive-thru,722,6.3,3.17,3.42,18.0,49.6,-31.6
-Northeast,drive-thru,488,6.3,3.2,3.37,19.1,48.6,-29.5
-Southeast,drive-thru,754,6.35,3.19,3.37,20.0,48.4,-28.4
-West,in-store,604,6.5,3.26,3.43,19.5,45.4,-25.8
-Midwest,mobile order,414,6.39,3.22,3.44,21.5,47.3,-25.8
-Northeast,in-store,402,6.58,3.33,3.48,22.9,42.5,-19.7
+region,visit_channel,survey_count,avg_nps,avg_csat,avg_revisit_intent,promoter_pct,detractor_pct,nps
+Midwest,drive_thru,721,6.44,3.38,3.18,19.1,46.2,-27.0
+Midwest,mobile_order,700,6.58,3.44,3.23,16.1,43.0,-26.9
+South,mobile_order,798,6.61,3.44,3.24,18.9,45.1,-26.2
+Northeast,drive_thru,1197,6.6,3.43,3.18,20.2,44.2,-24.0
+South,drive_thru,832,6.47,3.37,3.16,21.4,45.4,-24.0
+Midwest,in_store,718,6.59,3.49,3.3,18.5,42.5,-24.0
+Midwest,delivery,221,6.61,3.49,3.3,16.3,40.3,-24.0
+West,mobile_order,1022,6.53,3.4,3.18,18.1,41.9,-23.8
+West,in_store,1126,6.63,3.46,3.26,19.9,43.3,-23.4
+West,drive_thru,1011,6.6,3.44,3.23,20.0,41.9,-22.0
+Northeast,mobile_order,893,6.69,3.46,3.25,18.6,39.8,-21.2
+Northeast,delivery,286,6.61,3.51,3.28,19.9,40.2,-20.3
+South,delivery,250,6.71,3.42,3.21,20.4,40.4,-20.0
+Northeast,in_store,1016,6.7,3.5,3.3,21.3,40.0,-18.7
+South,in_store,885,6.71,3.43,3.19,25.3,42.3,-16.9
+West,delivery,324,6.79,3.48,3.29,22.2,36.7,-14.5

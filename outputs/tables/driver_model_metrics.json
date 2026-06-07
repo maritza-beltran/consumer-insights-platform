@@ -1,5 +1,10 @@
-{
-  "test_accuracy": 0.716,
-  "n_train": 4500,
-  "n_test": 1500
-}
+[
+  {
+    "model": "nps_promoter",
+    "test_accuracy": 0.735
+  },
+  {
+    "model": "revisit_intent",
+    "test_r2": 0.4658
+  }
+]

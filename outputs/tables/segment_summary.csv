@@ -1,5 +1,7 @@
-segment,survey_count,avg_nps,avg_csat,avg_revisit,detractor_rate,brand_nps
-at_risk,976,2.7879,1.6025,1.8832,0.9764,-97.4
-loyalist,1926,7.974,3.9881,4.0919,0.1682,23.8
-new_guest,1067,6.8913,3.4321,3.6401,0.4039,-23.1
-occasional,2031,6.0724,3.033,3.2777,0.61,-52.7
+guest_segment,survey_count,avg_nps,avg_csat,avg_revisit,detractor_rate,brand_nps
+at_risk_guest,1773,3.1574,2.0987,2.088,0.9808,-98.0
+loyalty_regular,2869,8.3329,4.0742,3.7849,0.0847,38.8
+mobile_first_guest,1639,7.0201,3.6412,3.3832,0.3502,-19.8
+occasional_guest,2657,6.7742,3.5299,3.2815,0.4219,-30.4
+price_sensitive_guest,1642,5.7004,3.0037,2.8764,0.6961,-67.0
+seasonal_product_explorer,1420,7.6859,3.9394,3.6599,0.2,9.9
