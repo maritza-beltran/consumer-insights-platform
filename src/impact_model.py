@@ -12,10 +12,10 @@ PROCESSED_DIR = ROOT / "data" / "processed"
 OUTPUT_TABLES = ROOT / "outputs" / "tables"
 
 # Assumptions documented for executive transparency (synthetic scenario)
-ANNUAL_VISITS_PER_STORE = 12  # monthly_transactions * 12
 NPS_TO_REVISIT_ELASTICITY = 0.018  # 1-point NPS lift -> 1.8% revisit rate lift
 AVG_VISITS_PER_GUEST_YEAR = 18
 IMPLEMENTATION_COST_USD = 85_000
+RECOVERY_RATE_OF_AT_RISK = 0.50  # share of theme-linked revenue at risk recaptured post-intervention
 
 
 def _annual_revenue(stores: pd.DataFrame) -> float:
@@ -39,9 +39,11 @@ def estimate_theme_impact(
 
     revisit_lift_pct = nps_lift_points * NPS_TO_REVISIT_ELASTICITY
     annual_revenue = _annual_revenue(stores)
-    revenue_at_risk = annual_revenue * affected_share * abs(float(top_theme["nps_gap_vs_brand"])) / 10
+    detractor_rate = float(top_theme["detractor_rate"])
+    revenue_at_risk = annual_revenue * affected_share * detractor_rate
 
-    recoverable_revenue = annual_revenue * affected_share * revisit_lift_pct
+    elasticity_revenue = annual_revenue * affected_share * revisit_lift_pct
+    recoverable_revenue = revenue_at_risk * RECOVERY_RATE_OF_AT_RISK
     net_impact = recoverable_revenue - IMPLEMENTATION_COST_USD
 
     priority_path = OUTPUT_TABLES / "store_opportunity_scores.csv"
@@ -67,9 +69,11 @@ def estimate_theme_impact(
         "urgent_store_count": len(urgent_stores),
         "urgent_store_annual_revenue_usd": round(urgent_revenue, 2),
         "meets_100k_threshold": net_impact >= 100_000,
+        "elasticity_based_revenue_usd": round(elasticity_revenue, 2),
         "assumptions": {
             "nps_to_revisit_elasticity": NPS_TO_REVISIT_ELASTICITY,
-            "recovery_rate_applied": 0.6,
+            "recovery_rate_of_at_risk": RECOVERY_RATE_OF_AT_RISK,
+            "nps_gap_recovery_factor": 0.6,
             "implementation_scope": "peak-hour staffing + mobile order pickup workflow",
         },
     }

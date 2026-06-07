@@ -1,0 +1,24 @@
+store_id,store_name,region,store_type,survey_count,avg_nps,avg_csat,avg_revisit,detractor_rate,negative_sentiment_rate,store_nps,monthly_transactions,avg_ticket_usd,monthly_revenue_usd,nps_gap_vs_brand,volume_weight,revenue_weight,opportunity_score,priority_tier
+BB-012,Herrerafurt Campus,Midwest,campus,330,6.1818,3.1394,3.3455,0.5182,0.5939,-34.5,17562,10.22,179483.64,-0.1202,0.997,0.9403,0.526,urgent
+BB-003,New Roberttown Drive-Thru Focused,Northeast,drive-thru focused,295,6.2915,3.1797,3.339,0.4915,0.6136,-30.5,18300,10.43,190869.0,-0.0105,0.8912,1.0,0.5148,urgent
+BB-016,Port Jesseville Airport,Midwest,airport,329,6.3131,3.1733,3.3769,0.5046,0.6322,-28.6,17377,8.69,151006.13,0.0111,0.994,0.7912,0.5129,urgent
+BB-015,Port Keith Urban Flagship,Midwest,urban flagship,331,6.1088,3.0816,3.3293,0.5227,0.5982,-33.8,17610,7.63,134364.3,-0.1932,1.0,0.704,0.5068,urgent
+BB-001,North Judithbury Campus,Northeast,campus,296,6.3378,3.2061,3.3986,0.4595,0.6318,-27.7,17164,10.79,185199.56,0.0358,0.8943,0.9703,0.5045,urgent
+BB-020,New Jessica Urban Flagship,West,urban flagship,331,6.3202,3.2085,3.3505,0.5106,0.6012,-32.0,19658,6.54,128563.32,0.0182,1.0,0.6736,0.496,urgent
+BB-017,Ramirezstad Campus,West,campus,290,6.2,3.1379,3.3483,0.4966,0.6103,-33.1,17803,8.06,143492.18,-0.102,0.8761,0.7518,0.4912,urgent
+BB-002,East Jill Urban Flagship,Northeast,urban flagship,311,6.2379,3.1961,3.3473,0.4823,0.6238,-27.7,17763,6.97,123808.11,-0.0641,0.9396,0.6487,0.4849,urgent
+BB-018,West Michael Drive-Thru Focused,West,drive-thru focused,243,5.9794,3.0041,3.2922,0.535,0.6132,-35.8,14093,8.44,118944.92,-0.3226,0.7341,0.6232,0.4827,improve
+BB-010,North Noahstad Drive-Thru Focused,Southeast,drive-thru focused,259,6.1892,3.1467,3.2973,0.5135,0.6139,-33.2,17490,7.47,130650.3,-0.1128,0.7825,0.6845,0.4822,improve
+BB-021,South Noah Campus,West,campus,298,6.7886,3.406,3.6242,0.3993,0.6342,-15.8,19016,9.82,186737.12,0.4866,0.9003,0.9784,0.4764,improve
+BB-007,Lisatown Urban Flagship,Southeast,urban flagship,271,6.2509,3.1513,3.3727,0.5203,0.5867,-32.8,15764,6.82,107510.48,-0.0511,0.8187,0.5633,0.468,improve
+BB-009,Ericmouth Campus,Southeast,campus,222,6.2207,3.1081,3.3514,0.509,0.5586,-33.8,12963,11.35,147130.05,-0.0813,0.6707,0.7708,0.4636,improve
+BB-014,Lake Chad Urban Flagship,Midwest,urban flagship,238,6.3403,3.1975,3.3445,0.5168,0.6134,-31.5,14573,7.45,108568.85,0.0383,0.719,0.5688,0.4622,improve
+BB-006,Robinsonshire Drive-Thru Focused,Southeast,drive-thru focused,259,6.2201,3.139,3.332,0.4942,0.5869,-32.8,15636,7.64,119459.04,-0.0819,0.7825,0.6259,0.4622,improve
+BB-023,East Lydiamouth Airport,West,airport,268,6.0858,3.0821,3.3396,0.4888,0.5597,-34.0,15962,7.2,114926.4,-0.2162,0.8097,0.6021,0.4565,monitor
+BB-011,Cassandraton Suburban,Southeast,suburban,240,6.325,3.1333,3.3,0.4958,0.5958,-27.9,14534,6.72,97668.48,0.023,0.7251,0.5117,0.4457,monitor
+BB-013,New Kellystad Drive-Thru Focused,Midwest,drive-thru focused,217,6.4286,3.2673,3.47,0.4608,0.6406,-24.4,13751,8.35,114820.85,0.1266,0.6556,0.6016,0.4446,monitor
+BB-019,Jacquelineland Drive-Thru Focused,West,drive-thru focused,217,6.318,3.1843,3.4055,0.4977,0.5622,-33.2,12036,9.91,119276.76,0.016,0.6556,0.6249,0.4425,monitor
+BB-008,Lake Roberto Drive-Thru Focused,Southeast,drive-thru focused,204,6.4118,3.2843,3.4216,0.4608,0.6275,-24.0,11874,10.29,122183.46,0.1098,0.6163,0.6401,0.4416,monitor
+BB-022,Lake Mark Campus,West,campus,193,6.4404,3.1969,3.4819,0.4819,0.5751,-31.6,11879,8.79,104416.41,0.1384,0.5831,0.5471,0.4227,monitor
+BB-005,Lake Debra Suburban,Northeast,suburban,164,6.3171,3.1768,3.311,0.4756,0.5183,-34.1,10555,9.72,102594.6,0.0151,0.4955,0.5375,0.399,monitor
+BB-004,East Jessetown Airport,Northeast,airport,194,6.6392,3.3505,3.5464,0.4278,0.6031,-19.6,9793,8.75,85688.75,0.3372,0.5861,0.4489,0.3973,monitor

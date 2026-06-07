@@ -1,0 +1,13 @@
+region,channel,survey_count,avg_nps,avg_csat,detractor_rate
+Midwest,drive-thru,480,6.2229,3.1375,0.5208
+Midwest,in-store,551,6.1924,3.1397,0.5209
+Midwest,mobile order,414,6.3865,3.2222,0.4734
+Northeast,drive-thru,488,6.3012,3.2049,0.4857
+Northeast,in-store,402,6.5771,3.3333,0.4254
+Northeast,mobile order,370,6.1541,3.1027,0.4973
+Southeast,drive-thru,754,6.3475,3.1923,0.4841
+Southeast,in-store,309,6.3333,3.1877,0.5016
+Southeast,mobile order,392,6.051,3.0663,0.5306
+West,drive-thru,722,6.3019,3.1745,0.4958
+West,in-store,604,6.505,3.2632,0.4536
+West,mobile order,514,6.0934,3.0895,0.5097

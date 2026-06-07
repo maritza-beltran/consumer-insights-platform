@@ -35,9 +35,11 @@ THEME_COLUMNS = [
 
 
 def _build_feature_matrix(df: pd.DataFrame) -> pd.DataFrame:
-    exploded = df.explode("themes")
-    theme_dummies = pd.crosstab(exploded["survey_id"], exploded["themes"]).reindex(
-        columns=THEME_COLUMNS, fill_value=0
+    exploded = df.explode("themes")[["survey_id", "themes"]].drop_duplicates()
+    theme_dummies = (
+        exploded.assign(present=1)
+        .pivot_table(index="survey_id", columns="themes", values="present", fill_value=0, aggfunc="max")
+        .reindex(columns=THEME_COLUMNS, fill_value=0)
     )
     theme_dummies = theme_dummies.clip(upper=1)
 

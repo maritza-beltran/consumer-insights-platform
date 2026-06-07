@@ -1,22 +1,25 @@
 .PHONY: setup data validate build app test clean
 
+export MPLCONFIGDIR := $(CURDIR)/.matplotlib
+
 setup:
-	pip install -r requirements.txt
+	python3 -m venv .venv
+	.venv/bin/pip install -r requirements.txt
 
 data:
-	python src/generate_data.py
+	.venv/bin/python src/generate_data.py
 
 validate:
-	python src/validate_data.py
+	.venv/bin/python src/validate_data.py
 
 build:
-	python src/build_outputs.py
+	.venv/bin/python src/build_outputs.py
 
 app:
-	streamlit run app/streamlit_app.py
+	.venv/bin/streamlit run app/streamlit_app.py
 
 test:
-	pytest tests/ -v
+	.venv/bin/pytest tests/ -v
 
 clean:
 	rm -rf data/raw/*.csv data/processed/*.csv data/processed/*.parquet

@@ -1,0 +1,24 @@
+store_id,store_name,region,store_type,survey_count,avg_nps,avg_csat,detractor_pct,negative_sentiment_pct,store_nps,monthly_transactions,avg_ticket_usd,monthly_revenue_usd,opportunity_score
+BB-016,Port Jesseville Airport,Midwest,airport,329,6.31,3.17,50.5,63.2,-28.6,17377,8.69,151006.13,0.6717
+BB-015,Port Keith Urban Flagship,Midwest,urban flagship,331,6.11,3.08,52.3,59.8,-33.8,17610,7.63,134364.3,0.6685
+BB-020,New Jessica Urban Flagship,West,urban flagship,331,6.32,3.21,51.1,60.1,-32.0,19658,6.54,128563.32,0.6647
+BB-012,Herrerafurt Campus,Midwest,campus,330,6.18,3.14,51.8,59.4,-34.5,17562,10.22,179483.64,0.6643
+BB-002,East Jill Urban Flagship,Northeast,urban flagship,311,6.24,3.2,48.2,62.4,-27.7,17763,6.97,123808.11,0.6461
+BB-003,New Roberttown Drive-Thru Focused,Northeast,drive-thru focused,295,6.29,3.18,49.2,61.4,-30.5,18300,10.43,190869.0,0.6345
+BB-017,Ramirezstad Campus,West,campus,290,6.2,3.14,49.7,61.0,-33.1,17803,8.06,143492.18,0.6313
+BB-001,North Judithbury Campus,Northeast,campus,296,6.34,3.21,45.9,63.2,-27.7,17164,10.79,185199.56,0.6284
+BB-007,Lisatown Urban Flagship,Southeast,urban flagship,271,6.25,3.15,52.0,58.7,-32.8,15764,6.82,107510.48,0.6181
+BB-010,North Noahstad Drive-Thru Focused,Southeast,drive-thru focused,259,6.19,3.15,51.4,61.4,-33.2,17490,7.47,130650.3,0.6161
+BB-018,West Michael Drive-Thru Focused,West,drive-thru focused,243,5.98,3.0,53.5,61.3,-35.8,14093,8.44,118944.92,0.6121
+BB-021,South Noah Campus,West,campus,298,6.79,3.41,39.9,63.4,-15.8,19016,9.82,186737.12,0.6066
+BB-014,Lake Chad Urban Flagship,Midwest,urban flagship,238,6.34,3.2,51.7,61.3,-31.5,14573,7.45,108568.85,0.6011
+BB-006,Robinsonshire Drive-Thru Focused,Southeast,drive-thru focused,259,6.22,3.14,49.4,58.7,-32.8,15636,7.64,119459.04,0.5987
+BB-023,East Lydiamouth Airport,West,airport,268,6.09,3.08,48.9,56.0,-34.0,15962,7.2,114926.4,0.594
+BB-011,Cassandraton Suburban,Southeast,suburban,240,6.33,3.13,49.6,59.6,-27.9,14534,6.72,97668.48,0.5883
+BB-013,New Kellystad Drive-Thru Focused,Midwest,drive-thru focused,217,6.43,3.27,46.1,64.1,-24.4,13751,8.35,114820.85,0.5726
+BB-009,Ericmouth Campus,Southeast,campus,222,6.22,3.11,50.9,55.9,-33.8,12963,11.35,147130.05,0.5669
+BB-019,Jacquelineland Drive-Thru Focused,West,drive-thru focused,217,6.32,3.18,49.8,56.2,-33.2,12036,9.91,119276.76,0.5598
+BB-008,Lake Roberto Drive-Thru Focused,Southeast,drive-thru focused,204,6.41,3.28,46.1,62.7,-24.0,11874,10.29,122183.46,0.5579
+BB-022,Lake Mark Campus,West,campus,193,6.44,3.2,48.2,57.5,-31.6,11879,8.79,104416.41,0.5398
+BB-004,East Jessetown Airport,Northeast,airport,194,6.64,3.35,42.8,60.3,-19.6,9793,8.75,85688.75,0.5288
+BB-005,Lake Debra Suburban,Northeast,suburban,164,6.32,3.18,47.6,51.8,-34.1,10555,9.72,102594.6,0.4956

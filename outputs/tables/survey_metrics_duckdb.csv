@@ -1,0 +1,13 @@
+region,channel,survey_count,avg_nps,avg_csat,avg_revisit_intent,promoter_pct,detractor_pct,nps
+Southeast,mobile order,392,6.05,3.07,3.24,17.9,53.1,-35.2
+Northeast,mobile order,370,6.15,3.1,3.3,14.9,49.7,-34.9
+West,mobile order,514,6.09,3.09,3.36,16.7,51.0,-34.2
+Midwest,drive-thru,480,6.22,3.14,3.33,19.0,52.1,-33.1
+Midwest,in-store,551,6.19,3.14,3.34,19.1,52.1,-33.0
+Southeast,in-store,309,6.33,3.19,3.41,18.1,50.2,-32.0
+West,drive-thru,722,6.3,3.17,3.42,18.0,49.6,-31.6
+Northeast,drive-thru,488,6.3,3.2,3.37,19.1,48.6,-29.5
+Southeast,drive-thru,754,6.35,3.19,3.37,20.0,48.4,-28.4
+West,in-store,604,6.5,3.26,3.43,19.5,45.4,-25.8
+Midwest,mobile order,414,6.39,3.22,3.44,21.5,47.3,-25.8
+Northeast,in-store,402,6.58,3.33,3.48,22.9,42.5,-19.7

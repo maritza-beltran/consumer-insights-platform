@@ -1,0 +1,20 @@
+{
+  "brand_nps_baseline": -30.2,
+  "recommended_focus_theme": "wait_time",
+  "affected_guest_share": 0.2523,
+  "projected_nps_lift_points": 0.26,
+  "projected_revisit_lift_pct": 0.0047,
+  "annual_system_revenue_usd": 36208352.52,
+  "revenue_at_risk_usd": 399725.13,
+  "recoverable_revenue_usd": 43170.31,
+  "implementation_cost_usd": 85000,
+  "net_annual_impact_usd": -41829.69,
+  "urgent_store_count": 8,
+  "urgent_store_annual_revenue_usd": 14841434.88,
+  "meets_100k_threshold": false,
+  "assumptions": {
+    "nps_to_revisit_elasticity": 0.018,
+    "recovery_rate_applied": 0.6,
+    "implementation_scope": "peak-hour staffing + mobile order pickup workflow"
+  }
+}
