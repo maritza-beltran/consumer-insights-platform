@@ -10,6 +10,26 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 from classify_voc_themes import classify_comment, classify_dataframe, match_themes
 
 
+def test_classify_comment_assigns_expected_themes():
+    cases = [
+        (
+            "The line took forever even though there were only three people ahead of me.",
+            "speed_of_service",
+        ),
+        (
+            "Mobile ordering was easy, but my drink was not ready when I arrived.",
+            "mobile_app_issues",
+        ),
+        (
+            "The latte tasted different than usual and did not match my last visit.",
+            "drink_consistency",
+        ),
+    ]
+    for comment, expected_theme in cases:
+        result = classify_comment(comment, "negative")
+        assert result.primary_theme == expected_theme
+
+
 def test_match_themes_detects_speed_of_service():
     comment = "The line took forever even though there were only three people ahead of me."
     themes = match_themes(comment)

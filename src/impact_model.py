@@ -16,6 +16,27 @@ from config import (
 from metrics import standard_nps
 
 
+def calculate_incremental_revenue(
+    target_store_count: int,
+    avg_daily_transactions: float,
+    avg_ticket: float,
+    window_days: int,
+    visit_lift: float,
+) -> float:
+    """
+    Estimate incremental revenue from a repeat-visit lift at target stores.
+
+    Formula: stores × daily transactions × ticket × window days × lift rate.
+    """
+    return (
+        target_store_count
+        * avg_daily_transactions
+        * avg_ticket
+        * window_days
+        * visit_lift
+    )
+
+
 def build_impact_summary(
     store_ranking: pd.DataFrame,
     theme_impact: pd.DataFrame,
@@ -36,7 +57,9 @@ def build_impact_summary(
     avg_txn = float(targets["avg_daily_transactions"].mean())
     avg_ticket = float(targets["avg_ticket"].mean())
 
-    estimated_revenue = target_n * avg_txn * avg_ticket * window_days * visit_lift
+    estimated_revenue = calculate_incremental_revenue(
+        target_n, avg_txn, avg_ticket, window_days, visit_lift
+    )
 
     top_theme = theme_impact.sort_values("impact_rank").iloc[0]["primary_theme"]
     initiative = f"Priority-store {top_theme.replace('_', ' ')} improvement pilot"

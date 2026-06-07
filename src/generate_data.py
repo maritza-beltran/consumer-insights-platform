@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from datetime import datetime, timedelta
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -422,8 +423,8 @@ def build_loyalty_behavior(surveys: pd.DataFrame, rng: np.random.Generator) -> p
     return pd.DataFrame(rows)
 
 
-def main() -> None:
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
+def generate_all_datasets() -> dict[str, pd.DataFrame]:
+    """Build all five synthetic datasets in memory (deterministic seed)."""
     rng = np.random.default_rng(RANDOM_SEED)
     fake = Faker()
     Faker.seed(RANDOM_SEED)
@@ -435,16 +436,35 @@ def main() -> None:
     product_feedback = build_product_feedback(surveys, rng)
     loyalty = build_loyalty_behavior(surveys, rng)
 
-    paths = {
+    return {
         "stores.csv": stores,
         "guest_surveys.csv": surveys,
         "guest_comments.csv": comments,
         "product_feedback.csv": product_feedback,
         "loyalty_behavior.csv": loyalty,
     }
-    for name, df in paths.items():
-        df.to_csv(RAW_DIR / name, index=False)
-        print(f"Generated {len(df):,} rows -> {RAW_DIR / name}")
+
+
+def write_raw_datasets(output_dir: Path | None = None) -> dict[str, Path]:
+    """
+    Generate synthetic data and write required CSV artifacts.
+
+    Args:
+        output_dir: Destination folder (defaults to ``config.RAW_DIR``).
+
+    Returns:
+        Mapping of filename → written path.
+    """
+    out = output_dir or RAW_DIR
+    out.mkdir(parents=True, exist_ok=True)
+    datasets = generate_all_datasets()
+    written: dict[str, Path] = {}
+
+    for name, df in datasets.items():
+        path = out / name
+        df.to_csv(path, index=False)
+        written[name] = path
+        print(f"Generated {len(df):,} rows -> {path}")
 
     metadata = {
         "brand": BRAND_NAME,
@@ -452,10 +472,17 @@ def main() -> None:
         "random_seed": RANDOM_SEED,
         "generated_at": datetime.utcnow().isoformat() + "Z",
         "date_range": {"start": DATA_START.strftime("%Y-%m-%d"), "end": DATA_END.strftime("%Y-%m-%d")},
-        "record_counts": {k: len(v) for k, v in paths.items()},
+        "record_counts": {k.replace(".csv", ""): len(v) for k, v in datasets.items()},
         "voc_themes": VOC_THEMES,
     }
-    (RAW_DIR / "data_dictionary.json").write_text(json.dumps(metadata, indent=2))
+    dict_path = out / "data_dictionary.json"
+    dict_path.write_text(json.dumps(metadata, indent=2))
+    written["data_dictionary.json"] = dict_path
+    return written
+
+
+def main() -> None:
+    write_raw_datasets()
 
 
 if __name__ == "__main__":

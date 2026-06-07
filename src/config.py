@@ -12,6 +12,15 @@ PROCESSED_DIR = ROOT / "data" / "processed"
 OUTPUT_TABLES = ROOT / "outputs" / "tables"
 OUTPUT_CHARTS = ROOT / "outputs" / "charts"
 
+REQUIRED_RAW_FILES = (
+    "stores.csv",
+    "guest_surveys.csv",
+    "guest_comments.csv",
+    "product_feedback.csv",
+    "loyalty_behavior.csv",
+    "data_dictionary.json",
+)
+
 N_STORES = 90
 N_SURVEYS = 12_000
 

@@ -22,6 +22,13 @@ def _recommended_action(theme: str) -> str:
 
 
 def store_opportunity_ranking(surveys: pd.DataFrame, stores: pd.DataFrame) -> pd.DataFrame:
+    """
+    Rank stores for improvement pilots on a 0–1 opportunity score.
+
+    Combines negative feedback rate, NPS/revisit gaps vs brand, and traffic
+    weight — not complaint volume alone. Segment-level context is produced
+    separately in ``segment_analysis.py``.
+    """
     brand_nps = standard_nps(surveys["nps"])
     brand_revisit = surveys["revisit_intent"].mean()
     max_traffic = stores["avg_daily_transactions"].max()

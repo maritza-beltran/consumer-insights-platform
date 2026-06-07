@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from config import OUTPUT_CHARTS, OUTPUT_TABLES, PROCESSED_DIR
-from metrics import standard_nps
+from metrics import standard_nps, theme_priority_score
 
 
 def _commented_surveys(df: pd.DataFrame) -> pd.DataFrame:
@@ -51,8 +51,13 @@ def theme_summary(df: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def theme_impact(df: pd.DataFrame) -> pd.DataFrame:
-    """Compare each theme's satisfaction metrics to brand-wide averages."""
+def theme_impact(df: pd.DataFrame, summary: pd.DataFrame | None = None) -> pd.DataFrame:
+    """
+    Compare each theme's satisfaction metrics to brand-wide averages.
+
+    ``impact_rank`` uses a multi-factor priority score (frequency, negative
+    sentiment, NPS/CSAT/revisit gaps) — not comment volume alone.
+    """
     commented = _commented_surveys(df)
     overall_csat = commented["csat"].mean()
     overall_revisit = commented["revisit_intent"].mean()
@@ -72,11 +77,22 @@ def theme_impact(df: pd.DataFrame) -> pd.DataFrame:
     impact["overall_avg_revisit_intent"] = round(overall_revisit, 4)
     impact["theme_revisit_gap"] = impact["theme_avg_revisit_intent"] - overall_revisit
 
-    impact["impact_rank"] = (
-        impact["theme_nps_gap"].abs()
-        + impact["theme_csat_gap"].abs()
-        + impact["theme_revisit_gap"].abs()
-    ).rank(ascending=False, method="dense").astype(int)
+    theme_summary_df = summary if summary is not None else theme_summary(df)
+    merged = impact.merge(
+        theme_summary_df[["primary_theme", "share_of_comments", "negative_share"]],
+        on="primary_theme",
+        how="left",
+    )
+    merged["priority_score"] = theme_priority_score(
+        merged["share_of_comments"],
+        merged["negative_share"],
+        merged["theme_nps_gap"],
+        merged["theme_csat_gap"],
+        merged["theme_revisit_gap"],
+    )
+    merged["impact_rank"] = merged["priority_score"].rank(
+        ascending=False, method="dense"
+    ).astype(int)
 
     cols = [
         "primary_theme",
@@ -89,9 +105,10 @@ def theme_impact(df: pd.DataFrame) -> pd.DataFrame:
         "overall_avg_revisit_intent",
         "theme_avg_revisit_intent",
         "theme_revisit_gap",
+        "priority_score",
         "impact_rank",
     ]
-    return impact[cols].sort_values("impact_rank").round(4).reset_index(drop=True)
+    return merged[cols].sort_values("impact_rank").round(4).reset_index(drop=True)
 
 
 def detractor_theme_analysis(df: pd.DataFrame) -> pd.DataFrame:
@@ -157,7 +174,7 @@ def main() -> None:
     df = pd.read_parquet(PROCESSED_DIR / "guest_surveys_classified.parquet")
 
     summary = theme_summary(df)
-    impact = theme_impact(df)
+    impact = theme_impact(df, summary=summary)
     detractors = detractor_theme_analysis(df)
 
     summary.to_csv(OUTPUT_TABLES / "theme_summary.csv", index=False)

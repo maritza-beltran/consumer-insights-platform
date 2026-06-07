@@ -76,7 +76,8 @@ consumer-insights-platform/
 │   ├── impact_model.py           # $100K+ revenue sizing
 │   ├── build_outputs.py          # Full pipeline orchestrator
 │   └── config.py                 # Shared constants and theme keywords
-└── tests/                        # pytest suite (validation, classifier, impact)
+├── notebooks/                    # Lightweight walkthrough notebooks (read src/ + outputs)
+└── tests/                        # pytest suite (generation, validation, themes, scoring, impact)
 ```
 
 ---
@@ -91,7 +92,7 @@ make data     # generate synthetic raw data
 make validate # run validation checks
 make build    # run full analytics pipeline
 make app      # launch Streamlit dashboard
-make test     # run pytest
+make test     # run pytest (16 tests: data gen, validation, themes, drivers, scoring, impact)
 ```
 
 Or step-by-step with the project virtualenv:
