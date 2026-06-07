@@ -1,18 +1,18 @@
 {
-  "validated_at": "2026-06-07T19:10:38.247647Z",
+  "validated_at": "2026-06-07T19:19:34.583397Z",
   "status": "pass",
   "record_counts": {
     "stores": 90,
     "surveys": 12000,
-    "comments": 11512,
-    "product_feedback": 10794,
+    "comments": 11501,
+    "product_feedback": 7661,
     "loyalty_behavior": 12000
   },
   "quality_metrics": {
-    "comment_linkage_rate": 0.9593,
-    "brand_nps": -22.6,
-    "avg_csat": 3.44,
-    "avg_revisit_intent": 3.23
+    "comment_linkage_rate": 0.9584,
+    "brand_nps": -44.8,
+    "avg_csat": 3.4,
+    "avg_revisit_intent": 2.64
   },
   "issues": [],
   "warnings": []

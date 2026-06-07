@@ -1,10 +1,10 @@
 [
   {
     "model": "nps_promoter",
-    "test_accuracy": 0.735
+    "test_accuracy": 0.7407
   },
   {
     "model": "revisit_intent",
-    "test_r2": 0.4658
+    "test_r2": 0.7429
   }
 ]

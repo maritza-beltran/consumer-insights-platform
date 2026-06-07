@@ -1,91 +1,91 @@
 store_id,store_name,region,store_type,survey_count,avg_nps,avg_csat,detractor_pct,negative_sentiment_pct,store_nps,avg_daily_transactions,avg_ticket,monthly_revenue_usd,opportunity_score
-BB-050,Minneapolis Airport,Midwest,airport,219,6.55,3.48,45.7,35.2,-28.3,887,9.49,252528.9,0.556
-BB-046,Chicago Drive Thru,Midwest,drive_thru,211,6.35,3.42,46.4,33.2,-28.4,871,11.52,301017.6,0.5427
-BB-016,Hartford Drive Thru,Northeast,drive_thru,218,6.51,3.39,49.1,24.3,-30.3,861,8.29,214130.7,0.5303
-BB-021,Seattle Suburban,West,suburban,197,6.32,3.4,49.7,26.9,-31.5,872,8.74,228638.4,0.5178
-BB-037,Indianapolis Airport,Midwest,airport,179,6.39,3.37,49.2,32.4,-30.7,794,11.19,266545.8,0.5145
-BB-089,Philadelphia Urban,Northeast,urban,174,6.29,3.37,50.6,31.0,-33.3,824,9.78,241761.6,0.5095
-BB-065,Seattle Urban,West,urban,203,6.77,3.52,43.3,28.6,-19.7,862,6.83,176623.8,0.505
-BB-068,Miami Mall,South,mall,154,6.5,3.44,50.0,36.4,-27.3,683,10.91,223545.9,0.5032
-BB-044,Charlotte Airport,South,airport,175,6.49,3.4,49.7,29.1,-32.0,824,7.82,193310.4,0.5004
-BB-056,Dallas Suburban,South,suburban,157,6.33,3.27,51.6,31.2,-31.2,663,7.47,148578.3,0.4948
-BB-088,Denver Campus,West,campus,177,6.36,3.4,44.6,32.2,-30.5,820,11.57,284622.0,0.4932
-BB-010,Chicago Drive Thru,Midwest,drive_thru,170,6.38,3.38,45.9,32.9,-28.2,707,9.97,211463.7,0.4928
-BB-048,Phoenix Campus,West,campus,127,6.57,3.39,47.2,44.9,-27.6,576,8.29,143251.2,0.4909
-BB-069,Detroit Mall,Midwest,mall,211,6.78,3.53,35.5,30.8,-16.1,907,10.25,278902.5,0.4907
-BB-072,Philadelphia Mall,Northeast,mall,182,6.75,3.52,41.8,33.0,-18.1,727,7.63,166410.3,0.4905
-BB-032,Phoenix Suburban,West,suburban,187,6.71,3.44,39.6,32.6,-21.4,901,7.61,205698.3,0.486
-BB-071,Charlotte Suburban,South,suburban,170,6.54,3.39,42.4,32.9,-18.8,687,7.61,156842.1,0.4788
-BB-036,Miami Urban,South,urban,160,6.6,3.45,42.5,35.6,-19.4,685,9.15,188032.5,0.4772
-BB-024,Boston Drive Thru,Northeast,drive_thru,177,6.7,3.46,39.0,33.9,-19.2,808,7.59,183981.6,0.4767
-BB-063,Hartford Urban,Northeast,urban,189,6.61,3.44,42.9,25.4,-23.3,842,7.4,186924.0,0.4763
-BB-019,Philadelphia Mall,Northeast,mall,139,6.54,3.5,44.6,38.8,-23.0,556,10.44,174139.2,0.4729
-BB-054,Hartford Campus,Northeast,campus,172,6.85,3.45,38.4,33.1,-12.2,788,10.1,238764.0,0.4658
-BB-033,Boston Urban,Northeast,urban,171,6.65,3.53,39.8,31.6,-19.3,713,10.69,228659.1,0.465
-BB-067,Portland Airport,West,airport,194,6.59,3.39,39.2,24.7,-23.2,816,7.93,194126.4,0.4647
-BB-086,Minneapolis Campus,Midwest,campus,162,6.56,3.38,42.6,30.2,-25.9,655,8.16,160344.0,0.461
-BB-047,Hartford Mall,Northeast,mall,164,6.64,3.57,40.2,31.1,-22.6,778,7.55,176217.0,0.4569
-BB-034,Phoenix Urban,West,urban,168,6.77,3.46,37.5,32.7,-15.5,737,7.49,165603.9,0.4562
-BB-076,Miami Mall,South,mall,155,6.63,3.39,42.6,31.0,-16.1,697,9.88,206590.8,0.4558
-BB-027,Denver Suburban,West,suburban,185,6.86,3.43,35.1,29.7,-13.5,889,9.68,258165.6,0.4555
-BB-038,Hartford Suburban,Northeast,suburban,184,6.86,3.55,34.8,29.9,-14.7,789,9.77,231255.9,0.4539
-BB-052,Detroit Urban,Midwest,urban,105,6.3,3.33,51.4,36.2,-36.2,409,7.54,92515.8,0.4522
-BB-090,Phoenix Mall,West,mall,159,6.6,3.44,46.5,23.9,-28.9,683,7.87,161256.3,0.4512
-BB-087,Miami Drive Thru,South,drive_thru,151,6.68,3.41,40.4,33.1,-20.5,708,7.13,151441.2,0.4498
-BB-013,Charlotte Campus,South,campus,151,6.58,3.42,41.1,31.8,-22.5,705,7.74,163701.0,0.4481
-BB-043,Seattle Drive Thru,West,drive_thru,142,6.61,3.45,43.7,31.7,-22.5,658,9.0,177660.0,0.4479
-BB-055,Chicago Urban,Midwest,urban,157,6.76,3.51,37.6,33.8,-19.1,641,9.73,187107.9,0.4479
-BB-004,Indianapolis Airport,Midwest,airport,119,6.13,3.37,48.7,32.8,-40.3,506,11.8,179124.0,0.4454
-BB-011,Miami Urban,South,urban,134,6.63,3.42,47.0,29.1,-20.1,637,9.25,176767.5,0.4428
-BB-077,Dallas Campus,South,campus,147,6.79,3.37,39.5,32.7,-18.4,608,11.96,218150.4,0.4403
-BB-051,Phoenix Drive Thru,West,drive_thru,153,6.72,3.52,37.9,32.0,-19.6,697,9.78,204499.8,0.4383
-BB-001,Indianapolis Mall,Midwest,mall,149,6.77,3.48,37.6,32.9,-14.8,560,7.33,123144.0,0.4356
-BB-060,Dallas Urban,South,urban,126,6.56,3.35,42.9,33.3,-23.0,520,12.13,189228.0,0.432
-BB-020,Seattle Suburban,West,suburban,135,6.47,3.41,46.7,25.2,-25.9,596,7.61,136066.8,0.4291
-BB-070,Philadelphia Drive Thru,Northeast,drive_thru,95,6.59,3.39,43.2,42.1,-25.3,390,7.83,91611.0,0.4286
-BB-009,Portland Drive Thru,West,drive_thru,174,6.66,3.48,35.6,24.1,-16.1,731,9.37,205484.1,0.4254
-BB-015,New York Urban,Northeast,urban,121,6.39,3.37,47.1,28.1,-30.6,523,8.83,138542.7,0.4249
-BB-007,Miami Campus,South,campus,121,6.74,3.4,40.5,35.5,-19.8,559,8.55,143383.5,0.4244
-BB-035,Denver Urban,West,urban,131,6.72,3.56,41.2,31.3,-19.1,592,8.4,149184.0,0.4239
-BB-059,Dallas Airport,South,airport,99,6.46,3.32,46.5,35.4,-26.3,525,9.9,155925.0,0.4229
-BB-030,Miami Drive Thru,South,drive_thru,92,6.33,3.28,50.0,32.6,-26.1,447,8.15,109291.5,0.4191
-BB-017,Philadelphia Airport,Northeast,airport,142,6.7,3.52,37.3,30.3,-18.3,567,7.34,124853.4,0.4174
-BB-066,Phoenix Campus,West,campus,106,6.49,3.44,43.4,34.9,-23.6,432,11.29,146318.4,0.4168
-BB-014,Portland Airport,West,airport,112,6.67,3.39,44.6,30.4,-19.6,575,9.61,165772.5,0.4127
-BB-082,Detroit Airport,Midwest,airport,127,6.85,3.54,39.4,30.7,-15.0,528,6.86,108662.4,0.41
-BB-002,Charlotte Mall,South,mall,84,6.63,3.39,48.8,33.3,-29.8,361,11.99,129851.7,0.4076
-BB-008,Denver Campus,West,campus,104,6.56,3.43,44.2,31.7,-23.1,464,7.92,110246.4,0.4065
-BB-045,Miami Campus,South,campus,117,6.71,3.44,37.6,35.0,-17.1,546,9.73,159377.4,0.4065
-BB-064,Detroit Mall,Midwest,mall,79,6.25,3.34,50.6,31.6,-34.2,337,8.15,82396.5,0.4032
-BB-023,Hartford Urban,Northeast,urban,133,6.9,3.47,34.6,31.6,-14.3,645,8.66,167571.0,0.4008
-BB-075,New York Drive Thru,Northeast,drive_thru,132,6.76,3.48,37.1,28.8,-18.9,583,10.01,175074.9,0.3999
-BB-022,Indianapolis Drive Thru,Midwest,drive_thru,127,6.65,3.39,40.9,26.0,-22.8,588,7.26,128066.4,0.3996
-BB-026,Seattle Suburban,West,suburban,64,6.27,3.39,48.4,37.5,-35.9,303,8.88,80719.2,0.3979
-BB-039,Portland Suburban,West,suburban,116,6.71,3.56,42.2,27.6,-20.7,544,9.18,149817.6,0.3978
-BB-049,Minneapolis Mall,Midwest,mall,96,6.65,3.51,43.8,32.3,-24.0,428,8.63,110809.2,0.3978
-BB-057,Philadelphia Airport,Northeast,airport,118,6.46,3.49,44.9,23.7,-28.0,547,10.56,173289.6,0.3973
-BB-058,Phoenix Mall,West,mall,117,6.69,3.39,36.8,33.3,-17.1,453,7.68,104371.2,0.3973
-BB-084,Phoenix Mall,West,mall,80,6.21,3.34,48.8,31.3,-26.2,370,7.25,80475.0,0.3961
-BB-083,Boston Airport,Northeast,airport,101,6.41,3.4,47.5,25.7,-24.8,386,12.34,142897.2,0.3952
-BB-078,Hartford Suburban,Northeast,suburban,102,6.77,3.41,41.2,31.4,-14.7,481,9.57,138095.1,0.3911
-BB-012,Phoenix Urban,West,urban,113,6.68,3.39,40.7,28.3,-16.8,429,8.44,108622.8,0.3908
-BB-025,Miami Urban,South,urban,115,6.86,3.64,40.0,27.8,-20.9,459,11.1,152847.0,0.3886
-BB-042,Atlanta Urban,South,urban,98,6.52,3.49,44.9,27.6,-25.5,462,6.92,95911.2,0.3881
-BB-029,Indianapolis Urban,Midwest,urban,116,6.55,3.41,39.7,27.6,-25.9,612,10.51,192963.6,0.3878
-BB-041,Philadelphia Drive Thru,Northeast,drive_thru,90,6.39,3.38,45.6,28.9,-28.9,373,8.54,95562.6,0.3863
-BB-081,Atlanta Mall,South,mall,119,6.78,3.61,40.3,25.2,-11.8,513,11.12,171136.8,0.3852
-BB-003,Dallas Drive Thru,South,drive_thru,85,6.64,3.41,45.9,29.4,-23.5,425,7.16,91290.0,0.3835
-BB-079,Phoenix Airport,West,airport,73,6.55,3.4,42.5,37.0,-28.8,315,8.67,81931.5,0.3828
-BB-006,New York Campus,Northeast,campus,116,6.55,3.44,42.2,23.3,-22.4,517,7.53,116790.3,0.3828
-BB-028,Chicago Mall,Midwest,mall,68,6.4,3.47,52.9,26.5,-41.2,308,11.79,108939.6,0.382
-BB-073,Denver Urban,West,urban,83,6.49,3.37,38.6,37.3,-18.1,356,8.51,90886.8,0.3797
-BB-053,Miami Mall,South,mall,62,6.76,3.47,41.9,40.3,-14.5,334,12.17,121943.4,0.3794
-BB-062,New York Campus,Northeast,campus,98,6.88,3.42,38.8,31.6,-16.3,573,11.94,205248.6,0.3777
-BB-031,Seattle Airport,West,airport,98,6.45,3.38,35.7,34.7,-22.4,394,11.7,138294.0,0.3761
-BB-080,Detroit Campus,Midwest,campus,65,6.83,3.54,41.5,38.5,-20.0,289,8.88,76989.6,0.375
-BB-005,New York Drive Thru,Northeast,drive_thru,79,6.7,3.49,40.5,32.9,-22.8,308,10.63,98221.2,0.3673
-BB-018,Atlanta Airport,South,airport,93,6.81,3.4,37.6,31.2,-16.1,475,7.79,111007.5,0.3658
-BB-074,Philadelphia Campus,Northeast,campus,98,6.74,3.48,39.8,26.5,-21.4,543,10.09,164366.1,0.3638
-BB-061,Portland Urban,West,urban,85,6.8,3.47,40.0,28.2,-18.8,358,6.87,73783.8,0.3557
-BB-040,New York Mall,Northeast,mall,108,6.94,3.54,37.0,24.1,-12.0,438,11.37,149401.8,0.3556
-BB-085,New York Campus,Northeast,campus,89,6.78,3.47,33.7,33.7,-16.9,376,7.05,79524.0,0.3543
+BB-069,Detroit Mall,Midwest,mall,227,5.82,2.99,60.4,33.9,-48.9,1041,10.25,320107.5,0.6103
+BB-072,Philadelphia Mall,Northeast,mall,211,5.87,2.97,58.8,34.6,-45.0,920,7.63,210588.0,0.5887
+BB-047,Hartford Mall,Northeast,mall,208,5.68,2.98,61.1,31.3,-51.9,955,7.55,216307.5,0.583
+BB-037,Indianapolis Airport,Midwest,airport,204,5.76,2.95,58.8,33.3,-43.6,965,11.19,323950.5,0.5764
+BB-067,Portland Airport,West,airport,213,5.95,3.05,55.4,34.3,-43.2,980,7.93,233142.0,0.5762
+BB-050,Minneapolis Airport,Midwest,airport,214,5.81,2.98,59.3,29.4,-49.1,1028,9.49,292671.6,0.5758
+BB-001,Indianapolis Mall,Midwest,mall,191,5.82,2.91,58.1,35.1,-49.2,808,7.33,177679.2,0.5656
+BB-068,Miami Mall,South,mall,185,5.85,2.97,57.8,37.3,-46.5,890,10.91,291297.0,0.5655
+BB-004,Indianapolis Airport,Midwest,airport,178,5.58,2.92,65.2,30.9,-56.2,772,11.8,273288.0,0.565
+BB-090,Phoenix Mall,West,mall,188,5.75,2.99,63.3,29.8,-55.9,891,7.87,210365.1,0.5645
+BB-017,Philadelphia Airport,Northeast,airport,187,5.96,3.03,58.3,35.8,-48.1,813,7.34,179022.6,0.5644
+BB-051,Phoenix Drive Thru,West,drive_thru,145,5.68,3.74,67.6,35.2,-62.1,632,9.78,185428.8,0.5533
+BB-057,Philadelphia Airport,Northeast,airport,180,5.73,2.89,60.0,32.8,-48.3,800,10.56,253440.0,0.553
+BB-044,Charlotte Airport,South,airport,198,5.86,2.96,56.1,29.8,-44.4,985,7.82,231081.0,0.5468
+BB-076,Miami Mall,South,mall,193,5.76,2.94,56.0,30.1,-46.1,900,9.88,266760.0,0.5419
+BB-089,Philadelphia Urban,Northeast,urban,143,5.85,3.69,61.5,38.5,-46.2,739,9.78,216822.6,0.5382
+BB-059,Dallas Airport,South,airport,177,5.98,2.9,57.1,32.2,-45.2,784,9.9,232848.0,0.536
+BB-019,Philadelphia Mall,Northeast,mall,164,5.82,3.12,60.4,31.1,-47.6,805,10.44,252126.0,0.5311
+BB-064,Detroit Mall,Midwest,mall,138,5.68,2.96,62.3,37.0,-52.9,658,8.15,160881.0,0.5307
+BB-084,Phoenix Mall,West,mall,150,5.81,2.97,61.3,34.0,-51.3,680,7.25,147900.0,0.5294
+BB-016,Hartford Drive Thru,Northeast,drive_thru,165,5.64,3.65,63.0,27.3,-52.1,770,8.29,191499.0,0.5293
+BB-046,Chicago Drive Thru,Midwest,drive_thru,151,5.68,3.66,60.3,32.5,-51.0,779,11.52,269222.4,0.5212
+BB-021,Seattle Suburban,West,suburban,155,5.97,3.79,58.1,33.5,-44.5,779,8.74,204253.8,0.5204
+BB-058,Phoenix Mall,West,mall,148,5.73,2.92,62.8,29.7,-53.4,736,7.68,169574.4,0.5181
+BB-014,Portland Airport,West,airport,157,6.1,2.92,55.4,35.0,-42.0,818,9.61,235829.4,0.517
+BB-083,Boston Airport,Northeast,airport,151,5.68,2.91,64.2,26.5,-49.0,691,12.34,255808.2,0.5158
+BB-043,Seattle Drive Thru,West,drive_thru,125,5.54,3.74,67.2,31.2,-59.2,599,9.0,161730.0,0.5157
+BB-082,Detroit Airport,Midwest,airport,165,6.24,3.06,50.9,37.0,-33.9,786,6.86,161758.8,0.5148
+BB-009,Portland Drive Thru,West,drive_thru,154,5.82,3.73,57.8,32.5,-50.6,660,9.37,185526.0,0.5146
+BB-024,Boston Drive Thru,Northeast,drive_thru,132,5.61,3.63,66.7,28.8,-57.6,726,7.59,165310.2,0.513
+BB-018,Atlanta Airport,South,airport,164,5.97,2.84,55.5,29.9,-42.7,751,7.79,175508.7,0.5073
+BB-087,Miami Drive Thru,South,drive_thru,134,5.8,3.63,61.2,32.8,-50.7,641,7.13,137109.9,0.5072
+BB-010,Chicago Drive Thru,Midwest,drive_thru,125,5.55,3.69,63.2,30.4,-52.8,640,9.97,191424.0,0.4969
+BB-040,New York Mall,Northeast,mall,168,6.19,3.13,50.6,31.0,-36.9,726,11.37,247638.6,0.4959
+BB-032,Phoenix Suburban,West,suburban,150,5.9,3.63,60.7,24.7,-50.7,804,7.61,183553.2,0.4944
+BB-054,Hartford Campus,Northeast,campus,152,6.01,3.72,54.6,30.9,-40.1,709,10.1,214827.0,0.494
+BB-002,Charlotte Mall,South,mall,134,5.88,3.0,60.4,29.9,-50.7,675,11.99,242797.5,0.4938
+BB-079,Phoenix Airport,West,airport,132,5.94,2.92,59.1,31.1,-43.9,643,8.67,167244.3,0.4906
+BB-027,Denver Suburban,West,suburban,145,6.07,3.83,56.6,29.0,-47.6,794,9.68,230577.6,0.4876
+BB-038,Hartford Suburban,Northeast,suburban,147,5.97,3.69,56.5,27.9,-45.6,710,9.77,208101.0,0.4855
+BB-053,Miami Mall,South,mall,127,5.83,3.08,59.1,30.7,-50.4,656,12.17,239505.6,0.4837
+BB-081,Atlanta Mall,South,mall,159,6.09,3.03,51.6,28.9,-36.5,776,11.12,258873.6,0.4827
+BB-071,Charlotte Suburban,South,suburban,147,6.11,3.7,54.4,29.3,-42.2,623,7.61,142230.9,0.482
+BB-065,Seattle Urban,West,urban,158,6.02,3.75,55.1,24.7,-43.0,771,6.83,157977.9,0.4809
+BB-022,Indianapolis Drive Thru,Midwest,drive_thru,113,5.88,3.74,59.3,33.6,-46.0,540,7.26,117612.0,0.4792
+BB-049,Minneapolis Mall,Midwest,mall,134,5.69,3.03,56.7,29.9,-50.0,720,8.63,186408.0,0.479
+BB-013,Charlotte Campus,South,campus,131,5.77,3.69,58.8,28.2,-48.1,638,7.74,148143.6,0.4782
+BB-075,New York Drive Thru,Northeast,drive_thru,93,5.91,3.76,61.3,35.5,-53.8,536,10.01,160960.8,0.4719
+BB-020,Seattle Suburban,West,suburban,121,5.75,3.61,60.3,27.3,-47.1,546,7.61,124651.8,0.47
+BB-045,Miami Campus,South,campus,98,5.97,3.7,58.2,36.7,-44.9,504,9.73,147117.6,0.4692
+BB-007,Miami Campus,South,campus,98,6.04,3.74,63.3,30.6,-46.9,516,8.55,132354.0,0.4682
+BB-028,Chicago Mall,Midwest,mall,127,5.83,2.91,59.1,26.0,-46.5,639,11.79,226014.3,0.4673
+BB-034,Phoenix Urban,West,urban,144,6.33,3.82,48.6,32.6,-33.3,666,7.49,149650.2,0.4671
+BB-033,Boston Urban,Northeast,urban,154,6.19,3.79,51.3,26.0,-37.0,645,10.69,206851.5,0.4658
+BB-011,Miami Urban,South,urban,117,6.17,3.65,53.0,35.0,-35.0,581,9.25,161227.5,0.4634
+BB-088,Denver Campus,West,campus,136,5.85,3.64,55.9,25.7,-45.6,736,11.57,255465.6,0.4633
+BB-029,Indianapolis Urban,Midwest,urban,114,5.92,3.68,57.0,29.8,-50.9,560,10.51,176568.0,0.4579
+BB-060,Dallas Urban,South,urban,92,5.89,3.77,56.5,37.0,-41.3,483,12.13,175763.7,0.4568
+BB-062,New York Campus,Northeast,campus,113,6.12,3.73,53.1,33.6,-37.2,527,11.94,188771.4,0.4544
+BB-031,Seattle Airport,West,airport,132,5.86,2.93,54.5,25.8,-44.7,697,11.7,244647.0,0.4537
+BB-015,New York Urban,Northeast,urban,102,5.87,3.7,55.9,32.4,-49.0,485,8.83,128476.5,0.4493
+BB-080,Detroit Campus,Midwest,campus,66,5.86,3.76,57.6,40.9,-43.9,287,8.88,76456.8,0.4462
+BB-008,Denver Campus,West,campus,97,5.92,3.68,56.7,32.0,-43.3,435,7.92,103356.0,0.4456
+BB-077,Dallas Campus,South,campus,103,6.27,3.71,55.3,31.1,-35.9,556,11.96,199492.8,0.4435
+BB-074,Philadelphia Campus,Northeast,campus,106,6.09,3.72,50.9,34.9,-31.1,502,10.09,151955.4,0.4425
+BB-078,Hartford Suburban,Northeast,suburban,100,6.14,3.63,58.0,28.0,-40.0,449,9.57,128907.9,0.4401
+BB-066,Phoenix Campus,West,campus,99,6.2,3.84,54.5,32.3,-37.4,408,11.29,138189.6,0.4401
+BB-036,Miami Urban,South,urban,127,6.31,3.87,46.5,32.3,-35.4,622,9.15,170739.0,0.4389
+BB-030,Miami Drive Thru,South,drive_thru,70,5.77,3.61,62.9,31.4,-51.4,421,8.15,102934.5,0.4386
+BB-056,Dallas Suburban,South,suburban,119,6.39,3.85,47.9,32.8,-30.3,603,7.47,135132.3,0.4375
+BB-005,New York Drive Thru,Northeast,drive_thru,62,5.89,3.84,59.7,35.5,-50.0,303,10.63,96626.7,0.4313
+BB-086,Minneapolis Campus,Midwest,campus,126,6.08,3.7,51.6,24.6,-35.7,596,8.16,145900.8,0.4313
+BB-003,Dallas Drive Thru,South,drive_thru,78,5.58,3.6,62.8,26.9,-59.0,402,7.16,86349.6,0.4313
+BB-041,Philadelphia Drive Thru,Northeast,drive_thru,68,5.54,3.62,63.2,29.4,-52.9,358,8.54,91719.6,0.4306
+BB-063,Hartford Urban,Northeast,urban,122,6.34,3.74,47.5,30.3,-30.3,754,7.4,167388.0,0.4304
+BB-025,Miami Urban,South,urban,110,6.31,3.89,48.2,31.8,-34.5,431,11.1,143523.0,0.4252
+BB-048,Phoenix Campus,West,campus,119,6.13,3.69,52.1,24.4,-37.8,529,8.29,131562.3,0.4249
+BB-012,Phoenix Urban,West,urban,93,6.25,3.67,53.8,29.0,-37.6,406,8.44,102799.2,0.4191
+BB-052,Detroit Urban,Midwest,urban,78,6.29,3.86,47.4,39.7,-32.1,389,7.54,87991.8,0.4145
+BB-006,New York Campus,Northeast,campus,95,6.08,3.67,49.5,29.5,-36.8,480,7.53,108432.0,0.4059
+BB-061,Portland Urban,West,urban,75,5.99,3.69,56.0,28.0,-46.7,345,6.87,71104.5,0.4046
+BB-085,New York Campus,Northeast,campus,86,6.07,3.72,53.5,26.7,-43.0,361,7.05,76351.5,0.4022
+BB-055,Chicago Urban,Midwest,urban,119,6.29,3.76,47.1,22.7,-31.9,585,9.73,170761.5,0.3989
+BB-039,Portland Suburban,West,suburban,91,6.16,3.8,46.2,30.8,-37.4,502,9.18,138250.8,0.3928
+BB-023,Hartford Urban,Northeast,urban,111,6.49,3.87,41.4,29.7,-27.9,588,8.66,152762.4,0.3918
+BB-070,Philadelphia Drive Thru,Northeast,drive_thru,67,6.28,3.97,50.7,32.8,-38.8,373,7.83,87617.7,0.3914
+BB-073,Denver Urban,West,urban,82,6.33,3.84,43.9,35.4,-29.3,344,8.51,87823.2,0.3898
+BB-035,Denver Urban,West,urban,111,6.29,3.77,48.6,19.8,-30.6,543,8.4,136836.0,0.3859
+BB-042,Atlanta Urban,South,urban,96,6.44,3.86,44.8,28.1,-30.2,433,6.92,89890.8,0.3833
+BB-026,Seattle Suburban,West,suburban,66,6.35,3.95,51.5,27.3,-39.4,300,8.88,79920.0,0.3742

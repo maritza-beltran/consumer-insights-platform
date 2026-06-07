@@ -1,91 +1,91 @@
 store_id,store_name,region,store_type,market,survey_count,avg_nps,avg_csat,avg_revisit,detractor_rate,negative_sentiment_rate,store_nps,avg_daily_transactions,avg_ticket,franchise_corporate_flag,monthly_transactions,monthly_revenue_usd,nps_gap_vs_brand,volume_weight,revenue_weight,opportunity_score,priority_tier
-BB-046,Chicago Drive Thru,Midwest,drive_thru,Chicago,211,6.346,3.4171,3.2038,0.4645,0.3318,-28.4,871,11.52,franchise,26130,301017.6,-0.2579,0.9635,1.0,0.447,urgent
-BB-050,Minneapolis Airport,Midwest,airport,Minneapolis,219,6.5525,3.4795,3.3151,0.4566,0.3516,-28.3,887,9.49,corporate,26610,252528.9,-0.0514,1.0,0.8389,0.4326,urgent
-BB-037,Indianapolis Airport,Midwest,airport,Indianapolis,179,6.3911,3.3743,3.1788,0.4916,0.324,-30.7,794,11.19,franchise,23820,266545.8,-0.2128,0.8174,0.8855,0.4276,urgent
-BB-089,Philadelphia Urban,Northeast,urban,Philadelphia,174,6.2874,3.3736,3.1609,0.5057,0.3103,-33.3,824,9.78,franchise,24720,241761.6,-0.3165,0.7945,0.8031,0.4207,urgent
-BB-088,Denver Campus,West,campus,Denver,177,6.3559,3.3955,3.1695,0.4463,0.322,-30.5,820,11.57,corporate,24600,284622.0,-0.248,0.8082,0.9455,0.417,urgent
-BB-021,Seattle Suburban,West,suburban,Seattle,197,6.3198,3.3959,3.269,0.4975,0.269,-31.5,872,8.74,franchise,26160,228638.4,-0.2841,0.8995,0.7596,0.413,urgent
-BB-068,Miami Mall,South,mall,Miami,154,6.5,3.4351,3.2078,0.5,0.3636,-27.3,683,10.91,franchise,20490,223545.9,-0.1039,0.7032,0.7426,0.4126,urgent
-BB-016,Hartford Drive Thru,Northeast,drive_thru,Hartford,218,6.5092,3.3945,3.1514,0.4908,0.2431,-30.3,861,8.29,corporate,25830,214130.7,-0.0947,0.9954,0.7114,0.4051,urgent
-BB-010,Chicago Drive Thru,Midwest,drive_thru,Chicago,170,6.3824,3.3765,3.2353,0.4588,0.3294,-28.2,707,9.97,franchise,21210,211463.7,-0.2215,0.7763,0.7025,0.3952,urgent
-BB-044,Charlotte Airport,South,airport,Charlotte,175,6.4914,3.4,3.1429,0.4971,0.2914,-32.0,824,7.82,franchise,24720,193310.4,-0.1125,0.7991,0.6422,0.3932,urgent
-BB-069,Detroit Mall,Midwest,mall,Detroit,211,6.7773,3.5308,3.3602,0.3555,0.3081,-16.1,907,10.25,franchise,27210,278902.5,0.1734,0.9635,0.9265,0.387,urgent
-BB-056,Dallas Suburban,South,suburban,Dallas,157,6.3312,3.2739,3.1146,0.5159,0.3121,-31.2,663,7.47,corporate,19890,148578.3,-0.2727,0.7169,0.4936,0.3851,urgent
-BB-048,Phoenix Campus,West,campus,Phoenix,127,6.5669,3.3858,3.1339,0.4724,0.4488,-27.6,576,8.29,corporate,17280,143251.2,-0.037,0.5799,0.4759,0.3839,urgent
-BB-004,Indianapolis Airport,Midwest,airport,Indianapolis,119,6.1261,3.3697,3.2353,0.4874,0.3277,-40.3,506,11.8,corporate,15180,179124.0,-0.4778,0.5434,0.5951,0.3759,urgent
-BB-019,Philadelphia Mall,Northeast,mall,Philadelphia,139,6.5396,3.4964,3.3022,0.446,0.3885,-23.0,556,10.44,franchise,16680,174139.2,-0.0643,0.6347,0.5785,0.3758,urgent
-BB-036,Miami Urban,South,urban,Miami,160,6.6,3.45,3.25,0.425,0.3562,-19.4,685,9.15,franchise,20550,188032.5,-0.0039,0.7306,0.6247,0.3734,urgent
-BB-032,Phoenix Suburban,West,suburban,Phoenix,187,6.7059,3.4439,3.2032,0.3957,0.3262,-21.4,901,7.61,franchise,27030,205698.3,0.102,0.8539,0.6833,0.3717,urgent
-BB-033,Boston Urban,Northeast,urban,Boston,171,6.6491,3.5263,3.345,0.3977,0.3158,-19.3,713,10.69,franchise,21390,228659.1,0.0452,0.7808,0.7596,0.3713,urgent
-BB-065,Seattle Urban,West,urban,Seattle,203,6.7734,3.5222,3.2956,0.4335,0.2857,-19.7,862,6.83,franchise,25860,176623.8,0.1695,0.9269,0.5868,0.3711,urgent
-BB-054,Hartford Campus,Northeast,campus,Hartford,172,6.8547,3.4477,3.25,0.3837,0.3314,-12.2,788,10.1,franchise,23640,238764.0,0.2508,0.7854,0.7932,0.37,urgent
-BB-076,Miami Mall,South,mall,Miami,155,6.6323,3.3935,3.2387,0.4258,0.3097,-16.1,697,9.88,corporate,20910,206590.8,0.0284,0.7078,0.6863,0.3653,urgent
-BB-072,Philadelphia Mall,Northeast,mall,Philadelphia,182,6.7473,3.5165,3.3022,0.4176,0.3297,-18.1,727,7.63,corporate,21810,166410.3,0.1434,0.8311,0.5528,0.3641,urgent
-BB-027,Denver Suburban,West,suburban,Denver,185,6.8649,3.4324,3.1838,0.3514,0.2973,-13.5,889,9.68,franchise,26670,258165.6,0.261,0.8447,0.8576,0.3623,urgent
-BB-063,Hartford Urban,Northeast,urban,Hartford,189,6.6138,3.4444,3.1852,0.4286,0.254,-23.3,842,7.4,corporate,25260,186924.0,0.0099,0.863,0.621,0.3617,urgent
-BB-071,Charlotte Suburban,South,suburban,Charlotte,170,6.5353,3.3941,3.2412,0.4235,0.3294,-18.8,687,7.61,franchise,20610,156842.1,-0.0686,0.7763,0.521,0.3617,urgent
-BB-024,Boston Drive Thru,Northeast,drive_thru,Boston,177,6.7006,3.4633,3.2147,0.3898,0.339,-19.2,808,7.59,corporate,24240,183981.6,0.0967,0.8082,0.6112,0.3612,urgent
-BB-011,Miami Urban,South,urban,Miami,134,6.6269,3.4179,3.1269,0.4701,0.291,-20.1,637,9.25,franchise,19110,176767.5,0.023,0.6119,0.5872,0.3567,urgent
-BB-043,Seattle Drive Thru,West,drive_thru,Seattle,142,6.6056,3.4507,3.338,0.4366,0.3169,-22.5,658,9.0,corporate,19740,177660.0,0.0017,0.6484,0.5902,0.3559,urgent
-BB-077,Dallas Campus,South,campus,Dallas,147,6.7891,3.3741,3.2109,0.3946,0.3265,-18.4,608,11.96,corporate,18240,218150.4,0.1852,0.6712,0.7247,0.3556,urgent
-BB-052,Detroit Urban,Midwest,urban,Detroit,105,6.2952,3.3333,3.1238,0.5143,0.3619,-36.2,409,7.54,corporate,12270,92515.8,-0.3087,0.4795,0.3073,0.3553,urgent
-BB-060,Dallas Urban,South,urban,Dallas,126,6.5635,3.3492,3.0873,0.4286,0.3333,-23.0,520,12.13,corporate,15600,189228.0,-0.0404,0.5753,0.6286,0.3545,improve
-BB-086,Minneapolis Campus,Midwest,campus,Minneapolis,162,6.5617,3.3765,3.1914,0.4259,0.3025,-25.9,655,8.16,franchise,19650,160344.0,-0.0422,0.7397,0.5327,0.3528,improve
-BB-067,Portland Airport,West,airport,Portland,194,6.5928,3.3918,3.1495,0.3918,0.2474,-23.2,816,7.93,franchise,24480,194126.4,-0.0111,0.8858,0.6449,0.3523,improve
-BB-038,Hartford Suburban,Northeast,suburban,Hartford,184,6.8641,3.5543,3.337,0.3478,0.2989,-14.7,789,9.77,franchise,23670,231255.9,0.2602,0.8402,0.7682,0.3521,improve
-BB-047,Hartford Mall,Northeast,mall,Hartford,164,6.6402,3.5671,3.2744,0.4024,0.311,-22.6,778,7.55,corporate,23340,176217.0,0.0363,0.7489,0.5854,0.3513,improve
-BB-059,Dallas Airport,South,airport,Dallas,99,6.4646,3.3232,3.1414,0.4646,0.3535,-26.3,525,9.9,corporate,15750,155925.0,-0.1393,0.4521,0.518,0.3508,improve
-BB-090,Phoenix Mall,West,mall,Phoenix,159,6.5975,3.4403,3.3333,0.4654,0.239,-28.9,683,7.87,franchise,20490,161256.3,-0.0064,0.726,0.5357,0.3489,improve
-BB-051,Phoenix Drive Thru,West,drive_thru,Phoenix,153,6.719,3.5163,3.3268,0.3791,0.3203,-19.6,697,9.78,corporate,20910,204499.8,0.1151,0.6986,0.6794,0.3483,improve
-BB-013,Charlotte Campus,South,campus,Charlotte,151,6.5828,3.4172,3.1325,0.4106,0.3179,-22.5,705,7.74,corporate,21150,163701.0,-0.0211,0.6895,0.5438,0.3469,improve
-BB-055,Chicago Urban,Midwest,urban,Chicago,157,6.758,3.5096,3.2293,0.3758,0.3376,-19.1,641,9.73,franchise,19230,187107.9,0.1541,0.7169,0.6216,0.3467,improve
-BB-087,Miami Drive Thru,South,drive_thru,Miami,151,6.6755,3.4106,3.2517,0.404,0.3311,-20.5,708,7.13,corporate,21240,151441.2,0.0716,0.6895,0.5031,0.342,improve
-BB-034,Phoenix Urban,West,urban,Phoenix,168,6.7679,3.4643,3.2321,0.375,0.3274,-15.5,737,7.49,franchise,22110,165603.9,0.164,0.7671,0.5501,0.3415,improve
-BB-015,New York Urban,Northeast,urban,New York,121,6.3884,3.3719,3.157,0.4711,0.281,-30.6,523,8.83,corporate,15690,138542.7,-0.2155,0.5525,0.4602,0.3407,improve
-BB-030,Miami Drive Thru,South,drive_thru,Miami,92,6.3261,3.2826,3.0761,0.5,0.3261,-26.1,447,8.15,corporate,13410,109291.5,-0.2778,0.4201,0.3631,0.3404,improve
-BB-066,Phoenix Campus,West,campus,Phoenix,106,6.4906,3.4434,3.2547,0.434,0.3491,-23.6,432,11.29,franchise,12960,146318.4,-0.1133,0.484,0.4861,0.3385,improve
-BB-014,Portland Airport,West,airport,Portland,112,6.6696,3.3929,3.1696,0.4464,0.3036,-19.6,575,9.61,franchise,17250,165772.5,0.0657,0.5114,0.5507,0.337,improve
-BB-020,Seattle Suburban,West,suburban,Seattle,135,6.4741,3.4074,3.2741,0.4667,0.2519,-25.9,596,7.61,franchise,17880,136066.8,-0.1298,0.6164,0.452,0.3358,improve
-BB-002,Charlotte Mall,South,mall,Charlotte,84,6.631,3.3929,3.1071,0.4881,0.3333,-29.8,361,11.99,franchise,10830,129851.7,0.0271,0.3836,0.4314,0.3351,improve
-BB-009,Portland Drive Thru,West,drive_thru,Portland,174,6.6609,3.4828,3.2759,0.3563,0.2414,-16.1,731,9.37,corporate,21930,205484.1,0.057,0.7945,0.6826,0.3316,improve
-BB-057,Philadelphia Airport,Northeast,airport,Philadelphia,118,6.4576,3.4915,3.322,0.4492,0.2373,-28.0,547,10.56,corporate,16410,173289.6,-0.1463,0.5388,0.5757,0.3309,improve
-BB-007,Miami Campus,South,campus,Miami,121,6.7355,3.405,3.1653,0.405,0.3554,-19.8,559,8.55,corporate,16770,143383.5,0.1316,0.5525,0.4763,0.3309,improve
-BB-070,Philadelphia Drive Thru,Northeast,drive_thru,Philadelphia,95,6.5895,3.3895,3.2105,0.4316,0.4211,-25.3,390,7.83,franchise,11700,91611.0,-0.0144,0.4338,0.3043,0.3304,improve
-BB-035,Denver Urban,West,urban,Denver,131,6.7176,3.5649,3.229,0.4122,0.313,-19.1,592,8.4,corporate,17760,149184.0,0.1137,0.5982,0.4956,0.3296,improve
-BB-083,Boston Airport,Northeast,airport,Boston,101,6.4059,3.396,3.2871,0.4752,0.2574,-24.8,386,12.34,corporate,11580,142897.2,-0.198,0.4612,0.4747,0.3282,improve
-BB-064,Detroit Mall,Midwest,mall,Detroit,79,6.2532,3.3418,3.1392,0.5063,0.3165,-34.2,337,8.15,franchise,10110,82396.5,-0.3507,0.3607,0.2737,0.3268,improve
-BB-026,Seattle Suburban,West,suburban,Seattle,64,6.2656,3.3906,3.1719,0.4844,0.375,-35.9,303,8.88,franchise,9090,80719.2,-0.3383,0.2922,0.2682,0.3261,improve
-BB-029,Indianapolis Urban,Midwest,urban,Indianapolis,116,6.5517,3.4052,3.2586,0.3966,0.2759,-25.9,612,10.51,corporate,18360,192963.6,-0.0522,0.5297,0.641,0.3259,improve
-BB-045,Miami Campus,South,campus,Miami,117,6.7094,3.4359,3.1453,0.3761,0.3504,-17.1,546,9.73,franchise,16380,159377.4,0.1055,0.5342,0.5295,0.3235,improve
-BB-028,Chicago Mall,Midwest,mall,Chicago,68,6.3971,3.4706,3.25,0.5294,0.2647,-41.2,308,11.79,corporate,9240,108939.6,-0.2068,0.3105,0.3619,0.3228,improve
-BB-062,New York Campus,Northeast,campus,New York,98,6.8776,3.4184,3.2653,0.3878,0.3163,-16.3,573,11.94,franchise,17190,205248.6,0.2737,0.4475,0.6818,0.3223,improve
-BB-084,Phoenix Mall,West,mall,Phoenix,80,6.2125,3.3375,3.175,0.4875,0.3125,-26.2,370,7.25,franchise,11100,80475.0,-0.3914,0.3653,0.2673,0.3198,monitor
-BB-001,Indianapolis Mall,Midwest,mall,Indianapolis,149,6.7651,3.4765,3.2953,0.3758,0.3289,-14.8,560,7.33,corporate,16800,123144.0,0.1612,0.6804,0.4091,0.3195,monitor
-BB-008,Denver Campus,West,campus,Denver,104,6.5577,3.4327,3.1731,0.4423,0.3173,-23.1,464,7.92,franchise,13920,110246.4,-0.0462,0.4749,0.3662,0.3192,monitor
-BB-039,Portland Suburban,West,suburban,Portland,116,6.7069,3.5603,3.319,0.4224,0.2759,-20.7,544,9.18,franchise,16320,149817.6,0.103,0.5297,0.4977,0.3175,monitor
-BB-075,New York Drive Thru,Northeast,drive_thru,New York,132,6.7576,3.4773,3.1894,0.3712,0.2879,-18.9,583,10.01,franchise,17490,175074.9,0.1537,0.6027,0.5816,0.3173,monitor
-BB-049,Minneapolis Mall,Midwest,mall,Minneapolis,96,6.6458,3.5104,3.2708,0.4375,0.3229,-24.0,428,8.63,franchise,12840,110809.2,0.0419,0.4384,0.3681,0.3137,monitor
-BB-053,Miami Mall,South,mall,Miami,62,6.7581,3.4677,3.3065,0.4194,0.4032,-14.5,334,12.17,franchise,10020,121943.4,0.1542,0.2831,0.4051,0.3133,monitor
-BB-081,Atlanta Mall,South,mall,Atlanta,119,6.7815,3.605,3.3697,0.4034,0.2521,-11.8,513,11.12,corporate,15390,171136.8,0.1776,0.5434,0.5685,0.3119,monitor
-BB-078,Hartford Suburban,Northeast,suburban,Hartford,102,6.7745,3.4118,3.1667,0.4118,0.3137,-14.7,481,9.57,corporate,14430,138095.1,0.1706,0.4658,0.4588,0.3116,monitor
-BB-017,Philadelphia Airport,Northeast,airport,Philadelphia,142,6.7042,3.5211,3.3662,0.3732,0.3028,-18.3,567,7.34,franchise,17010,124853.4,0.1003,0.6484,0.4148,0.3106,monitor
-BB-023,Hartford Urban,Northeast,urban,Hartford,133,6.9023,3.4737,3.2331,0.3459,0.3158,-14.3,645,8.66,franchise,19350,167571.0,0.2984,0.6073,0.5567,0.3104,monitor
-BB-041,Philadelphia Drive Thru,Northeast,drive_thru,Philadelphia,90,6.3889,3.3778,3.1444,0.4556,0.2889,-28.9,373,8.54,corporate,11190,95562.6,-0.215,0.411,0.3175,0.3088,monitor
-BB-022,Indianapolis Drive Thru,Midwest,drive_thru,Indianapolis,127,6.6535,3.3858,3.0866,0.4094,0.2598,-22.8,588,7.26,corporate,17640,128066.4,0.0496,0.5799,0.4254,0.3078,monitor
-BB-025,Miami Urban,South,urban,Miami,115,6.8609,3.6435,3.3913,0.4,0.2783,-20.9,459,11.1,corporate,13770,152847.0,0.257,0.5251,0.5078,0.3077,monitor
-BB-031,Seattle Airport,West,airport,Seattle,98,6.449,3.3776,3.2245,0.3571,0.3469,-22.4,394,11.7,franchise,11820,138294.0,-0.1549,0.4475,0.4594,0.3055,monitor
-BB-042,Atlanta Urban,South,urban,Atlanta,98,6.5204,3.4898,3.2755,0.449,0.2755,-25.5,462,6.92,franchise,13860,95911.2,-0.0835,0.4475,0.3186,0.3043,monitor
-BB-082,Detroit Airport,Midwest,airport,Detroit,127,6.8504,3.5433,3.3465,0.3937,0.3071,-15.0,528,6.86,corporate,15840,108662.4,0.2465,0.5799,0.361,0.3037,monitor
-BB-079,Phoenix Airport,West,airport,Phoenix,73,6.5479,3.3973,3.1918,0.4247,0.3699,-28.8,315,8.67,franchise,9450,81931.5,-0.056,0.3333,0.2722,0.3028,monitor
-BB-003,Dallas Drive Thru,South,drive_thru,Dallas,85,6.6353,3.4118,3.1882,0.4588,0.2941,-23.5,425,7.16,franchise,12750,91290.0,0.0314,0.3881,0.3033,0.3026,monitor
-BB-074,Philadelphia Campus,Northeast,campus,Philadelphia,98,6.7449,3.4796,3.1633,0.398,0.2653,-21.4,543,10.09,franchise,16290,164366.1,0.141,0.4475,0.546,0.3022,monitor
-BB-012,Phoenix Urban,West,urban,Phoenix,113,6.6814,3.3894,3.3097,0.4071,0.2832,-16.8,429,8.44,franchise,12870,108622.8,0.0775,0.516,0.3609,0.2994,monitor
-BB-006,New York Campus,Northeast,campus,New York,116,6.5517,3.4397,3.2672,0.4224,0.2328,-22.4,517,7.53,franchise,15510,116790.3,-0.0522,0.5297,0.388,0.2989,monitor
-BB-073,Denver Urban,West,urban,Denver,83,6.494,3.3735,3.1446,0.3855,0.3735,-18.1,356,8.51,franchise,10680,90886.8,-0.1099,0.379,0.3019,0.2986,monitor
-BB-058,Phoenix Mall,West,mall,Phoenix,117,6.6923,3.3932,3.1624,0.3675,0.3333,-17.1,453,7.68,franchise,13590,104371.2,0.0884,0.5342,0.3467,0.2983,monitor
-BB-080,Detroit Campus,Midwest,campus,Detroit,65,6.8308,3.5385,3.3846,0.4154,0.3846,-20.0,289,8.88,corporate,8670,76989.6,0.2269,0.2968,0.2558,0.2923,monitor
-BB-005,New York Drive Thru,Northeast,drive_thru,New York,79,6.6962,3.4937,3.2911,0.4051,0.3291,-22.8,308,10.63,franchise,9240,98221.2,0.0923,0.3607,0.3263,0.2909,monitor
-BB-018,Atlanta Airport,South,airport,Atlanta,93,6.8065,3.3978,3.1183,0.3763,0.3118,-16.1,475,7.79,franchise,14250,111007.5,0.2026,0.4247,0.3688,0.2849,monitor
-BB-040,New York Mall,Northeast,mall,New York,108,6.9444,3.537,3.1759,0.3704,0.2407,-12.0,438,11.37,corporate,13140,149401.8,0.3405,0.4932,0.4963,0.282,monitor
-BB-061,Portland Urban,West,urban,Portland,85,6.8,3.4706,3.2118,0.4,0.2824,-18.8,358,6.87,corporate,10740,73783.8,0.1961,0.3881,0.2451,0.27,monitor
-BB-085,New York Campus,Northeast,campus,New York,89,6.7753,3.4719,3.2135,0.3371,0.3371,-16.9,376,7.05,corporate,11280,79524.0,0.1714,0.4064,0.2642,0.2659,monitor
+BB-069,Detroit Mall,Midwest,mall,Detroit,227,5.8194,2.9912,2.2952,0.6035,0.3392,-48.9,1041,10.25,franchise,31230,320107.5,-0.1422,1.0,0.9881,0.4977,urgent
+BB-037,Indianapolis Airport,Midwest,airport,Indianapolis,204,5.7647,2.951,2.2549,0.5882,0.3333,-43.6,965,11.19,franchise,28950,323950.5,-0.1969,0.8987,1.0,0.483,urgent
+BB-004,Indianapolis Airport,Midwest,airport,Indianapolis,178,5.5843,2.9157,2.1854,0.6517,0.309,-56.2,772,11.8,corporate,23160,273288.0,-0.3773,0.7841,0.8436,0.4757,urgent
+BB-068,Miami Mall,South,mall,Miami,185,5.8486,2.9676,2.227,0.5784,0.373,-46.5,890,10.91,franchise,26700,291297.0,-0.113,0.815,0.8992,0.4694,urgent
+BB-050,Minneapolis Airport,Midwest,airport,Minneapolis,214,5.8131,2.9813,2.3084,0.5935,0.2944,-49.1,1028,9.49,corporate,30840,292671.6,-0.1485,0.9427,0.9034,0.4689,urgent
+BB-047,Hartford Mall,Northeast,mall,Hartford,208,5.6779,2.9808,2.1875,0.6106,0.3125,-51.9,955,7.55,corporate,28650,216307.5,-0.2837,0.9163,0.6677,0.4559,urgent
+BB-057,Philadelphia Airport,Northeast,airport,Philadelphia,180,5.7278,2.8889,2.2,0.6,0.3278,-48.3,800,10.56,corporate,24000,253440.0,-0.2338,0.793,0.7823,0.4542,urgent
+BB-072,Philadelphia Mall,Northeast,mall,Philadelphia,211,5.872,2.9668,2.2986,0.5877,0.346,-45.0,920,7.63,corporate,27600,210588.0,-0.0896,0.9295,0.6501,0.4519,urgent
+BB-051,Phoenix Drive Thru,West,drive_thru,Phoenix,145,5.6828,3.7379,3.0414,0.6759,0.3517,-62.1,632,9.78,corporate,18960,185428.8,-0.2788,0.6388,0.5724,0.4512,urgent
+BB-090,Phoenix Mall,West,mall,Phoenix,188,5.75,2.9947,2.2819,0.633,0.2979,-55.9,891,7.87,franchise,26730,210365.1,-0.2116,0.8282,0.6494,0.448,urgent
+BB-046,Chicago Drive Thru,Midwest,drive_thru,Chicago,151,5.6821,3.6623,2.8278,0.6026,0.3245,-51.0,779,11.52,franchise,23370,269222.4,-0.2795,0.6652,0.8311,0.4473,urgent
+BB-067,Portland Airport,West,airport,Portland,213,5.9531,3.0469,2.3005,0.554,0.3427,-43.2,980,7.93,franchise,29400,233142.0,-0.0085,0.9383,0.7197,0.4455,urgent
+BB-089,Philadelphia Urban,Northeast,urban,Philadelphia,143,5.8531,3.6853,2.9161,0.6154,0.3846,-46.2,739,9.78,franchise,22170,216822.6,-0.1085,0.63,0.6693,0.4436,urgent
+BB-076,Miami Mall,South,mall,Miami,193,5.7617,2.943,2.2539,0.5596,0.3005,-46.1,900,9.88,corporate,27000,266760.0,-0.1999,0.8502,0.8235,0.4424,urgent
+BB-083,Boston Airport,Northeast,airport,Boston,151,5.6821,2.9073,2.245,0.6424,0.2649,-49.0,691,12.34,corporate,20730,255808.2,-0.2795,0.6652,0.7897,0.4421,urgent
+BB-019,Philadelphia Mall,Northeast,mall,Philadelphia,164,5.8171,3.122,2.4024,0.6037,0.311,-47.6,805,10.44,franchise,24150,252126.0,-0.1445,0.7225,0.7783,0.442,urgent
+BB-001,Indianapolis Mall,Midwest,mall,Indianapolis,191,5.8168,2.9058,2.1885,0.5812,0.3508,-49.2,808,7.33,corporate,24240,177679.2,-0.1448,0.8414,0.5485,0.433,urgent
+BB-017,Philadelphia Airport,Northeast,airport,Philadelphia,187,5.9572,3.0321,2.3155,0.5829,0.3583,-48.1,813,7.34,franchise,24390,179022.6,-0.0044,0.8238,0.5526,0.4313,urgent
+BB-044,Charlotte Airport,South,airport,Charlotte,198,5.8636,2.9596,2.2475,0.5606,0.298,-44.4,985,7.82,franchise,29550,231081.0,-0.098,0.8722,0.7133,0.4312,urgent
+BB-059,Dallas Airport,South,airport,Dallas,177,5.9774,2.8983,2.1299,0.5706,0.322,-45.2,784,9.9,corporate,23520,232848.0,0.0158,0.7797,0.7188,0.4297,urgent
+BB-016,Hartford Drive Thru,Northeast,drive_thru,Hartford,165,5.6424,3.6485,2.8909,0.6303,0.2727,-52.1,770,8.29,corporate,23100,191499.0,-0.3192,0.7269,0.5911,0.427,urgent
+BB-064,Detroit Mall,Midwest,mall,Detroit,138,5.6812,2.9565,2.2826,0.6232,0.3696,-52.9,658,8.15,franchise,19740,160881.0,-0.2804,0.6079,0.4966,0.4266,urgent
+BB-043,Seattle Drive Thru,West,drive_thru,Seattle,125,5.544,3.744,2.984,0.672,0.312,-59.2,599,9.0,corporate,17970,161730.0,-0.4176,0.5507,0.4992,0.4265,urgent
+BB-002,Charlotte Mall,South,mall,Charlotte,134,5.8806,3.0,2.2985,0.6045,0.2985,-50.7,675,11.99,franchise,20250,242797.5,-0.081,0.5903,0.7495,0.4218,urgent
+BB-024,Boston Drive Thru,Northeast,drive_thru,Boston,132,5.6136,3.6288,2.8106,0.6667,0.2879,-57.6,726,7.59,corporate,21780,165310.2,-0.348,0.5815,0.5103,0.4215,urgent
+BB-014,Portland Airport,West,airport,Portland,157,6.0955,2.9236,2.1911,0.5541,0.3503,-42.0,818,9.61,franchise,24540,235829.4,0.1339,0.6916,0.728,0.4208,urgent
+BB-010,Chicago Drive Thru,Midwest,drive_thru,Chicago,125,5.552,3.688,2.912,0.632,0.304,-52.8,640,9.97,franchise,19200,191424.0,-0.4096,0.5507,0.5909,0.4195,urgent
+BB-021,Seattle Suburban,West,suburban,Seattle,155,5.9677,3.7935,2.9806,0.5806,0.3355,-44.5,779,8.74,franchise,23370,204253.8,0.0061,0.6828,0.6305,0.4183,urgent
+BB-058,Phoenix Mall,West,mall,Phoenix,148,5.7297,2.9189,2.1554,0.6284,0.2973,-53.4,736,7.68,franchise,22080,169574.4,-0.2319,0.652,0.5235,0.4164,urgent
+BB-053,Miami Mall,South,mall,Miami,127,5.8346,3.0787,2.315,0.5906,0.3071,-50.4,656,12.17,franchise,19680,239505.6,-0.127,0.5595,0.7393,0.4159,urgent
+BB-084,Phoenix Mall,West,mall,Phoenix,150,5.8067,2.9667,2.3267,0.6133,0.34,-51.3,680,7.25,franchise,20400,147900.0,-0.1549,0.6608,0.4566,0.4145,improve
+BB-009,Portland Drive Thru,West,drive_thru,Portland,154,5.8247,3.7338,2.974,0.5779,0.3247,-50.6,660,9.37,corporate,19800,185526.0,-0.1369,0.6784,0.5727,0.4113,improve
+BB-027,Denver Suburban,West,suburban,Denver,145,6.069,3.8345,3.0276,0.5655,0.2897,-47.6,794,9.68,franchise,23820,230577.6,0.1074,0.6388,0.7118,0.4033,improve
+BB-087,Miami Drive Thru,South,drive_thru,Miami,134,5.7985,3.6269,2.8881,0.6119,0.3284,-50.7,641,7.13,corporate,19230,137109.9,-0.1631,0.5903,0.4232,0.4009,improve
+BB-088,Denver Campus,West,campus,Denver,136,5.8529,3.6397,2.8676,0.5588,0.2574,-45.6,736,11.57,corporate,22080,255465.6,-0.1087,0.5991,0.7886,0.4009,improve
+BB-054,Hartford Campus,Northeast,campus,Hartford,152,6.0132,3.7171,2.9408,0.5461,0.3092,-40.1,709,10.1,franchise,21270,214827.0,0.0516,0.6696,0.6631,0.4007,improve
+BB-040,New York Mall,Northeast,mall,New York,168,6.1905,3.125,2.4583,0.506,0.3095,-36.9,726,11.37,corporate,21780,247638.6,0.2289,0.7401,0.7644,0.4004,improve
+BB-081,Atlanta Mall,South,mall,Atlanta,159,6.0943,3.0314,2.3522,0.5157,0.2893,-36.5,776,11.12,corporate,23280,258873.6,0.1327,0.7004,0.7991,0.4001,improve
+BB-028,Chicago Mall,Midwest,mall,Chicago,127,5.8346,2.9134,2.2441,0.5906,0.2598,-46.5,639,11.79,corporate,19170,226014.3,-0.127,0.5595,0.6977,0.3999,improve
+BB-032,Phoenix Suburban,West,suburban,Phoenix,150,5.9,3.6333,2.88,0.6067,0.2467,-50.7,804,7.61,franchise,24120,183553.2,-0.0616,0.6608,0.5666,0.398,improve
+BB-038,Hartford Suburban,Northeast,suburban,Hartford,147,5.9728,3.6939,2.8776,0.5646,0.2789,-45.6,710,9.77,franchise,21300,208101.0,0.0112,0.6476,0.6424,0.3961,improve
+BB-049,Minneapolis Mall,Midwest,mall,Minneapolis,134,5.6866,3.0299,2.2836,0.5672,0.2985,-50.0,720,8.63,franchise,21600,186408.0,-0.275,0.5903,0.5754,0.3952,improve
+BB-018,Atlanta Airport,South,airport,Atlanta,164,5.9695,2.8415,2.1585,0.5549,0.2988,-42.7,751,7.79,franchise,22530,175508.7,0.0079,0.7225,0.5418,0.3952,improve
+BB-075,New York Drive Thru,Northeast,drive_thru,New York,93,5.914,3.7634,3.0323,0.6129,0.3548,-53.8,536,10.01,franchise,16080,160960.8,-0.0476,0.4097,0.4969,0.3948,improve
+BB-079,Phoenix Airport,West,airport,Phoenix,132,5.9394,2.9167,2.2424,0.5909,0.3106,-43.9,643,8.67,franchise,19290,167244.3,-0.0222,0.5815,0.5163,0.3947,improve
+BB-031,Seattle Airport,West,airport,Seattle,132,5.8561,2.9318,2.2273,0.5455,0.2576,-44.7,697,11.7,franchise,20910,244647.0,-0.1055,0.5815,0.7552,0.3911,improve
+BB-082,Detroit Airport,Midwest,airport,Detroit,165,6.2364,3.0606,2.3455,0.5091,0.3697,-33.9,786,6.86,corporate,23580,161758.8,0.2748,0.7269,0.4993,0.3877,improve
+BB-060,Dallas Urban,South,urban,Dallas,92,5.8913,3.7717,2.9565,0.5652,0.3696,-41.3,483,12.13,corporate,14490,175763.7,-0.0703,0.4053,0.5426,0.3864,improve
+BB-045,Miami Campus,South,campus,Miami,98,5.9694,3.7041,2.8367,0.5816,0.3673,-44.9,504,9.73,franchise,15120,147117.6,0.0078,0.4317,0.4541,0.3838,improve
+BB-013,Charlotte Campus,South,campus,Charlotte,131,5.771,3.6947,2.916,0.5878,0.2824,-48.1,638,7.74,corporate,19140,148143.6,-0.1906,0.5771,0.4573,0.3836,improve
+BB-007,Miami Campus,South,campus,Miami,98,6.0408,3.7449,2.7653,0.6327,0.3061,-46.9,516,8.55,corporate,15480,132354.0,0.0792,0.4317,0.4086,0.3804,improve
+BB-029,Indianapolis Urban,Midwest,urban,Indianapolis,114,5.9211,3.6842,2.9386,0.5702,0.2982,-50.9,560,10.51,corporate,16800,176568.0,-0.0405,0.5022,0.545,0.3797,improve
+BB-022,Indianapolis Drive Thru,Midwest,drive_thru,Indianapolis,113,5.8761,3.7434,2.9292,0.5929,0.3363,-46.0,540,7.26,corporate,16200,117612.0,-0.0855,0.4978,0.3631,0.3794,improve
+BB-020,Seattle Suburban,West,suburban,Seattle,121,5.7521,3.6116,2.8843,0.6033,0.2727,-47.1,546,7.61,franchise,16380,124651.8,-0.2095,0.533,0.3848,0.3753,improve
+BB-062,New York Campus,Northeast,campus,New York,113,6.115,3.7257,2.9646,0.531,0.3363,-37.2,527,11.94,franchise,15810,188771.4,0.1534,0.4978,0.5827,0.3749,improve
+BB-077,Dallas Campus,South,campus,Dallas,103,6.2718,3.7087,3.0194,0.5534,0.3107,-35.9,556,11.96,corporate,16680,199492.8,0.3102,0.4537,0.6158,0.3721,improve
+BB-033,Boston Urban,Northeast,urban,Boston,154,6.1883,3.7922,3.0455,0.513,0.2597,-37.0,645,10.69,franchise,19350,206851.5,0.2267,0.6784,0.6385,0.3716,improve
+BB-065,Seattle Urban,West,urban,Seattle,158,6.019,3.7468,2.9304,0.5506,0.2468,-43.0,771,6.83,franchise,23130,157977.9,0.0574,0.696,0.4877,0.3716,improve
+BB-011,Miami Urban,South,urban,Miami,117,6.1709,3.6496,2.7949,0.5299,0.3504,-35.0,581,9.25,franchise,17430,161227.5,0.2093,0.5154,0.4977,0.3702,improve
+BB-071,Charlotte Suburban,South,suburban,Charlotte,147,6.1088,3.7007,2.9456,0.5442,0.2925,-42.2,623,7.61,franchise,18690,142230.9,0.1472,0.6476,0.4391,0.3693,improve
+BB-030,Miami Drive Thru,South,drive_thru,Miami,70,5.7714,3.6143,2.8857,0.6286,0.3143,-51.4,421,8.15,corporate,12630,102934.5,-0.1902,0.3084,0.3177,0.365,monitor
+BB-015,New York Urban,Northeast,urban,New York,102,5.8725,3.6961,2.9314,0.5588,0.3235,-49.0,485,8.83,corporate,14550,128476.5,-0.0891,0.4493,0.3966,0.3628,monitor
+BB-041,Philadelphia Drive Thru,Northeast,drive_thru,Philadelphia,68,5.5441,3.6176,2.8971,0.6324,0.2941,-52.9,358,8.54,corporate,10740,91719.6,-0.4175,0.2996,0.2831,0.3615,monitor
+BB-080,Detroit Campus,Midwest,campus,Detroit,66,5.8636,3.7576,2.9394,0.5758,0.4091,-43.9,287,8.88,corporate,8610,76456.8,-0.098,0.2907,0.236,0.3584,monitor
+BB-074,Philadelphia Campus,Northeast,campus,Philadelphia,106,6.0943,3.717,2.9057,0.5094,0.3491,-31.1,502,10.09,franchise,15060,151955.4,0.1327,0.467,0.4691,0.3565,monitor
+BB-005,New York Drive Thru,Northeast,drive_thru,New York,62,5.8871,3.8387,3.0645,0.5968,0.3548,-50.0,303,10.63,franchise,9090,96626.7,-0.0745,0.2731,0.2983,0.3562,monitor
+BB-003,Dallas Drive Thru,South,drive_thru,Dallas,78,5.5769,3.6026,2.9231,0.6282,0.2692,-59.0,402,7.16,franchise,12060,86349.6,-0.3847,0.3436,0.2666,0.3559,monitor
+BB-034,Phoenix Urban,West,urban,Phoenix,144,6.3264,3.8194,2.9861,0.4861,0.3264,-33.3,666,7.49,franchise,19980,149650.2,0.3648,0.6344,0.462,0.3541,monitor
+BB-008,Denver Campus,West,campus,Denver,97,5.9175,3.6804,2.8866,0.567,0.3196,-43.3,435,7.92,franchise,13050,103356.0,-0.0441,0.4273,0.319,0.3539,monitor
+BB-078,Hartford Suburban,Northeast,suburban,Hartford,100,6.14,3.63,2.9,0.58,0.28,-40.0,449,9.57,corporate,13470,128907.9,0.1784,0.4405,0.3979,0.3533,monitor
+BB-066,Phoenix Campus,West,campus,Phoenix,99,6.202,3.8384,3.0202,0.5455,0.3232,-37.4,408,11.29,franchise,12240,138189.6,0.2404,0.4361,0.4266,0.3532,monitor
+BB-036,Miami Urban,South,urban,Miami,127,6.3071,3.874,3.0236,0.4646,0.3228,-35.4,622,9.15,franchise,18660,170739.0,0.3455,0.5595,0.5271,0.3451,monitor
+BB-086,Minneapolis Campus,Midwest,campus,Minneapolis,126,6.0794,3.6984,3.0159,0.5159,0.246,-35.7,596,8.16,franchise,17880,145900.8,0.1178,0.5551,0.4504,0.3403,monitor
+BB-063,Hartford Urban,Northeast,urban,Hartford,122,6.3361,3.7377,2.9098,0.4754,0.3033,-30.3,754,7.4,corporate,22620,167388.0,0.3745,0.5374,0.5167,0.3401,monitor
+BB-056,Dallas Suburban,South,suburban,Dallas,119,6.3866,3.8487,3.0252,0.479,0.3277,-30.3,603,7.47,corporate,18090,135132.3,0.425,0.5242,0.4171,0.3352,monitor
+BB-025,Miami Urban,South,urban,Miami,110,6.3091,3.8909,3.0909,0.4818,0.3182,-34.5,431,11.1,corporate,12930,143523.0,0.3475,0.4846,0.443,0.334,monitor
+BB-048,Phoenix Campus,West,campus,Phoenix,119,6.1261,3.6891,2.8824,0.521,0.2437,-37.8,529,8.29,corporate,15870,131562.3,0.1645,0.5242,0.4061,0.333,monitor
+BB-012,Phoenix Urban,West,urban,Phoenix,93,6.2473,3.6667,2.9247,0.5376,0.2903,-37.6,406,8.44,franchise,12180,102799.2,0.2857,0.4097,0.3173,0.3277,monitor
+BB-061,Portland Urban,West,urban,Portland,75,5.9867,3.6933,2.8267,0.56,0.28,-46.7,345,6.87,corporate,10350,71104.5,0.0251,0.3304,0.2195,0.3205,monitor
+BB-052,Detroit Urban,Midwest,urban,Detroit,78,6.2949,3.859,2.9744,0.4744,0.3974,-32.1,389,7.54,corporate,11670,87991.8,0.3333,0.3436,0.2716,0.3202,monitor
+BB-055,Chicago Urban,Midwest,urban,Chicago,119,6.2857,3.7647,2.9664,0.4706,0.2269,-31.9,585,9.73,franchise,17550,170761.5,0.3241,0.5242,0.5271,0.3201,monitor
+BB-006,New York Campus,Northeast,campus,New York,95,6.0842,3.6737,2.8105,0.4947,0.2947,-36.8,480,7.53,franchise,14400,108432.0,0.1226,0.4185,0.3347,0.3197,monitor
+BB-039,Portland Suburban,West,suburban,Portland,91,6.1648,3.8022,2.978,0.4615,0.3077,-37.4,502,9.18,franchise,15060,138250.8,0.2032,0.4009,0.4268,0.3172,monitor
+BB-085,New York Campus,Northeast,campus,New York,86,6.0698,3.7209,2.8721,0.5349,0.2674,-43.0,361,7.05,corporate,10830,76351.5,0.1082,0.3789,0.2357,0.3134,monitor
+BB-070,Philadelphia Drive Thru,Northeast,drive_thru,Philadelphia,67,6.2836,3.9701,3.209,0.5075,0.3284,-38.8,373,7.83,franchise,11190,87617.7,0.322,0.2952,0.2705,0.3098,monitor
+BB-023,Hartford Urban,Northeast,urban,Hartford,111,6.4865,3.8739,3.0,0.4144,0.2973,-27.9,588,8.66,franchise,17640,152762.4,0.5249,0.489,0.4716,0.3049,monitor
+BB-035,Denver Urban,West,urban,Denver,111,6.2883,3.7748,2.9459,0.4865,0.1982,-30.6,543,8.4,corporate,16290,136836.0,0.3267,0.489,0.4224,0.3044,monitor
+BB-073,Denver Urban,West,urban,Denver,82,6.3293,3.8415,3.061,0.439,0.3537,-29.3,344,8.51,franchise,10320,87823.2,0.3677,0.3612,0.2711,0.298,monitor
+BB-026,Seattle Suburban,West,suburban,Seattle,66,6.3485,3.9545,3.1061,0.5152,0.2727,-39.4,300,8.88,franchise,9000,79920.0,0.3869,0.2907,0.2467,0.2945,monitor
+BB-042,Atlanta Urban,South,urban,Atlanta,96,6.4375,3.8646,2.9896,0.4479,0.2812,-30.2,433,6.92,franchise,12990,89890.8,0.4759,0.4229,0.2775,0.2876,monitor

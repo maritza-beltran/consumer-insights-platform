@@ -28,6 +28,19 @@ SEGMENTS = [
 CHANNELS = ["in_store", "drive_thru", "mobile_order", "delivery"]
 SENTIMENTS = ["positive", "neutral", "negative"]
 
+VOC_THEMES = [
+    "speed_of_service",
+    "drink_consistency",
+    "order_accuracy",
+    "staff_friendliness",
+    "cleanliness",
+    "mobile_app_issues",
+    "rewards_value",
+    "price_value",
+    "seasonal_menu_interest",
+    "drive_thru_experience",
+]
+
 PRODUCTS = [
     {"name": "Classic Latte", "category": "espresso", "seasonal": False},
     {"name": "Cold Brew", "category": "cold_brew", "seasonal": False},
@@ -42,6 +55,7 @@ PRODUCTS = [
     {"name": "Chocolate Croissant", "category": "bakery", "seasonal": False},
     {"name": "Blueberry Muffin", "category": "bakery", "seasonal": False},
     {"name": "Turkey Sandwich", "category": "food", "seasonal": False},
+    {"name": "Seasonal Cold Brew", "category": "cold_brew", "seasonal": True},
 ]
 
 EXPERIENCE_COLS = EXPERIENCE_RATINGS = [
@@ -56,14 +70,43 @@ EXPERIENCE_COLS = EXPERIENCE_RATINGS = [
 ]
 
 THEME_KEYWORDS: dict[str, list[str]] = {
-    "wait_time": ["wait", "minutes", "slow", "line", "staffing", "handoff", "rush"],
-    "drink_quality": ["espresso", "burnt", "stale", "weak", "taste", "milk", "cold brew", "drink"],
-    "order_accuracy": ["wrong order", "accuracy", "customize", "missing", "incorrect"],
-    "staff_friendliness": ["barista", "staff", "greet", "friendly", "warm", "team", "apologized"],
-    "cleanliness": ["sticky", "restroom", "messy", "trash", "dirty", "clean", "floor"],
-    "mobile_app": ["app", "mobile order", "pickup", "notification", "crashed", "digital"],
-    "rewards_program": ["points", "tier", "reward", "redeem", "birthday", "member", "promo"],
-    "price_value": ["price", "deal", "discount", "value", "expensive", "cost"],
-    "seasonal_menu": ["seasonal", "pumpkin", "limited", "menu", "variety", "options"],
-    "food_quality": ["pastry", "burrito", "toast", "sandwich", "muffin", "food", "bakery"],
+    "speed_of_service": [
+        "line took", "took forever", "slow", "long line", "waited", "backed up",
+        "rush", "minutes", "peak hour", "forever",
+    ],
+    "drink_consistency": [
+        "tasted different", "different than usual", "inconsistent", "burnt",
+        "weak", "not the same", "quality", "espresso", "latte tasted",
+    ],
+    "order_accuracy": [
+        "order was wrong", "wrong order", "incorrect", "missing", "customization",
+        "pickup shelf", "confusing",
+    ],
+    "staff_friendliness": [
+        "staff was friendly", "cashier was helpful", "barista", "friendly",
+        "helpful", "warm", "greet", "apologized", "remembered",
+    ],
+    "cleanliness": [
+        "clean", "sticky", "restroom", "messy", "trash", "dirty", "tidy", "floor",
+    ],
+    "mobile_app_issues": [
+        "mobile ordering", "mobile order", "app", "not ready", "pickup timing",
+        "pickup shelf", "notification", "crashed", "arrived",
+    ],
+    "rewards_value": [
+        "rewards program", "points", "tier", "redeem", "not as valuable",
+        "member", "birthday reward", "loyalty",
+    ],
+    "price_value": [
+        "price feels", "expensive", "high for the size", "deal", "discount",
+        "value", "cost", "too much",
+    ],
+    "seasonal_menu_interest": [
+        "seasonal", "seasonal drink", "seasonal cold brew", "pumpkin",
+        "limited", "new drink", "menu",
+    ],
+    "drive_thru_experience": [
+        "drive-thru", "drive thru", "drive-thru was", "window", "lane",
+        "speaker", "handoff",
+    ],
 }

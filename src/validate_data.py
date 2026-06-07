@@ -125,6 +125,8 @@ def build_enriched_surveys(
             comment_text=("comment_text", "first"),
             sentiment_label=("sentiment_label", "first"),
             star_rating=("star_rating", "mean"),
+            primary_theme=("primary_theme", "first"),
+            secondary_theme=("secondary_theme", "first"),
         )
         .reset_index()
     )
