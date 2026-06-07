@@ -1,7 +1,7 @@
-guest_segment,survey_count,avg_nps,avg_csat,avg_revisit_intent,promoter_pct,detractor_pct,nps,negative_comment_pct
-at_risk_guest,1773,2.66,1.89,1.18,0.0,99.7,-99.7,48.0
-price_sensitive_guest,1642,4.79,2.78,2.02,0.3,88.7,-88.4,27.8
-occasional_guest,2657,5.92,3.42,2.67,3.8,65.4,-61.6,28.1
-mobile_first_guest,1639,6.27,3.49,2.5,5.9,55.6,-49.7,25.8
-seasonal_product_explorer,1420,7.03,3.85,3.18,16.6,35.4,-18.7,27.3
-loyalty_regular,2869,7.92,4.38,3.69,35.2,15.4,19.7,30.3
+guest_segment,survey_count,segment_nps,segment_csat,segment_revisit_intent,top_theme
+at_risk_guest,1773,-99.7,1.89,1.18,speed_of_service
+price_sensitive_guest,1642,-88.4,2.78,2.02,mobile_app_issues
+occasional_guest,2657,-61.6,3.42,2.67,speed_of_service
+mobile_first_guest,1639,-49.7,3.49,2.5,mobile_app_issues
+seasonal_product_explorer,1420,-18.7,3.85,3.18,seasonal_menu_interest
+loyalty_regular,2869,19.7,4.38,3.69,rewards_value

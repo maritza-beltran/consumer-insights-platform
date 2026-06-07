@@ -1,0 +1,15 @@
+product_name,product_category,seasonal_flag,awareness_rate,trial_rate,avg_product_rating,avg_repeat_purchase_intent,price_value_complaint_rate,sweetness_complaint_rate,top_guest_segment,recommendation
+Seasonal Cold Brew,cold_brew,1,0.7939,0.0707,3.4393,2.6761,0.2179,0.2874,seasonal_product_explorer,Maintain quality and promote to high-intent guest segments.
+Pumpkin Spice Latte,espresso,1,0.8185,0.0648,3.4183,2.7207,0.2227,0.2921,seasonal_product_explorer,Maintain quality and promote to high-intent guest segments.
+Avocado Toast,food,0,0.0442,0.0442,3.3038,2.6717,0.2189,0.2906,loyalty_regular,Maintain quality and promote to high-intent guest segments.
+Caramel Macchiato,espresso,0,0.0432,0.0432,3.2312,2.6146,0.1985,0.2832,occasional_guest,Maintain quality and promote to high-intent guest segments.
+Classic Latte,espresso,0,0.0431,0.0431,3.3598,2.7021,0.2418,0.2805,occasional_guest,Maintain quality and promote to high-intent guest segments.
+Oat Milk Cortado,espresso,0,0.0428,0.0428,3.3405,2.6751,0.2062,0.2529,loyalty_regular,Maintain quality and promote to high-intent guest segments.
+Iced Matcha Latte,tea,0,0.0424,0.0424,3.2633,2.5658,0.2141,0.2633,loyalty_regular,Maintain quality and promote to high-intent guest segments.
+Chocolate Croissant,bakery,0,0.0423,0.0423,3.3799,2.7205,0.2283,0.3031,loyalty_regular,Rebalance sweetness profile and clarify customization options on menu.
+Nitro Cold Brew,cold_brew,0,0.0418,0.0418,3.3892,2.6687,0.2355,0.2635,loyalty_regular,Maintain quality and promote to high-intent guest segments.
+Blueberry Muffin,bakery,0,0.0417,0.0417,3.232,2.574,0.188,0.306,loyalty_regular,Rebalance sweetness profile and clarify customization options on menu.
+Breakfast Burrito,food,0,0.0411,0.0411,3.3286,2.645,0.2312,0.284,loyalty_regular,Maintain quality and promote to high-intent guest segments.
+Turkey Sandwich,food,0,0.0407,0.0407,3.2992,2.5861,0.209,0.2787,loyalty_regular,Maintain quality and promote to high-intent guest segments.
+Chai Tea Latte,tea,0,0.0404,0.0404,3.3443,2.7299,0.2454,0.268,occasional_guest,Maintain quality and promote to high-intent guest segments.
+Cold Brew,cold_brew,0,0.0392,0.0392,3.327,2.6518,0.1932,0.2824,loyalty_regular,Maintain quality and promote to high-intent guest segments.

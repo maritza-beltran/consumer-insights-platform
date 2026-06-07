@@ -1,7 +1,6 @@
 ## Primary Recommendation
 
-Prioritize **Rewards Value** across **30 top-opportunity stores**.
+Prioritize **Rewards Value** across **30 priority stores**.
 
-- Recoverable annual revenue: **$548,887**
-- Implementation cost: **$85,000**
-- **Net annual impact: $463,887**
+- Estimated incremental revenue: **$393,034**
+- **Meets $100K threshold: True**

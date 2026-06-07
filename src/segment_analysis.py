@@ -5,21 +5,8 @@ from __future__ import annotations
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from config import EXPERIENCE_COLS, OUTPUT_CHARTS, OUTPUT_TABLES, PROCESSED_DIR
-
-THEME_ACTIONS = {
-    "speed_of_service": "Add peak-hour staffing and queue management at high-traffic dayparts.",
-    "drink_consistency": "Refresh barista calibration and recipe adherence checks.",
-    "order_accuracy": "Introduce order verification at handoff for mobile and drive-thru.",
-    "staff_friendliness": "Coach greeting and recovery scripts during shift huddles.",
-    "cleanliness": "Tighten opening/closing cleaning checklists and mid-day audits.",
-    "mobile_app_issues": "Fix pickup timing notifications and order-ready status accuracy.",
-    "rewards_value": "Test bonus-star offers for at-risk and occasional guests.",
-    "price_value": "Bundle value combos and clarify portion expectations on menu boards.",
-    "seasonal_menu_interest": "Promote trial incentives and post-launch quality checks on LTOs.",
-    "drive_thru_experience": "Optimize lane staffing and order confirmation at the speaker box.",
-    "general_experience": "Run targeted service recovery and follow-up on low-CSAT surveys.",
-}
+from config import EXPERIENCE_COLS, OUTPUT_CHARTS, OUTPUT_TABLES, PROCESSED_DIR, THEME_RECOMMENDED_ACTIONS
+from metrics import standard_nps
 
 DRIVER_LABELS = {
     "wait_time_rating": "wait time",
@@ -49,7 +36,7 @@ def _segment_primary_driver(segment_df: pd.DataFrame) -> str:
 
 
 def _recommended_action(segment: str, top_negative: str, primary_driver: str) -> str:
-    theme_action = THEME_ACTIONS.get(top_negative, THEME_ACTIONS["general_experience"])
+    theme_action = THEME_RECOMMENDED_ACTIONS.get(top_negative, THEME_RECOMMENDED_ACTIONS["general_experience"])
     return f"For {segment.replace('_', ' ')}: address {top_negative.replace('_', ' ')} and improve {primary_driver}. {theme_action}"
 
 
@@ -63,7 +50,7 @@ def segment_summary(df: pd.DataFrame, global_top_driver: str = "") -> pd.DataFra
             {
                 "guest_segment": segment,
                 "survey_count": len(segment_df),
-                "avg_nps": round(segment_df["nps"].mean(), 4),
+                "avg_nps": standard_nps(segment_df["nps"]),
                 "avg_csat": round(segment_df["csat"].mean(), 4),
                 "avg_revisit_intent": round(segment_df["revisit_intent"].mean(), 4),
                 "top_negative_theme": top_negative,

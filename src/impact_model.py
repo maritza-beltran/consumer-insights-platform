@@ -6,65 +6,90 @@ import json
 
 import pandas as pd
 
-from config import OUTPUT_TABLES, PROCESSED_DIR
-
-DETRACTOR_RECOVERY_RATE = 0.15
-IMPLEMENTATION_COST_USD = 85_000
+from config import IMPACT_DEFAULTS, OUTPUT_TABLES, PROCESSED_DIR, THEME_RECOMMENDED_ACTIONS
+from metrics import standard_nps
 
 
-def _annual_revenue(stores: pd.DataFrame) -> float:
-    return float((stores["avg_daily_transactions"] * stores["avg_ticket"] * 365).sum())
+def build_impact_summary(
+    store_ranking: pd.DataFrame,
+    theme_impact: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Size incremental revenue from a priority-store initiative.
+
+    estimated_incremental_revenue =
+        target_store_count * avg_daily_transactions * avg_ticket
+        * improvement_window_days * expected_repeat_visit_lift
+    """
+    defaults = IMPACT_DEFAULTS
+    target_n = defaults["target_store_count"]
+    window_days = defaults["improvement_window_days"]
+    visit_lift = defaults["expected_repeat_visit_lift"]
+
+    targets = store_ranking.head(target_n)
+    avg_txn = float(targets["avg_daily_transactions"].mean())
+    avg_ticket = float(targets["avg_ticket"].mean())
+
+    estimated_revenue = target_n * avg_txn * avg_ticket * window_days * visit_lift
+
+    top_theme = theme_impact.sort_values("impact_rank").iloc[0]["primary_theme"]
+    initiative = f"Priority-store {top_theme.replace('_', ' ')} improvement pilot"
+    action = THEME_RECOMMENDED_ACTIONS.get(top_theme, THEME_RECOMMENDED_ACTIONS["general_experience"])
+
+    assumptions = (
+        f"Top {target_n} stores from store_opportunity_ranking.csv; "
+        f"mean daily transactions {avg_txn:,.1f}; mean ticket ${avg_ticket:.2f}; "
+        f"{window_days}-day window; {visit_lift:.1%} repeat-visit lift. {action}"
+    )
+    measurement_plan = (
+        "Track weekly NPS, CSAT, revisit intent, and repeat visit rate in pilot stores "
+        f"vs matched control stores over {window_days} days; reconcile against POS transaction counts."
+    )
+
+    return pd.DataFrame(
+        [
+            {
+                "initiative": initiative,
+                "target_store_count": target_n,
+                "avg_daily_transactions": round(avg_txn, 2),
+                "avg_ticket": round(avg_ticket, 2),
+                "improvement_window_days": window_days,
+                "expected_repeat_visit_lift": visit_lift,
+                "estimated_incremental_revenue": round(estimated_revenue, 2),
+                "assumptions": assumptions,
+                "measurement_plan": measurement_plan,
+            }
+        ]
+    )
 
 
 def estimate_theme_impact(theme_impact: pd.DataFrame, stores: pd.DataFrame, surveys: pd.DataFrame) -> dict:
-    brand_nps = round(((surveys["nps"] >= 9).mean() - (surveys["nps"] <= 6).mean()) * 100, 1)
+    """Backward-compatible summary dict for dashboard and tests."""
+    brand_nps = standard_nps(surveys["nps"])
     top_theme = theme_impact.sort_values("impact_rank").iloc[0]
     theme_name = top_theme["primary_theme"]
 
-    theme_summary_path = OUTPUT_TABLES / "theme_summary.csv"
-    if theme_summary_path.exists():
-        theme_summary = pd.read_csv(theme_summary_path)
-        theme_row = theme_summary[theme_summary["primary_theme"] == theme_name]
-        affected_share = float(theme_row["share_of_comments"].iloc[0]) if len(theme_row) else 0.1
-        detractor_rate = float(theme_row["detractor_share"].iloc[0]) if len(theme_row) else 0.4
+    ranking_path = OUTPUT_TABLES / "store_opportunity_ranking.csv"
+    summary_path = OUTPUT_TABLES / "impact_summary.csv"
+    if summary_path.exists():
+        summary = pd.read_csv(summary_path)
+        estimated = float(summary.iloc[0]["estimated_incremental_revenue"])
+        target_n = int(summary.iloc[0]["target_store_count"])
+    elif ranking_path.exists():
+        summary_df = build_impact_summary(pd.read_csv(ranking_path), theme_impact)
+        estimated = float(summary_df.iloc[0]["estimated_incremental_revenue"])
+        target_n = int(summary_df.iloc[0]["target_store_count"])
     else:
-        affected_share = 0.1
-        detractor_rate = 0.4
-
-    annual_revenue = _annual_revenue(stores)
-
-    priority_path = OUTPUT_TABLES / "store_opportunity_ranking.csv"
-    if priority_path.exists():
-        priority_stores = pd.read_csv(priority_path)
-        urgent_cutoff = priority_stores["opportunity_score"].quantile(0.67)
-        urgent = priority_stores[priority_stores["opportunity_score"] >= urgent_cutoff]
-        urgent_revenue = float(
-            (urgent["avg_daily_transactions"] * urgent["avg_ticket"] * 365).sum()
-        )
-    else:
-        urgent = pd.DataFrame()
-        urgent_revenue = annual_revenue * 0.35
-
-    revenue_at_risk = urgent_revenue * affected_share * detractor_rate
-    recoverable_revenue = revenue_at_risk * DETRACTOR_RECOVERY_RATE
-    net_impact = recoverable_revenue - IMPLEMENTATION_COST_USD
+        estimated = 0.0
+        target_n = IMPACT_DEFAULTS["target_store_count"]
 
     return {
         "brand_nps_baseline": brand_nps,
         "recommended_focus_theme": theme_name,
-        "affected_guest_share": round(affected_share, 4),
-        "pilot_scope": "top_tertile_opportunity_stores",
-        "revenue_at_risk_usd": round(revenue_at_risk, 2),
-        "recoverable_revenue_usd": round(recoverable_revenue, 2),
-        "implementation_cost_usd": IMPLEMENTATION_COST_USD,
-        "net_annual_impact_usd": round(net_impact, 2),
-        "urgent_store_count": len(urgent),
-        "urgent_store_annual_revenue_usd": round(urgent_revenue, 2),
-        "meets_100k_threshold": net_impact >= 100_000,
-        "assumptions": {
-            "detractor_recovery_rate": DETRACTOR_RECOVERY_RATE,
-            "implementation_scope": "peak-hour staffing + mobile order pickup workflow at top-opportunity stores",
-        },
+        "target_store_count": target_n,
+        "estimated_incremental_revenue_usd": estimated,
+        "meets_100k_threshold": estimated >= IMPACT_DEFAULTS["min_incremental_revenue_usd"],
+        "net_annual_impact_usd": round(estimated, 2),
     }
 
 
@@ -72,10 +97,9 @@ def build_executive_recommendation(impact: dict) -> str:
     theme = impact["recommended_focus_theme"].replace("_", " ").title()
     return (
         f"## Primary Recommendation\n\n"
-        f"Prioritize **{theme}** across **{impact['urgent_store_count']} top-opportunity stores**.\n\n"
-        f"- Recoverable annual revenue: **${impact['recoverable_revenue_usd']:,.0f}**\n"
-        f"- Implementation cost: **${impact['implementation_cost_usd']:,.0f}**\n"
-        f"- **Net annual impact: ${impact['net_annual_impact_usd']:,.0f}**\n"
+        f"Prioritize **{theme}** across **{impact['target_store_count']} priority stores**.\n\n"
+        f"- Estimated incremental revenue: **${impact['estimated_incremental_revenue_usd']:,.0f}**\n"
+        f"- **Meets $100K threshold: {impact['meets_100k_threshold']}**\n"
     )
 
 
@@ -84,10 +108,17 @@ def main() -> None:
     surveys = pd.read_parquet(PROCESSED_DIR / "guest_surveys_classified.parquet")
     stores = pd.read_parquet(PROCESSED_DIR / "stores_clean.parquet")
     theme_impact = pd.read_csv(OUTPUT_TABLES / "theme_impact.csv")
+    store_ranking = pd.read_csv(OUTPUT_TABLES / "store_opportunity_ranking.csv")
+
+    summary = build_impact_summary(store_ranking, theme_impact)
+    summary.to_csv(OUTPUT_TABLES / "impact_summary.csv", index=False)
+
     impact = estimate_theme_impact(theme_impact, stores, surveys)
     (OUTPUT_TABLES / "impact_sizing.json").write_text(json.dumps(impact, indent=2))
     (OUTPUT_TABLES / "executive_recommendation_snippet.md").write_text(build_executive_recommendation(impact))
-    print(f"Impact model complete: net impact ${impact['net_annual_impact_usd']:,.0f}")
+
+    row = summary.iloc[0]
+    print(f"Impact summary: ${row['estimated_incremental_revenue']:,.0f} incremental revenue")
     print(f"$100K+ threshold: {impact['meets_100k_threshold']}")
 
 

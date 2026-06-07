@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from config import OUTPUT_CHARTS, OUTPUT_TABLES, PROCESSED_DIR
+from metrics import standard_nps
 
 
 def _commented_surveys(df: pd.DataFrame) -> pd.DataFrame:
@@ -18,19 +19,16 @@ def theme_summary(df: pd.DataFrame) -> pd.DataFrame:
     commented = _commented_surveys(df)
     total = len(commented)
 
-    summary = (
-        commented.groupby("primary_theme")
-        .agg(
-            comment_count=("survey_id", "count"),
-            negative_comment_count=("is_negative_experience", "sum"),
-            avg_nps=("nps", "mean"),
-            avg_csat=("csat", "mean"),
-            avg_revisit_intent=("revisit_intent", "mean"),
-            detractor_share=("nps", lambda s: (s <= 6).mean()),
-            low_csat_share=("csat", lambda s: (s <= 2).mean()),
-        )
-        .reset_index()
-    )
+    theme_groups = commented.groupby("primary_theme")
+    summary = theme_groups.agg(
+        comment_count=("survey_id", "count"),
+        negative_comment_count=("is_negative_experience", "sum"),
+        avg_csat=("csat", "mean"),
+        avg_revisit_intent=("revisit_intent", "mean"),
+        detractor_share=("nps", lambda s: (s <= 6).mean()),
+        low_csat_share=("csat", lambda s: (s <= 2).mean()),
+    ).reset_index()
+    summary["avg_nps"] = theme_groups["nps"].apply(standard_nps).values
     summary["share_of_comments"] = summary["comment_count"] / total
     summary["negative_share"] = summary["negative_comment_count"] / summary["comment_count"]
     cols = [
@@ -56,21 +54,18 @@ def theme_summary(df: pd.DataFrame) -> pd.DataFrame:
 def theme_impact(df: pd.DataFrame) -> pd.DataFrame:
     """Compare each theme's satisfaction metrics to brand-wide averages."""
     commented = _commented_surveys(df)
-    overall_nps = commented["nps"].mean()
     overall_csat = commented["csat"].mean()
     overall_revisit = commented["revisit_intent"].mean()
 
-    impact = (
-        commented.groupby("primary_theme")
-        .agg(
-            theme_avg_nps=("nps", "mean"),
-            theme_avg_csat=("csat", "mean"),
-            theme_avg_revisit_intent=("revisit_intent", "mean"),
-            comment_count=("survey_id", "count"),
-        )
-        .reset_index()
-    )
-    impact["overall_avg_nps"] = round(overall_nps, 4)
+    theme_groups = commented.groupby("primary_theme")
+    impact = theme_groups.agg(
+        theme_avg_csat=("csat", "mean"),
+        theme_avg_revisit_intent=("revisit_intent", "mean"),
+        comment_count=("survey_id", "count"),
+    ).reset_index()
+    overall_nps = standard_nps(commented["nps"])
+    impact["theme_avg_nps"] = theme_groups["nps"].apply(standard_nps).values
+    impact["overall_avg_nps"] = overall_nps
     impact["theme_nps_gap"] = impact["theme_avg_nps"] - overall_nps
     impact["overall_avg_csat"] = round(overall_csat, 4)
     impact["theme_csat_gap"] = impact["theme_avg_csat"] - overall_csat
@@ -121,11 +116,9 @@ def detractor_theme_analysis(df: pd.DataFrame) -> pd.DataFrame:
         analysis["share_of_detractor_comments"] / analysis["share_of_all_comments"]
     ).replace([float("inf")], 0)
 
-    metrics = (
-        commented.groupby("primary_theme")
-        .agg(avg_nps=("nps", "mean"), negative_share=("is_negative_experience", "mean"))
-        .reset_index()
-    )
+    theme_groups = commented.groupby("primary_theme")
+    metrics = theme_groups.agg(negative_share=("is_negative_experience", "mean")).reset_index()
+    metrics["avg_nps"] = theme_groups["nps"].apply(standard_nps).values
     analysis = analysis.merge(metrics, on="primary_theme")
     analysis = analysis.drop(columns=["all_count", "detractor_count"])
 

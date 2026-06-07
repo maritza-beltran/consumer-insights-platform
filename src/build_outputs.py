@@ -21,6 +21,7 @@ from classify_voc_themes import classify_and_save
 from driver_analysis import main as run_driver_analysis
 from impact_model import main as run_impact_model
 from opportunity_scoring import main as run_opportunity_scoring
+from product_insights import main as run_product_insights
 from segment_analysis import main as run_segment_analysis
 from validate_data import load_raw_datasets, validate_and_export
 
@@ -91,12 +92,16 @@ def main() -> None:
     print("\n8. Building store opportunity scores...")
     run_opportunity_scoring()
 
-    # 9. Impact model output
-    print("\n9. Building impact model...")
+    # 9. Product insights
+    print("\n9. Building product insights...")
+    run_product_insights()
+
+    # 10. Impact model output
+    print("\n10. Building impact model...")
     run_impact_model()
 
     # DuckDB SQL exports for audit trail
-    print("\n10. Running DuckDB SQL exports...")
+    print("\n11. Running DuckDB SQL exports...")
     _run_sql_exports()
 
     print("\n=== Build complete ===")

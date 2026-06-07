@@ -1,17 +1,8 @@
 {
   "brand_nps_baseline": -44.8,
   "recommended_focus_theme": "rewards_value",
-  "affected_guest_share": 0.0988,
-  "pilot_scope": "top_tertile_opportunity_stores",
-  "revenue_at_risk_usd": 3659244.59,
-  "recoverable_revenue_usd": 548886.69,
-  "implementation_cost_usd": 85000,
-  "net_annual_impact_usd": 463886.69,
-  "urgent_store_count": 30,
-  "urgent_store_annual_revenue_usd": 80760768.7,
+  "target_store_count": 30,
+  "estimated_incremental_revenue_usd": 393033.77,
   "meets_100k_threshold": true,
-  "assumptions": {
-    "detractor_recovery_rate": 0.15,
-    "implementation_scope": "peak-hour staffing + mobile order pickup workflow at top-opportunity stores"
-  }
+  "net_annual_impact_usd": 393033.77
 }

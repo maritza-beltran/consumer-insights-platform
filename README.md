@@ -71,7 +71,9 @@ generate_data → validate_data → classify_voc_themes → analyze_themes
 - `outputs/tables/segment_summary.csv` — segment profiles and recommended actions
 - `outputs/tables/segment_theme_matrix.csv` — segment × theme comment matrix
 - `outputs/tables/store_opportunity_ranking.csv` — prioritized stores with upside sizing
-- `outputs/tables/impact_sizing.json` — $100K+ opportunity sizing
+- `outputs/tables/product_insights.csv` — product trial, rating, and complaint insights
+- `outputs/tables/impact_summary.csv` — $100K+ incremental revenue sizing
+- `outputs/tables/impact_sizing.json` — executive impact snapshot
 - `reports/executive_memo.md` — leadership recommendation
 
 ## Tech Stack

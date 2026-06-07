@@ -80,6 +80,27 @@ EXPERIENCE_COLS = EXPERIENCE_RATINGS = [
     "price_value_perception",
 ]
 
+THEME_RECOMMENDED_ACTIONS: dict[str, str] = {
+    "speed_of_service": "Pilot peak-hour staffing and queue management in priority stores.",
+    "drink_consistency": "Launch recipe adherence audit and barista retraining.",
+    "order_accuracy": "Improve order handoff verification and customization checks.",
+    "staff_friendliness": "Reinforce hospitality coaching and recognition programs.",
+    "cleanliness": "Increase front-of-house cleaning cadence.",
+    "mobile_app_issues": "Review mobile pickup timing and app-to-store handoff.",
+    "rewards_value": "Test clearer loyalty value messaging and targeted rewards offers.",
+    "price_value": "Test bundled offers or size-value messaging.",
+    "seasonal_menu_interest": "Improve seasonal product positioning and sampling.",
+    "drive_thru_experience": "Optimize drive-thru lane flow and pickup communication.",
+    "general_experience": "Deploy service recovery and follow-up on low-CSAT guest surveys.",
+}
+
+IMPACT_DEFAULTS = {
+    "target_store_count": 30,
+    "improvement_window_days": 90,
+    "expected_repeat_visit_lift": 0.02,
+    "min_incremental_revenue_usd": 100_000,
+}
+
 THEME_KEYWORDS: dict[str, list[str]] = {
     "speed_of_service": [
         "line took", "took forever", "slow", "long line", "waited", "backed up",

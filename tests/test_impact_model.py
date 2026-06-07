@@ -7,14 +7,30 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from impact_model import estimate_theme_impact
+from impact_model import build_impact_summary, estimate_theme_impact
+
+
+def test_build_impact_summary_exceeds_100k():
+    store_ranking = pd.DataFrame(
+        {
+            "avg_daily_transactions": [400] * 30,
+            "avg_ticket": [8.0] * 30,
+            "opportunity_score": [0.8] * 30,
+        }
+    )
+    theme_impact = pd.DataFrame(
+        {"primary_theme": ["speed_of_service"], "impact_rank": [1]}
+    )
+    summary = build_impact_summary(store_ranking, theme_impact)
+    assert summary.iloc[0]["estimated_incremental_revenue"] >= 100_000
+    assert summary.iloc[0]["target_store_count"] == 30
 
 
 def test_estimate_theme_impact_structure():
     theme_impact = pd.DataFrame(
         {
-            "primary_theme": ["wait_time"],
-            "theme_avg_nps": [4.5],
+            "primary_theme": ["speed_of_service"],
+            "theme_avg_nps": [-20.0],
             "theme_nps_gap": [-3.0],
             "impact_rank": [1],
         }
@@ -26,9 +42,13 @@ def test_estimate_theme_impact_structure():
             "avg_ticket": [9.0],
         }
     )
-    surveys = pd.DataFrame({"nps": [7, 8, 5, 9, 6, 4, 10, 3]})
+    surveys = pd.DataFrame({"nps": [10, 10, 3, 3, 9, 4, 10, 2]})
+    store_ranking = pd.DataFrame(
+        {"avg_daily_transactions": [400] * 30, "avg_ticket": [8.0] * 30, "opportunity_score": [0.7] * 30}
+    )
+    summary = build_impact_summary(store_ranking, theme_impact)
     impact = estimate_theme_impact(theme_impact, stores, surveys)
-    assert "net_annual_impact_usd" in impact
-    assert impact["recommended_focus_theme"] == "wait_time"
-    assert impact["pilot_scope"] == "top_tertile_opportunity_stores"
-    assert isinstance(impact["meets_100k_threshold"], bool)
+    assert "estimated_incremental_revenue_usd" in impact
+    assert impact["recommended_focus_theme"] == "speed_of_service"
+    revenue = summary.iloc[0]["estimated_incremental_revenue"]
+    assert impact["meets_100k_threshold"] == (revenue >= 100_000)

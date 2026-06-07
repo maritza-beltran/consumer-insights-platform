@@ -29,6 +29,8 @@ def load_data() -> dict:
         "store_scores": TABLES / "store_opportunity_ranking.csv",
         "drivers": TABLES / "driver_importance.csv",
         "model_metrics": TABLES / "model_metrics.csv",
+        "product_insights": TABLES / "product_insights.csv",
+        "impact_summary": TABLES / "impact_summary.csv",
         "channel_summary": TABLES / "channel_summary.csv",
     }
     for key, path in parquet_paths.items():
@@ -157,14 +159,21 @@ def main() -> None:
 
     with tab6:
         st.subheader("Executive Impact Sizing")
-        if impact:
+        impact_summary = data.get("impact_summary", pd.DataFrame())
+        if not impact_summary.empty:
+            row = impact_summary.iloc[0]
             c1, c2, c3 = st.columns(3)
-            c1.metric("Net Annual Impact", f"${impact.get('net_annual_impact_usd', 0):,.0f}")
-            c2.metric("Recoverable Revenue", f"${impact.get('recoverable_revenue_usd', 0):,.0f}")
-            c3.metric("Focus Theme", impact.get("recommended_focus_theme", "—").replace("_", " ").title())
+            c1.metric("Incremental Revenue", f"${row['estimated_incremental_revenue']:,.0f}")
+            c2.metric("Target Stores", int(row["target_store_count"]))
+            c3.metric("Window (days)", int(row["improvement_window_days"]))
+            st.write(row["assumptions"])
+            st.write(row["measurement_plan"])
+        if impact:
+            c1, c2 = st.columns(2)
+            c1.metric("Brand NPS", impact.get("brand_nps_baseline", "—"))
+            c2.metric("Focus Theme", impact.get("recommended_focus_theme", "—").replace("_", " ").title())
             if impact.get("meets_100k_threshold"):
                 st.success("Meets $100K+ threshold")
-            st.json(impact)
         memo = ROOT / "reports" / "executive_memo.md"
         if memo.exists():
             with st.expander("Executive Memo"):
