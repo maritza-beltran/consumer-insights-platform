@@ -18,7 +18,7 @@ BB-057,Philadelphia Airport,Philadelphia,Northeast,airport,800,10.56,180,-48.3,2
 BB-059,Dallas Airport,Dallas,South,airport,784,9.9,177,-45.2,2.8983,2.1299,0.4124,speed_of_service,-0.4,-0.5124,0.7531,0.639
 BB-037,Indianapolis Airport,Indianapolis,Midwest,airport,965,11.19,204,-43.6,2.951,2.2549,0.4118,speed_of_service,1.2,-0.3874,0.927,0.638
 BB-002,Charlotte Mall,Charlotte,South,mall,675,11.99,134,-50.7,3.0,2.2985,0.4179,speed_of_service,-5.9,-0.3438,0.6484,0.6358
-BB-019,Philadelphia Mall,Philadelphia,Northeast,mall,805,10.44,164,-47.6,3.122,2.4024,0.4268,order_accuracy,-2.8,-0.2399,0.7733,0.6331
+BB-019,Philadelphia Mall,Philadelphia,Northeast,mall,805,10.44,164,-47.6,3.122,2.4024,0.4268,speed_of_service,-2.8,-0.2399,0.7733,0.6331
 BB-018,Atlanta Airport,Atlanta,South,airport,751,7.79,164,-42.7,2.8415,2.1585,0.4268,speed_of_service,2.1,-0.4838,0.7214,0.6321
 BB-049,Minneapolis Mall,Minneapolis,Midwest,mall,720,8.63,134,-50.0,3.0299,2.2836,0.4104,speed_of_service,-5.2,-0.3587,0.6916,0.6301
 BB-083,Boston Airport,Boston,Northeast,airport,691,12.34,151,-49.0,2.9073,2.245,0.4106,speed_of_service,-4.2,-0.3973,0.6638,0.6247
@@ -40,13 +40,13 @@ BB-010,Chicago Drive Thru,Chicago,Midwest,drive_thru,640,9.97,125,-52.8,3.688,2.
 BB-089,Philadelphia Urban,Philadelphia,Northeast,urban,739,9.78,143,-46.2,3.6853,2.9161,0.4266,seasonal_menu_interest,-1.4,0.2738,0.7099,0.5146
 BB-022,Indianapolis Drive Thru,Indianapolis,Midwest,drive_thru,540,7.26,113,-46.0,3.7434,2.9292,0.4513,speed_of_service,-1.2,0.2869,0.5187,0.5119
 BB-046,Chicago Drive Thru,Chicago,Midwest,drive_thru,779,11.52,151,-51.0,3.6623,2.8278,0.3841,speed_of_service,-6.2,0.1855,0.7483,0.5059
-BB-043,Seattle Drive Thru,Seattle,West,drive_thru,599,9.0,125,-59.2,3.744,2.984,0.376,drink_consistency,-14.4,0.3417,0.5754,0.4894
+BB-043,Seattle Drive Thru,Seattle,West,drive_thru,599,9.0,125,-59.2,3.744,2.984,0.376,speed_of_service,-14.4,0.3417,0.5754,0.4894
 BB-081,Atlanta Mall,Atlanta,South,mall,776,11.12,159,-36.5,3.0314,2.3522,0.3836,speed_of_service,8.3,-0.2901,0.7454,0.4867
 BB-030,Miami Drive Thru,Miami,South,drive_thru,421,8.15,70,-51.4,3.6143,2.8857,0.4143,speed_of_service,-6.6,0.2434,0.4044,0.4775
 BB-007,Miami Campus,Miami,South,campus,516,8.55,98,-46.9,3.7449,2.7653,0.4082,mobile_app_issues,-2.1,0.123,0.4957,0.4755
-BB-003,Dallas Drive Thru,Dallas,South,drive_thru,402,7.16,78,-59.0,3.6026,2.9231,0.3846,order_accuracy,-14.2,0.2808,0.3862,0.4751
+BB-003,Dallas Drive Thru,Dallas,South,drive_thru,402,7.16,78,-59.0,3.6026,2.9231,0.3846,drive_thru_experience,-14.2,0.2808,0.3862,0.4751
 BB-021,Seattle Suburban,Seattle,West,suburban,779,8.74,155,-44.5,3.7935,2.9806,0.4065,speed_of_service,0.3,0.3383,0.7483,0.4658
-BB-070,Philadelphia Drive Thru,Philadelphia,Northeast,drive_thru,373,7.83,67,-38.8,3.9701,3.209,0.5075,drive_thru_experience,6.0,0.5667,0.3583,0.465
+BB-070,Philadelphia Drive Thru,Philadelphia,Northeast,drive_thru,373,7.83,67,-38.8,3.9701,3.209,0.5075,order_accuracy,6.0,0.5667,0.3583,0.465
 BB-088,Denver Campus,Denver,West,campus,736,11.57,136,-45.6,3.6397,2.8676,0.3897,speed_of_service,-0.8,0.2253,0.707,0.4598
 BB-040,New York Mall,New York,Northeast,mall,726,11.37,168,-36.9,3.125,2.4583,0.381,speed_of_service,7.9,-0.184,0.6974,0.4562
 BB-060,Dallas Urban,Dallas,South,urban,483,12.13,92,-41.3,3.7717,2.9565,0.4457,staff_friendliness,3.5,0.3142,0.464,0.4526
@@ -57,7 +57,7 @@ BB-008,Denver Campus,Denver,West,campus,435,7.92,97,-43.3,3.6804,2.8866,0.4227,s
 BB-029,Indianapolis Urban,Indianapolis,Midwest,urban,560,10.51,114,-50.9,3.6842,2.9386,0.3772,mobile_app_issues,-6.1,0.2963,0.5379,0.4316
 BB-052,Detroit Urban,Detroit,Midwest,urban,389,7.54,78,-32.1,3.859,2.9744,0.4872,mobile_app_issues,12.7,0.3321,0.3737,0.4302
 BB-062,New York Campus,New York,Northeast,campus,527,11.94,113,-37.2,3.7257,2.9646,0.4425,mobile_app_issues,7.6,0.3223,0.5062,0.4245
-BB-041,Philadelphia Drive Thru,Philadelphia,Northeast,drive_thru,358,8.54,68,-52.9,3.6176,2.8971,0.3824,rewards_value,-8.1,0.2548,0.3439,0.4234
+BB-041,Philadelphia Drive Thru,Philadelphia,Northeast,drive_thru,358,8.54,68,-52.9,3.6176,2.8971,0.3824,mobile_app_issues,-8.1,0.2548,0.3439,0.4234
 BB-071,Charlotte Suburban,Charlotte,South,suburban,623,7.61,147,-42.2,3.7007,2.9456,0.4014,speed_of_service,2.6,0.3033,0.5985,0.4174
 BB-013,Charlotte Campus,Charlotte,South,campus,638,7.74,131,-48.1,3.6947,2.916,0.3664,speed_of_service,-3.3,0.2737,0.6129,0.4131
 BB-066,Phoenix Campus,Phoenix,West,campus,408,11.29,99,-37.4,3.8384,3.0202,0.4545,staff_friendliness,7.4,0.3779,0.3919,0.4119
@@ -68,7 +68,7 @@ BB-054,Hartford Campus,Hartford,Northeast,campus,709,10.1,152,-40.1,3.7171,2.940
 BB-063,Hartford Urban,Hartford,Northeast,urban,754,7.4,122,-30.3,3.7377,2.9098,0.4098,speed_of_service,14.5,0.2675,0.7243,0.3756
 BB-078,Hartford Suburban,Hartford,Northeast,suburban,449,9.57,100,-40.0,3.63,2.9,0.4,speed_of_service,4.8,0.2577,0.4313,0.3741
 BB-065,Seattle Urban,Seattle,West,urban,771,6.83,158,-43.0,3.7468,2.9304,0.3418,speed_of_service,1.8,0.2881,0.7406,0.3594
-BB-074,Philadelphia Campus,Philadelphia,Northeast,campus,502,10.09,106,-31.1,3.717,2.9057,0.4245,rewards_value,13.7,0.2634,0.4822,0.3573
+BB-074,Philadelphia Campus,Philadelphia,Northeast,campus,502,10.09,106,-31.1,3.717,2.9057,0.4245,cleanliness,13.7,0.2634,0.4822,0.3573
 BB-034,Phoenix Urban,Phoenix,West,urban,666,7.49,144,-33.3,3.8194,2.9861,0.4028,mobile_app_issues,11.5,0.3438,0.6398,0.3554
 BB-056,Dallas Suburban,Dallas,South,suburban,603,7.47,119,-30.3,3.8487,3.0252,0.4286,mobile_app_issues,14.5,0.3829,0.5793,0.3552
 BB-036,Miami Urban,Miami,South,urban,622,9.15,127,-35.4,3.874,3.0236,0.4016,order_accuracy,9.4,0.3813,0.5975,0.3534
@@ -81,7 +81,7 @@ BB-025,Miami Urban,Miami,South,urban,431,11.1,110,-34.5,3.8909,3.0909,0.4182,spe
 BB-085,New York Campus,New York,Northeast,campus,361,7.05,86,-43.0,3.7209,2.8721,0.3605,speed_of_service,1.8,0.2298,0.3468,0.3213
 BB-033,Boston Urban,Boston,Northeast,urban,645,10.69,154,-37.0,3.7922,3.0455,0.3701,order_accuracy,7.8,0.4032,0.6196,0.3152
 BB-006,New York Campus,New York,Northeast,campus,480,7.53,95,-36.8,3.6737,2.8105,0.3579,speed_of_service,8.0,0.1682,0.4611,0.3061
-BB-012,Phoenix Urban,Phoenix,West,urban,406,8.44,93,-37.6,3.6667,2.9247,0.3763,order_accuracy,7.2,0.2824,0.39,0.3059
+BB-012,Phoenix Urban,Phoenix,West,urban,406,8.44,93,-37.6,3.6667,2.9247,0.3763,speed_of_service,7.2,0.2824,0.39,0.3059
 BB-023,Hartford Urban,Hartford,Northeast,urban,588,8.66,111,-27.9,3.8739,3.0,0.3964,rewards_value,16.9,0.3577,0.5648,0.2881
 BB-042,Atlanta Urban,Atlanta,South,urban,433,6.92,96,-30.2,3.8646,2.9896,0.3958,speed_of_service,14.6,0.3473,0.4159,0.2761
 BB-039,Portland Suburban,Portland,West,suburban,502,9.18,91,-37.4,3.8022,2.978,0.3407,order_accuracy,7.4,0.3357,0.4822,0.2562
