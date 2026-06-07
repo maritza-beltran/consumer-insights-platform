@@ -6,7 +6,13 @@ import json
 
 import pandas as pd
 
-from config import IMPACT_DEFAULTS, OUTPUT_TABLES, PROCESSED_DIR, THEME_RECOMMENDED_ACTIONS
+from config import (
+    IMPACT_DEFAULTS,
+    OUTPUT_TABLES,
+    PROCESSED_DIR,
+    THEME_RECOMMENDED_ACTIONS,
+    measurement_plan,
+)
 from metrics import standard_nps
 
 
@@ -41,10 +47,7 @@ def build_impact_summary(
         f"mean daily transactions {avg_txn:,.1f}; mean ticket ${avg_ticket:.2f}; "
         f"{window_days}-day window; {visit_lift:.1%} repeat-visit lift. {action}"
     )
-    measurement_plan = (
-        "Track weekly NPS, CSAT, revisit intent, and repeat visit rate in pilot stores "
-        f"vs matched control stores over {window_days} days; reconcile against POS transaction counts."
-    )
+    plan = measurement_plan(window_days)
 
     return pd.DataFrame(
         [
@@ -57,7 +60,7 @@ def build_impact_summary(
                 "expected_repeat_visit_lift": visit_lift,
                 "estimated_incremental_revenue": round(estimated_revenue, 2),
                 "assumptions": assumptions,
-                "measurement_plan": measurement_plan,
+                "measurement_plan": plan,
             }
         ]
     )

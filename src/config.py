@@ -101,6 +101,16 @@ IMPACT_DEFAULTS = {
     "min_incremental_revenue_usd": 100_000,
 }
 
+
+def measurement_plan(window_days: int = 90) -> str:
+    """Before/after metrics tracked for pilot stores vs matched controls."""
+    return (
+        "Before/after tracking in pilot stores vs matched controls over "
+        f"{window_days} days: NPS, CSAT, revisit intent, negative comment rate, "
+        "speed-of-service theme frequency, drink consistency complaint rate, "
+        "and repeat visit behavior. Reconcile weekly against POS transaction counts."
+    )
+
 THEME_KEYWORDS: dict[str, list[str]] = {
     "speed_of_service": [
         "line took", "took forever", "slow", "long line", "waited", "backed up",

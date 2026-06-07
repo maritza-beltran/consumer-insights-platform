@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -11,6 +12,9 @@ import plotly.graph_objects as go
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "src"))
+from config import measurement_plan
+
 PROCESSED = ROOT / "data" / "processed"
 TABLES = ROOT / "outputs" / "tables"
 
@@ -153,13 +157,6 @@ def _impact_assumptions(
         f"mean daily transactions {avg_txn:,.1f}; mean ticket ${avg_ticket:.2f}; "
         f"{window_days}-day improvement window; {visit_lift:.1%} expected repeat-visit lift. "
         f"Primary pain theme: {_label(top_theme)}. {recommended_action}"
-    )
-
-
-def _measurement_plan(window_days: int) -> str:
-    return (
-        "Track weekly NPS, CSAT, revisit intent, and repeat visit rate in pilot stores "
-        f"vs matched control stores over {window_days} days; reconcile against POS transaction counts."
     )
 
 
@@ -768,7 +765,7 @@ def page_opportunities(data: dict) -> None:
     )
 
     st.markdown("**Measurement Plan**")
-    st.write(_measurement_plan(int(window_days)))
+    st.write(measurement_plan(int(window_days)))
 
     with st.expander(f"Top {int(target_n)} pilot stores detail"):
         st.dataframe(
