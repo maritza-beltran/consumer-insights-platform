@@ -1,4 +1,3 @@
--- Store-level opportunity ranking with revenue context
 WITH store_metrics AS (
     SELECT
         s.store_id,
@@ -6,14 +5,14 @@ WITH store_metrics AS (
         s.region,
         s.store_type,
         COUNT(*) AS survey_count,
-        ROUND(AVG(g.nps_score), 2) AS avg_nps,
-        ROUND(AVG(g.csat_score), 2) AS avg_csat,
-        ROUND(100.0 * AVG(CASE WHEN g.nps_score <= 6 THEN 1.0 ELSE 0.0 END), 1) AS detractor_pct,
-        ROUND(100.0 * AVG(CASE WHEN g.comment_sentiment = 'negative' THEN 1.0 ELSE 0.0 END), 1) AS negative_sentiment_pct,
+        ROUND(AVG(g.nps), 2) AS avg_nps,
+        ROUND(AVG(g.csat), 2) AS avg_csat,
+        ROUND(100.0 * AVG(CASE WHEN g.nps <= 6 THEN 1.0 ELSE 0.0 END), 1) AS detractor_pct,
+        ROUND(100.0 * AVG(CASE WHEN g.sentiment_label = 'negative' THEN 1.0 ELSE 0.0 END), 1) AS negative_sentiment_pct,
         ROUND(
             100.0 * (
-                AVG(CASE WHEN g.nps_score >= 9 THEN 1.0 ELSE 0.0 END)
-                - AVG(CASE WHEN g.nps_score <= 6 THEN 1.0 ELSE 0.0 END)
+                AVG(CASE WHEN g.nps >= 9 THEN 1.0 ELSE 0.0 END)
+                - AVG(CASE WHEN g.nps <= 6 THEN 1.0 ELSE 0.0 END)
             ),
             1
         ) AS store_nps
@@ -23,9 +22,9 @@ WITH store_metrics AS (
 )
 SELECT
     m.*,
-    st.monthly_transactions,
-    st.avg_ticket_usd,
-    ROUND(st.monthly_transactions * st.avg_ticket_usd, 2) AS monthly_revenue_usd,
+    st.avg_daily_transactions,
+    st.avg_ticket,
+    ROUND(st.avg_daily_transactions * 30 * st.avg_ticket, 2) AS monthly_revenue_usd,
     ROUND(
         m.detractor_pct / 100.0 * 0.4
         + m.negative_sentiment_pct / 100.0 * 0.35

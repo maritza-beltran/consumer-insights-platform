@@ -1,18 +1,39 @@
 # consumer-insights-platform
 
-Analysis-first **Voice of Customer (VoC)** project for **Brew & Bloom Coffee Co.**, a multi-location coffee brand. Built for Brand & Guest Insights, Consumer Insights, and Strategy Analytics portfolios.
+Analysis-first **Voice of Customer (VoC)** project for **Brew & Bloom Coffee Co.**, a multi-location U.S. coffee brand. Built for Brand & Guest Insights, Consumer Insights, and Strategy Analytics portfolios.
 
-**All data is synthetic** (seed=42) and clearly labeled. No paid APIs or external data sources.
+**All data is synthetic** (seed=42), spanning **90 stores** and **12,000 surveys** over **Jan–Jun 2024**.
 
-## Business Questions
+## Analytical Questions
 
-- What are the most common Voice of Customer themes?
-- Which themes are most associated with low NPS and low revisit intent?
-- How do pain points differ by guest segment, channel, region, and store type?
-- Which stores should leadership prioritize?
-- What action has the clearest **$100K+** upside?
+1. What are the most common VoC themes?
+2. Which themes are most associated with low NPS, CSAT, and revisit intent?
+3. Which experience ratings best predict repeat visit intent?
+4. How do pain points differ by segment, channel, region, and store type?
+5. Which stores should leadership prioritize?
+6. Which action has the clearest **$100K+** business impact?
+
+## Raw Datasets (synthetic)
+
+| File | Description |
+|------|-------------|
+| `data/raw/stores.csv` | 90 store locations with transaction and digital mix |
+| `data/raw/guest_surveys.csv` | 12K surveys with NPS, CSAT, revisit intent, 8 experience ratings |
+| `data/raw/guest_comments.csv` | Open-ended VoC comments linked to surveys |
+| `data/raw/product_feedback.csv` | Product-level ratings across 13 menu items |
+| `data/raw/loyalty_behavior.csv` | Guest loyalty, promo, and churn-risk signals |
 
 ## Quick Start
+
+```bash
+make setup
+make data
+make validate
+make build
+make app
+```
+
+Or step-by-step:
 
 ```bash
 pip install -r requirements.txt
@@ -22,66 +43,21 @@ python src/build_outputs.py
 streamlit run app/streamlit_app.py
 ```
 
-Or use Makefile targets:
-
-```bash
-make setup    # install dependencies
-make data     # generate synthetic data
-make validate # run quality checks
-make build    # run full analytics pipeline
-make app      # launch Streamlit dashboard
-make test     # run pytest
-```
-
-## Project Structure
-
-```
-consumer-insights-platform/
-├── app/streamlit_app.py          # Interactive executive dashboard
-├── data/raw/                     # Synthetic source CSVs
-├── data/processed/               # Validated & classified parquet
-├── notebooks/                    # Research notebooks (01–05)
-├── outputs/tables/               # Analysis CSV/JSON exports
-├── outputs/charts/               # Static matplotlib charts
-├── reports/                      # Executive memo, methodology, codebook
-├── sql/                          # DuckDB-compatible metric queries
-├── src/                          # Pipeline scripts
-└── tests/                        # pytest suite
-```
-
 ## Pipeline
 
-| Step | Script | Output |
-|------|--------|--------|
-| 1 | `generate_data.py` | `data/raw/guest_surveys.csv`, `stores.csv` |
-| 2 | `validate_data.py` | `validation_report.json`, clean parquet |
-| 3 | `build_outputs.py` | Themes, drivers, segments, stores, impact sizing |
-| 4 | `streamlit_app.py` | Interactive exploration |
+```
+generate_data → validate_data → classify_voc_themes → analyze_themes
+  → driver_analysis → segment_analysis → opportunity_scoring → impact_model
+```
 
-`build_outputs.py` orchestrates: theme classification → theme analysis → driver modeling → segment analysis → store scoring → impact sizing → DuckDB SQL exports.
+## Key Outputs
+
+- `outputs/tables/theme_impact.csv` — theme volume and NPS gaps
+- `outputs/tables/revisit_intent_drivers.csv` — experience rating predictors (Q3)
+- `outputs/tables/store_opportunity_scores.csv` — prioritized stores
+- `outputs/tables/impact_sizing.json` — $100K+ opportunity sizing
+- `reports/executive_memo.md` — leadership recommendation
 
 ## Tech Stack
 
 pandas · numpy · scikit-learn · streamlit · plotly · duckdb · faker · matplotlib · pytest
-
-## Key Deliverables
-
-- **Executive memo:** `reports/executive_memo.md`
-- **Methodology:** `reports/methodology.md`
-- **VoC codebook:** `reports/voc_codebook.md`
-- **Impact sizing:** `outputs/tables/impact_sizing.json`
-- **Store priorities:** `outputs/tables/store_opportunity_scores.csv`
-
-## Notebooks
-
-| Notebook | Focus |
-|----------|-------|
-| `01_data_quality_review` | Validation metrics & distributions |
-| `02_voc_theme_analysis` | Theme prevalence and NPS gaps |
-| `03_satisfaction_driver_analysis` | Logistic driver model |
-| `04_segment_and_store_opportunities` | Segment & store prioritization |
-| `05_executive_recommendations` | Impact sizing & leadership actions |
-
-## License
-
-Portfolio / demonstration project. Synthetic data only.

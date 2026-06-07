@@ -1,24 +1,91 @@
-store_id,store_name,region,store_type,monthly_transactions,avg_ticket_usd,opened_year
-BB-001,North Judithbury Campus,Northeast,campus,17164,10.79,2019
-BB-002,East Jill Urban Flagship,Northeast,urban flagship,17763,6.97,2019
-BB-003,New Roberttown Drive-Thru Focused,Northeast,drive-thru focused,18300,10.43,2021
-BB-004,East Jessetown Airport,Northeast,airport,9793,8.75,2019
-BB-005,Lake Debra Suburban,Northeast,suburban,10555,9.72,2022
-BB-006,Robinsonshire Drive-Thru Focused,Southeast,drive-thru focused,15636,7.64,2019
-BB-007,Lisatown Urban Flagship,Southeast,urban flagship,15764,6.82,2022
-BB-008,Lake Roberto Drive-Thru Focused,Southeast,drive-thru focused,11874,10.29,2020
-BB-009,Ericmouth Campus,Southeast,campus,12963,11.35,2019
-BB-010,North Noahstad Drive-Thru Focused,Southeast,drive-thru focused,17490,7.47,2021
-BB-011,Cassandraton Suburban,Southeast,suburban,14534,6.72,2019
-BB-012,Herrerafurt Campus,Midwest,campus,17562,10.22,2018
-BB-013,New Kellystad Drive-Thru Focused,Midwest,drive-thru focused,13751,8.35,2018
-BB-014,Lake Chad Urban Flagship,Midwest,urban flagship,14573,7.45,2019
-BB-015,Port Keith Urban Flagship,Midwest,urban flagship,17610,7.63,2019
-BB-016,Port Jesseville Airport,Midwest,airport,17377,8.69,2017
-BB-017,Ramirezstad Campus,West,campus,17803,8.06,2021
-BB-018,West Michael Drive-Thru Focused,West,drive-thru focused,14093,8.44,2021
-BB-019,Jacquelineland Drive-Thru Focused,West,drive-thru focused,12036,9.91,2020
-BB-020,New Jessica Urban Flagship,West,urban flagship,19658,6.54,2017
-BB-021,South Noah Campus,West,campus,19016,9.82,2019
-BB-022,Lake Mark Campus,West,campus,11879,8.79,2021
-BB-023,East Lydiamouth Airport,West,airport,15962,7.2,2017
+store_id,store_name,market,region,store_type,franchise_corporate_flag,avg_daily_transactions,avg_ticket,digital_order_share,drive_thru_flag,open_date,data_source
+BB-001,Indianapolis Mall,Indianapolis,Midwest,mall,corporate,560,7.33,0.609,0,2020-09-01,synthetic
+BB-002,Charlotte Mall,Charlotte,South,mall,franchise,361,11.99,0.463,0,2017-10-01,synthetic
+BB-003,Dallas Drive Thru,Dallas,South,drive_thru,franchise,425,7.16,0.544,1,2016-07-01,synthetic
+BB-004,Indianapolis Airport,Indianapolis,Midwest,airport,corporate,506,11.8,0.522,1,2020-03-01,synthetic
+BB-005,New York Drive Thru,New York,Northeast,drive_thru,franchise,308,10.63,0.508,1,2017-11-01,synthetic
+BB-006,New York Campus,New York,Northeast,campus,franchise,517,7.53,0.389,0,2016-03-01,synthetic
+BB-007,Miami Campus,Miami,South,campus,corporate,559,8.55,0.546,0,2017-09-01,synthetic
+BB-008,Denver Campus,Denver,West,campus,franchise,464,7.92,0.183,0,2021-09-01,synthetic
+BB-009,Portland Drive Thru,Portland,West,drive_thru,corporate,731,9.37,0.43,1,2014-02-01,synthetic
+BB-010,Chicago Drive Thru,Chicago,Midwest,drive_thru,franchise,707,9.97,0.517,1,2019-07-01,synthetic
+BB-011,Miami Urban,Miami,South,urban,franchise,637,9.25,0.274,1,2016-05-01,synthetic
+BB-012,Phoenix Urban,Phoenix,West,urban,franchise,429,8.44,0.471,1,2015-07-01,synthetic
+BB-013,Charlotte Campus,Charlotte,South,campus,corporate,705,7.74,0.19,0,2014-01-01,synthetic
+BB-014,Portland Airport,Portland,West,airport,franchise,575,9.61,0.247,1,2018-08-01,synthetic
+BB-015,New York Urban,New York,Northeast,urban,corporate,523,8.83,0.219,1,2017-02-01,synthetic
+BB-016,Hartford Drive Thru,Hartford,Northeast,drive_thru,corporate,861,8.29,0.606,1,2016-09-01,synthetic
+BB-017,Philadelphia Airport,Philadelphia,Northeast,airport,franchise,567,7.34,0.577,1,2015-06-01,synthetic
+BB-018,Atlanta Airport,Atlanta,South,airport,franchise,475,7.79,0.557,1,2014-09-01,synthetic
+BB-019,Philadelphia Mall,Philadelphia,Northeast,mall,franchise,556,10.44,0.217,0,2020-05-01,synthetic
+BB-020,Seattle Suburban,Seattle,West,suburban,franchise,596,7.61,0.225,1,2015-07-01,synthetic
+BB-021,Seattle Suburban,Seattle,West,suburban,franchise,872,8.74,0.44,1,2016-01-01,synthetic
+BB-022,Indianapolis Drive Thru,Indianapolis,Midwest,drive_thru,corporate,588,7.26,0.394,1,2020-06-01,synthetic
+BB-023,Hartford Urban,Hartford,Northeast,urban,franchise,645,8.66,0.409,0,2021-05-01,synthetic
+BB-024,Boston Drive Thru,Boston,Northeast,drive_thru,corporate,808,7.59,0.424,1,2016-02-01,synthetic
+BB-025,Miami Urban,Miami,South,urban,corporate,459,11.1,0.227,0,2019-11-01,synthetic
+BB-026,Seattle Suburban,Seattle,West,suburban,franchise,303,8.88,0.545,1,2018-09-01,synthetic
+BB-027,Denver Suburban,Denver,West,suburban,franchise,889,9.68,0.293,1,2022-11-01,synthetic
+BB-028,Chicago Mall,Chicago,Midwest,mall,corporate,308,11.79,0.509,0,2021-10-01,synthetic
+BB-029,Indianapolis Urban,Indianapolis,Midwest,urban,corporate,612,10.51,0.344,1,2021-02-01,synthetic
+BB-030,Miami Drive Thru,Miami,South,drive_thru,corporate,447,8.15,0.234,1,2014-10-01,synthetic
+BB-031,Seattle Airport,Seattle,West,airport,franchise,394,11.7,0.266,1,2016-04-01,synthetic
+BB-032,Phoenix Suburban,Phoenix,West,suburban,franchise,901,7.61,0.186,1,2015-03-01,synthetic
+BB-033,Boston Urban,Boston,Northeast,urban,franchise,713,10.69,0.436,1,2017-03-01,synthetic
+BB-034,Phoenix Urban,Phoenix,West,urban,franchise,737,7.49,0.588,0,2014-05-01,synthetic
+BB-035,Denver Urban,Denver,West,urban,corporate,592,8.4,0.587,0,2018-01-01,synthetic
+BB-036,Miami Urban,Miami,South,urban,franchise,685,9.15,0.605,1,2015-07-01,synthetic
+BB-037,Indianapolis Airport,Indianapolis,Midwest,airport,franchise,794,11.19,0.188,1,2019-02-01,synthetic
+BB-038,Hartford Suburban,Hartford,Northeast,suburban,franchise,789,9.77,0.447,1,2022-10-01,synthetic
+BB-039,Portland Suburban,Portland,West,suburban,franchise,544,9.18,0.467,1,2022-10-01,synthetic
+BB-040,New York Mall,New York,Northeast,mall,corporate,438,11.37,0.226,1,2021-01-01,synthetic
+BB-041,Philadelphia Drive Thru,Philadelphia,Northeast,drive_thru,corporate,373,8.54,0.243,1,2022-11-01,synthetic
+BB-042,Atlanta Urban,Atlanta,South,urban,franchise,462,6.92,0.204,1,2015-02-01,synthetic
+BB-043,Seattle Drive Thru,Seattle,West,drive_thru,corporate,658,9.0,0.32,1,2022-06-01,synthetic
+BB-044,Charlotte Airport,Charlotte,South,airport,franchise,824,7.82,0.284,1,2016-03-01,synthetic
+BB-045,Miami Campus,Miami,South,campus,franchise,546,9.73,0.225,1,2014-10-01,synthetic
+BB-046,Chicago Drive Thru,Chicago,Midwest,drive_thru,franchise,871,11.52,0.577,1,2016-11-01,synthetic
+BB-047,Hartford Mall,Hartford,Northeast,mall,corporate,778,7.55,0.416,0,2016-06-01,synthetic
+BB-048,Phoenix Campus,Phoenix,West,campus,corporate,576,8.29,0.241,0,2017-06-01,synthetic
+BB-049,Minneapolis Mall,Minneapolis,Midwest,mall,franchise,428,8.63,0.347,0,2015-08-01,synthetic
+BB-050,Minneapolis Airport,Minneapolis,Midwest,airport,corporate,887,9.49,0.324,1,2018-06-01,synthetic
+BB-051,Phoenix Drive Thru,Phoenix,West,drive_thru,corporate,697,9.78,0.458,1,2014-04-01,synthetic
+BB-052,Detroit Urban,Detroit,Midwest,urban,corporate,409,7.54,0.45,0,2019-02-01,synthetic
+BB-053,Miami Mall,Miami,South,mall,franchise,334,12.17,0.532,0,2017-07-01,synthetic
+BB-054,Hartford Campus,Hartford,Northeast,campus,franchise,788,10.1,0.222,0,2018-07-01,synthetic
+BB-055,Chicago Urban,Chicago,Midwest,urban,franchise,641,9.73,0.516,0,2022-09-01,synthetic
+BB-056,Dallas Suburban,Dallas,South,suburban,corporate,663,7.47,0.232,1,2020-01-01,synthetic
+BB-057,Philadelphia Airport,Philadelphia,Northeast,airport,corporate,547,10.56,0.327,1,2020-10-01,synthetic
+BB-058,Phoenix Mall,Phoenix,West,mall,franchise,453,7.68,0.245,0,2014-11-01,synthetic
+BB-059,Dallas Airport,Dallas,South,airport,corporate,525,9.9,0.592,1,2017-09-01,synthetic
+BB-060,Dallas Urban,Dallas,South,urban,corporate,520,12.13,0.232,0,2016-10-01,synthetic
+BB-061,Portland Urban,Portland,West,urban,corporate,358,6.87,0.38,0,2020-10-01,synthetic
+BB-062,New York Campus,New York,Northeast,campus,franchise,573,11.94,0.524,0,2018-02-01,synthetic
+BB-063,Hartford Urban,Hartford,Northeast,urban,corporate,842,7.4,0.62,1,2014-08-01,synthetic
+BB-064,Detroit Mall,Detroit,Midwest,mall,franchise,337,8.15,0.243,0,2021-09-01,synthetic
+BB-065,Seattle Urban,Seattle,West,urban,franchise,862,6.83,0.203,0,2021-07-01,synthetic
+BB-066,Phoenix Campus,Phoenix,West,campus,franchise,432,11.29,0.588,0,2015-09-01,synthetic
+BB-067,Portland Airport,Portland,West,airport,franchise,816,7.93,0.235,1,2020-06-01,synthetic
+BB-068,Miami Mall,Miami,South,mall,franchise,683,10.91,0.265,0,2014-03-01,synthetic
+BB-069,Detroit Mall,Detroit,Midwest,mall,franchise,907,10.25,0.199,0,2015-10-01,synthetic
+BB-070,Philadelphia Drive Thru,Philadelphia,Northeast,drive_thru,franchise,390,7.83,0.611,1,2019-06-01,synthetic
+BB-071,Charlotte Suburban,Charlotte,South,suburban,franchise,687,7.61,0.596,1,2018-04-01,synthetic
+BB-072,Philadelphia Mall,Philadelphia,Northeast,mall,corporate,727,7.63,0.404,0,2020-05-01,synthetic
+BB-073,Denver Urban,Denver,West,urban,franchise,356,8.51,0.368,1,2021-07-01,synthetic
+BB-074,Philadelphia Campus,Philadelphia,Northeast,campus,franchise,543,10.09,0.319,0,2022-01-01,synthetic
+BB-075,New York Drive Thru,New York,Northeast,drive_thru,franchise,583,10.01,0.429,1,2019-08-01,synthetic
+BB-076,Miami Mall,Miami,South,mall,corporate,697,9.88,0.37,1,2018-07-01,synthetic
+BB-077,Dallas Campus,Dallas,South,campus,corporate,608,11.96,0.402,0,2020-06-01,synthetic
+BB-078,Hartford Suburban,Hartford,Northeast,suburban,corporate,481,9.57,0.231,1,2014-01-01,synthetic
+BB-079,Phoenix Airport,Phoenix,West,airport,franchise,315,8.67,0.256,1,2020-04-01,synthetic
+BB-080,Detroit Campus,Detroit,Midwest,campus,corporate,289,8.88,0.248,0,2016-07-01,synthetic
+BB-081,Atlanta Mall,Atlanta,South,mall,corporate,513,11.12,0.317,0,2020-08-01,synthetic
+BB-082,Detroit Airport,Detroit,Midwest,airport,corporate,528,6.86,0.272,1,2020-06-01,synthetic
+BB-083,Boston Airport,Boston,Northeast,airport,corporate,386,12.34,0.425,1,2015-10-01,synthetic
+BB-084,Phoenix Mall,Phoenix,West,mall,franchise,370,7.25,0.512,0,2014-05-01,synthetic
+BB-085,New York Campus,New York,Northeast,campus,corporate,376,7.05,0.282,1,2015-04-01,synthetic
+BB-086,Minneapolis Campus,Minneapolis,Midwest,campus,franchise,655,8.16,0.551,0,2021-08-01,synthetic
+BB-087,Miami Drive Thru,Miami,South,drive_thru,corporate,708,7.13,0.341,1,2020-06-01,synthetic
+BB-088,Denver Campus,Denver,West,campus,corporate,820,11.57,0.402,0,2017-11-01,synthetic
+BB-089,Philadelphia Urban,Philadelphia,Northeast,urban,franchise,824,9.78,0.226,1,2014-05-01,synthetic
+BB-090,Phoenix Mall,Phoenix,West,mall,franchise,683,7.87,0.191,1,2019-11-01,synthetic

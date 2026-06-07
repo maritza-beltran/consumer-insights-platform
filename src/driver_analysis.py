@@ -1,113 +1,106 @@
-"""Model satisfaction drivers using logistic regression on promoter/detractor outcomes."""
+"""Model NPS promoters and revisit intent drivers."""
 
 from __future__ import annotations
 
-from pathlib import Path
+import json
 
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-ROOT = Path(__file__).resolve().parent.parent
-PROCESSED_DIR = ROOT / "data" / "processed"
-OUTPUT_TABLES = ROOT / "outputs" / "tables"
-OUTPUT_CHARTS = ROOT / "outputs" / "charts"
-RANDOM_SEED = 42
+from config import EXPERIENCE_COLS, OUTPUT_CHARTS, OUTPUT_TABLES, PROCESSED_DIR, RANDOM_SEED, THEME_KEYWORDS
 
-THEME_COLUMNS = [
-    "speed_of_service",
-    "product_quality",
-    "cleanliness",
-    "staff_friendliness",
-    "value_for_money",
-    "ambiance",
-    "mobile_app",
-    "loyalty_program",
-    "menu_variety",
-    "wait_time",
-    "general_experience",
-]
+THEME_COLUMNS = list(THEME_KEYWORDS.keys()) + ["general_experience"]
 
 
-def _build_feature_matrix(df: pd.DataFrame) -> pd.DataFrame:
+def _theme_matrix(df: pd.DataFrame) -> pd.DataFrame:
     exploded = df.explode("themes")[["survey_id", "themes"]].drop_duplicates()
-    theme_dummies = (
+    dummies = (
         exploded.assign(present=1)
         .pivot_table(index="survey_id", columns="themes", values="present", fill_value=0, aggfunc="max")
         .reindex(columns=THEME_COLUMNS, fill_value=0)
+        .clip(upper=1)
     )
-    theme_dummies = theme_dummies.clip(upper=1)
-
-    features = df.set_index("survey_id")[
-        ["channel", "segment", "store_type", "region"]
-    ].join(theme_dummies)
-    return features.reset_index()
+    context = df.set_index("survey_id")[["visit_channel", "guest_segment", "store_type", "region"]]
+    return context.join(dummies).reset_index()
 
 
-def train_driver_model(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
-    features = _build_feature_matrix(df)
-    target = (df.set_index("survey_id")["nps_score"] >= 9).astype(int)
-    target = target.reindex(features["survey_id"]).reset_index(drop=True)
-
+def train_nps_driver_model(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+    features = _theme_matrix(df)
+    target = (df.set_index("survey_id")["nps"] >= 9).astype(int).reindex(features["survey_id"]).reset_index(drop=True)
     x = features.drop(columns=["survey_id"])
-    y = target
-
-    categorical = ["channel", "segment", "store_type", "region"]
+    categorical = ["visit_channel", "guest_segment", "store_type", "region"]
     numeric = [c for c in x.columns if c not in categorical]
-
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ("cat", OneHotEncoder(handle_unknown="ignore"), categorical),
-            ("num", StandardScaler(), numeric),
-        ]
-    )
 
     model = Pipeline(
         steps=[
-            ("prep", preprocessor),
-            (
-                "clf",
-                LogisticRegression(max_iter=1000, random_state=RANDOM_SEED, class_weight="balanced"),
-            ),
+            ("prep", ColumnTransformer([
+                ("cat", OneHotEncoder(handle_unknown="ignore"), categorical),
+                ("num", StandardScaler(), numeric),
+            ])),
+            ("clf", LogisticRegression(max_iter=1000, random_state=RANDOM_SEED, class_weight="balanced")),
         ]
     )
-
-    x_train, x_test, y_train, y_test = train_test_split(
-        x, y, test_size=0.25, random_state=RANDOM_SEED, stratify=y
-    )
+    x_train, x_test, y_train, y_test = train_test_split(x, target, test_size=0.25, random_state=RANDOM_SEED, stratify=target)
     model.fit(x_train, y_train)
-    accuracy = model.score(x_test, y_test)
-
-    feature_names = model.named_steps["prep"].get_feature_names_out()
-    coefficients = model.named_steps["clf"].coef_[0]
-    driver_df = pd.DataFrame({"feature": feature_names, "coefficient": coefficients})
-    driver_df["abs_coefficient"] = driver_df["coefficient"].abs()
-    driver_df = driver_df.sort_values("abs_coefficient", ascending=False)
-
-    theme_drivers = driver_df[driver_df["feature"].str.startswith("num__")].copy()
+    names = model.named_steps["prep"].get_feature_names_out()
+    coefs = model.named_steps["clf"].coef_[0]
+    drivers = pd.DataFrame({"feature": names, "coefficient": coefs})
+    drivers["abs_coefficient"] = drivers["coefficient"].abs()
+    theme_drivers = drivers[drivers["feature"].str.startswith("num__")].copy()
     theme_drivers["theme"] = theme_drivers["feature"].str.replace("num__", "", regex=False)
-
-    metrics = {"test_accuracy": round(float(accuracy), 4), "n_train": len(x_train), "n_test": len(x_test)}
+    theme_drivers = theme_drivers.sort_values("abs_coefficient", ascending=False)
+    metrics = {"model": "nps_promoter", "test_accuracy": round(float(model.score(x_test, y_test)), 4)}
     return theme_drivers, metrics
 
 
-def save_driver_chart(drivers: pd.DataFrame) -> None:
-    OUTPUT_CHARTS.mkdir(parents=True, exist_ok=True)
-    top = drivers.head(10).sort_values("coefficient")
+def train_revisit_driver_model(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+    x = df[EXPERIENCE_COLS + ["visit_channel", "guest_segment"]].copy()
+    y = df["revisit_intent"].astype(float)
+    categorical = ["visit_channel", "guest_segment"]
+    model = Pipeline(
+        steps=[
+            ("prep", ColumnTransformer([
+                ("cat", OneHotEncoder(handle_unknown="ignore"), categorical),
+                ("num", StandardScaler(), EXPERIENCE_COLS),
+            ])),
+            ("reg", LinearRegression()),
+        ]
+    )
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=RANDOM_SEED)
+    model.fit(x_train, y_train)
+    names = model.named_steps["prep"].get_feature_names_out()
+    coefs = model.named_steps["reg"].coef_
+    drivers = pd.DataFrame({"feature": names, "coefficient": coefs})
+    rating_drivers = drivers[drivers["feature"].str.startswith("num__")].copy()
+    rating_drivers["rating"] = rating_drivers["feature"].str.replace("num__", "", regex=False)
+    rating_drivers = rating_drivers.sort_values("coefficient", ascending=False)
+    r2 = float(model.score(x_test, y_test))
+    metrics = {"model": "revisit_intent", "test_r2": round(r2, 4)}
+    return rating_drivers, metrics
 
+
+def save_charts(theme_drivers: pd.DataFrame, revisit_drivers: pd.DataFrame) -> None:
+    OUTPUT_CHARTS.mkdir(parents=True, exist_ok=True)
+    top = theme_drivers.head(10).sort_values("coefficient")
     fig, ax = plt.subplots(figsize=(10, 6))
-    colors = ["#27AE60" if c > 0 else "#C0392B" for c in top["coefficient"]]
-    ax.barh(top["theme"], top["coefficient"], color=colors)
+    ax.barh(top["theme"], top["coefficient"], color=["#27AE60" if c > 0 else "#C0392B" for c in top["coefficient"]])
     ax.axvline(0, color="black", linewidth=0.8)
     ax.set_title("NPS Promoter Driver Model — Theme Coefficients")
-    ax.set_xlabel("Logistic regression coefficient")
     fig.tight_layout()
     fig.savefig(OUTPUT_CHARTS / "satisfaction_drivers.png", dpi=120)
+    plt.close(fig)
+
+    top_r = revisit_drivers.sort_values("coefficient")
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.barh(top_r["rating"], top_r["coefficient"], color="#6F4E37")
+    ax.set_title("Revisit Intent Driver Model — Experience Rating Coefficients")
+    fig.tight_layout()
+    fig.savefig(OUTPUT_CHARTS / "revisit_intent_drivers.png", dpi=120)
     plt.close(fig)
 
 
@@ -115,17 +108,17 @@ def main() -> None:
     OUTPUT_TABLES.mkdir(parents=True, exist_ok=True)
     df = pd.read_parquet(PROCESSED_DIR / "guest_surveys_classified.parquet")
 
-    drivers, metrics = train_driver_model(df)
-    drivers.to_csv(OUTPUT_TABLES / "satisfaction_drivers.csv", index=False)
+    theme_drivers, nps_metrics = train_nps_driver_model(df)
+    revisit_drivers, revisit_metrics = train_revisit_driver_model(df)
 
-    metrics_path = OUTPUT_TABLES / "driver_model_metrics.json"
-    import json
+    theme_drivers.to_csv(OUTPUT_TABLES / "satisfaction_drivers.csv", index=False)
+    revisit_drivers.to_csv(OUTPUT_TABLES / "revisit_intent_drivers.csv", index=False)
+    (OUTPUT_TABLES / "driver_model_metrics.json").write_text(json.dumps([nps_metrics, revisit_metrics], indent=2))
+    save_charts(theme_drivers, revisit_drivers)
 
-    metrics_path.write_text(json.dumps(metrics, indent=2))
-    save_driver_chart(drivers)
-
-    print(f"Driver model accuracy: {metrics['test_accuracy']}")
-    print(f"Top negative driver: {drivers.iloc[0]['theme']}")
+    print(f"NPS promoter model accuracy: {nps_metrics['test_accuracy']}")
+    print(f"Revisit intent model R²: {revisit_metrics['test_r2']}")
+    print(f"Top revisit driver: {revisit_drivers.iloc[0]['rating']}")
 
 
 if __name__ == "__main__":

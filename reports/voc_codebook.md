@@ -1,59 +1,35 @@
 # VoC Codebook — Brew & Bloom Coffee Co.
 
-**Data type:** Synthetic (clearly labeled `data_source = synthetic`)  
-**Brand:** Brew & Bloom Coffee Co.  
-**Random seed:** 42
+**Data type:** Synthetic (`data_source = synthetic`) | **Seed:** 42 | **Period:** Jan–Jun 2024
 
-## Files
+## Datasets
 
-| File | Description |
-|------|-------------|
-| `data/raw/stores.csv` | Store master with region, type, and revenue proxies |
-| `data/raw/guest_surveys.csv` | Guest survey responses with open-ended comments |
-| `data/processed/guest_surveys_classified.parquet` | Surveys with VoC theme tags |
+| File | Rows (approx) | Grain |
+|------|---------------|-------|
+| `stores.csv` | 90 | Store |
+| `guest_surveys.csv` | 12,000 | Survey response |
+| `guest_comments.csv` | ~11,500 | Comment (linked to survey) |
+| `product_feedback.csv` | ~8,000 | Product trial per survey |
+| `loyalty_behavior.csv` | 12,000 | Guest |
 
-## Survey Fields
+## Guest Segments
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `survey_id` | string | Unique survey identifier |
-| `guest_id` | string | Anonymized guest identifier |
-| `survey_date` | date | Survey response date |
-| `store_id` | string | FK to stores |
-| `region` | string | Northeast, Southeast, Midwest, West |
-| `store_type` | string | urban flagship, suburban, airport, campus, drive-thru focused |
-| `channel` | string | in-store, drive-thru, mobile order |
-| `segment` | string | loyalist, occasional, new_guest, at_risk |
-| `nps_score` | int | 0–10 Net Promoter Score item |
-| `csat_score` | int | 1–5 overall satisfaction |
-| `revisit_intent` | int | 1–5 likelihood to revisit |
-| `comment_text` | string | Open-ended guest feedback |
-| `data_source` | string | Always `synthetic` |
+`loyalty_regular` · `occasional_guest` · `mobile_first_guest` · `price_sensitive_guest` · `seasonal_product_explorer` · `at_risk_guest`
+
+## Visit Channels
+
+`in_store` · `drive_thru` · `mobile_order` · `delivery`
+
+## Experience Ratings (1–5)
+
+`wait_time_rating` · `drink_quality_rating` · `order_accuracy_rating` · `staff_friendliness_rating` · `cleanliness_rating` · `mobile_app_experience_rating` · `rewards_satisfaction` · `price_value_perception`
 
 ## VoC Theme Taxonomy
 
-| Theme | Definition | Example cues |
-|-------|------------|--------------|
-| `speed_of_service` | Throughput and line speed | slow, line, rush |
-| `product_quality` | Beverage and food quality | burnt, stale, taste |
-| `cleanliness` | Store hygiene | restroom, messy, sticky |
-| `staff_friendliness` | Service warmth | barista, greet, friendly |
-| `value_for_money` | Price perception | price, deal, expensive |
-| `ambiance` | In-store environment | music, seating, lighting |
-| `mobile_app` | Digital ordering UX | app, crashed, pickup |
-| `loyalty_program` | Rewards program | points, tier, redeem |
-| `menu_variety` | Menu breadth | dairy-free, seasonal, options |
-| `wait_time` | Order fulfillment delay | minutes, staffing, handoff |
-| `general_experience` | No specific theme matched | neutral comments |
+`wait_time` · `drink_quality` · `order_accuracy` · `staff_friendliness` · `cleanliness` · `mobile_app` · `rewards_program` · `price_value` · `seasonal_menu` · `food_quality` · `general_experience`
 
-## Sentiment Labels
+## Score Ranges
 
-- **positive:** net positive language cues in comment
-- **negative:** net negative language cues in comment
-- **neutral:** balanced or ambiguous language
-
-## NPS Categories
-
-- **promoter:** score 9–10
-- **passive:** score 7–8
-- **detractor:** score 0–6
+- **nps:** 0–10
+- **csat / revisit_intent / experience ratings:** 1–5
+- **sentiment_label:** positive · neutral · negative
