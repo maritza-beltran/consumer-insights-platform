@@ -43,6 +43,13 @@ REQUIRED_FILES = [
     TABLES / "store_opportunity_ranking.csv",
 ]
 
+IMPACT_DEFAULTS = {
+    "target_store_count": 30,
+    "improvement_window_days": 90,
+    "expected_repeat_visit_lift": 0.02,
+    "min_incremental_revenue_usd": 100_000,
+}
+
 
 def _label(text: str) -> str:
     return text.replace("_", " ").title()
@@ -116,6 +123,44 @@ DRIVER_LABELS = {
 
 def _driver_label(driver: str) -> str:
     return DRIVER_LABELS.get(driver, _label(driver))
+
+
+def _calc_incremental_revenue(
+    store_scores: pd.DataFrame,
+    target_n: int,
+    window_days: int,
+    visit_lift: float,
+) -> tuple[float, float, float]:
+    """Revenue = N × mean(daily txn) × mean(ticket) × days × lift for top-N stores."""
+    targets = store_scores.head(target_n)
+    avg_txn = float(targets["avg_daily_transactions"].mean())
+    avg_ticket = float(targets["avg_ticket"].mean())
+    revenue = target_n * avg_txn * avg_ticket * window_days * visit_lift
+    return revenue, avg_txn, avg_ticket
+
+
+def _impact_assumptions(
+    target_n: int,
+    avg_txn: float,
+    avg_ticket: float,
+    window_days: int,
+    visit_lift: float,
+    top_theme: str,
+    recommended_action: str,
+) -> str:
+    return (
+        f"Top {target_n} stores from store_opportunity_ranking.csv; "
+        f"mean daily transactions {avg_txn:,.1f}; mean ticket ${avg_ticket:.2f}; "
+        f"{window_days}-day improvement window; {visit_lift:.1%} expected repeat-visit lift. "
+        f"Primary pain theme: {_label(top_theme)}. {recommended_action}"
+    )
+
+
+def _measurement_plan(window_days: int) -> str:
+    return (
+        "Track weekly NPS, CSAT, revisit intent, and repeat visit rate in pilot stores "
+        f"vs matched control stores over {window_days} days; reconcile against POS transaction counts."
+    )
 
 
 def _comment_count(surveys: pd.DataFrame, theme_summary: pd.DataFrame) -> int:
@@ -610,87 +655,138 @@ def page_opportunities(data: dict) -> None:
     st.header("Opportunities and Recommendations")
 
     store_scores = data.get("store_scores", pd.DataFrame())
-    product_insights = data.get("product_insights", pd.DataFrame())
-    impact_summary = data.get("impact_summary", pd.DataFrame())
+    if store_scores.empty:
+        st.warning("store_opportunity_ranking.csv not found — run the build pipeline.")
+        return
 
-    if not store_scores.empty:
-        st.subheader("Store Opportunity Ranking")
-        fig = px.scatter(
-            store_scores,
-            x="nps",
-            y="opportunity_score",
-            size="avg_daily_transactions",
-            color="region",
-            hover_name="store_name",
-            hover_data=["top_negative_theme", "recommended_action"],
-            title="Store NPS vs Opportunity Score",
-            labels={"nps": "Store NPS", "opportunity_score": "Opportunity Score"},
+    max_stores = len(store_scores)
+    default_n = min(IMPACT_DEFAULTS["target_store_count"], max_stores)
+
+    st.subheader("Store Opportunity Ranking")
+    ranked = store_scores.copy()
+    ranked.insert(0, "rank", range(1, len(ranked) + 1))
+    ranked["top_negative_theme"] = ranked["top_negative_theme"].map(_label)
+
+    fig_rank = px.bar(
+        ranked.head(15).sort_values("opportunity_score"),
+        x="opportunity_score",
+        y="store_name",
+        color="top_negative_theme",
+        orientation="h",
+        title="Top Stores by Opportunity Score",
+        labels={"top_negative_theme": "Top Negative Theme"},
+    )
+    st.plotly_chart(fig_rank, use_container_width=True)
+
+    st.dataframe(
+        ranked[
+            [
+                "rank",
+                "store_name",
+                "region",
+                "store_type",
+                "nps",
+                "opportunity_score",
+                "top_negative_theme",
+                "estimated_90_day_upside",
+                "recommended_action",
+            ]
+        ],
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "estimated_90_day_upside": st.column_config.NumberColumn(
+                "Est. 90-Day Upside ($)",
+                format="$%.0f",
+            ),
+            "opportunity_score": st.column_config.NumberColumn(format="%.4f"),
+        },
+    )
+
+    st.subheader("Business Impact Calculator")
+    st.caption(
+        "Incremental revenue = target stores × avg daily transactions × avg ticket "
+        "× improvement window days × expected repeat-visit lift (top-N stores from ranking)."
+    )
+
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        target_n = st.number_input(
+            "Number of target stores",
+            min_value=1,
+            max_value=max_stores,
+            value=default_n,
+            step=1,
+            key="calc_target_stores",
         )
-        st.plotly_chart(fig, use_container_width=True)
-
-        top_stores = store_scores.head(15).copy()
-        top_stores["theme_label"] = top_stores["top_negative_theme"].map(_label)
-        fig2 = px.bar(
-            top_stores.sort_values("opportunity_score"),
-            x="opportunity_score",
-            y="store_name",
-            color="theme_label",
-            orientation="h",
-            title="Top 15 Priority Stores",
+    with c2:
+        window_days = st.number_input(
+            "Improvement window (days)",
+            min_value=30,
+            max_value=365,
+            value=IMPACT_DEFAULTS["improvement_window_days"],
+            step=15,
+            key="calc_window_days",
         )
-        st.plotly_chart(fig2, use_container_width=True)
+    with c3:
+        visit_lift_pct = st.number_input(
+            "Expected repeat-visit lift (%)",
+            min_value=0.5,
+            max_value=10.0,
+            value=IMPACT_DEFAULTS["expected_repeat_visit_lift"] * 100,
+            step=0.5,
+            key="calc_visit_lift",
+        )
+    visit_lift = visit_lift_pct / 100
 
+    revenue, avg_txn, avg_ticket = _calc_incremental_revenue(
+        store_scores, int(target_n), int(window_days), visit_lift
+    )
+    pilot = store_scores.head(int(target_n))
+    top_theme = pilot["top_negative_theme"].mode().iloc[0] if len(pilot) else "general_experience"
+    pilot_action = pilot.iloc[0]["recommended_action"] if len(pilot) else ""
+
+    m1, m2, m3 = st.columns(3)
+    m1.metric("Total Estimated Incremental Revenue", f"${revenue:,.0f}")
+    m2.metric("Pilot Avg Daily Transactions", f"{avg_txn:,.1f}")
+    m3.metric("Pilot Avg Ticket", f"${avg_ticket:.2f}")
+
+    if revenue >= IMPACT_DEFAULTS["min_incremental_revenue_usd"]:
+        st.success(f"Exceeds ${IMPACT_DEFAULTS['min_incremental_revenue_usd']:,} threshold.")
+
+    st.markdown("**Assumptions**")
+    st.write(
+        _impact_assumptions(
+            int(target_n),
+            avg_txn,
+            avg_ticket,
+            int(window_days),
+            visit_lift,
+            top_theme,
+            pilot_action,
+        )
+    )
+
+    st.markdown("**Measurement Plan**")
+    st.write(_measurement_plan(int(window_days)))
+
+    with st.expander(f"Top {int(target_n)} pilot stores detail"):
         st.dataframe(
-            store_scores[
+            pilot[
                 [
                     "store_name",
                     "region",
-                    "store_type",
+                    "avg_daily_transactions",
+                    "avg_ticket",
                     "nps",
-                    "csat",
-                    "opportunity_score",
                     "top_negative_theme",
                     "recommended_action",
                     "estimated_90_day_upside",
                 ]
-            ].head(20),
+            ].assign(top_negative_theme=pilot["top_negative_theme"].map(_label)),
             use_container_width=True,
             hide_index=True,
         )
-
-    if not product_insights.empty:
-        st.subheader("Product Insights")
-        fig3 = px.scatter(
-            product_insights,
-            x="avg_product_rating",
-            y="trial_rate",
-            size="avg_repeat_purchase_intent",
-            color="product_category",
-            hover_name="product_name",
-            title="Product Rating vs Trial Rate",
-        )
-        st.plotly_chart(fig3, use_container_width=True)
-        st.dataframe(
-            product_insights[
-                [
-                    "product_name",
-                    "product_category",
-                    "trial_rate",
-                    "avg_product_rating",
-                    "price_value_complaint_rate",
-                    "sweetness_complaint_rate",
-                    "recommendation",
-                ]
-            ],
-            use_container_width=True,
-            hide_index=True,
-        )
-
-    if not impact_summary.empty:
-        st.subheader("Impact Sizing & Measurement")
-        row = impact_summary.iloc[0]
-        st.markdown(f"**Initiative:** {row['initiative']}")
-        st.write(row["measurement_plan"])
 
 
 def main() -> None:
