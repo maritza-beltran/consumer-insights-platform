@@ -2,17 +2,17 @@
   "brand": "Brew & Bloom Coffee Co.",
   "data_type": "synthetic",
   "random_seed": 42,
-  "generated_at": "2026-06-07T20:05:21.067000Z",
+  "generated_at": "2026-06-07T20:53:22.574946Z",
   "date_range": {
     "start": "2024-01-01",
     "end": "2024-06-30"
   },
   "record_counts": {
-    "stores.csv": 90,
-    "guest_surveys.csv": 12000,
-    "guest_comments.csv": 11501,
-    "product_feedback.csv": 7661,
-    "loyalty_behavior.csv": 12000
+    "stores": 90,
+    "guest_surveys": 12000,
+    "guest_comments": 11501,
+    "product_feedback": 7661,
+    "loyalty_behavior": 12000
   },
   "voc_themes": [
     "speed_of_service",

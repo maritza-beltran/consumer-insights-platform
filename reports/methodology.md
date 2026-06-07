@@ -93,6 +93,20 @@ Implemented in `src/classify_voc_themes.py` using keyword dictionaries in `confi
 
 Classified surveys are saved to `data/processed/guest_surveys_classified.parquet` and aggregated in `analyze_themes.py` to produce `theme_summary.csv`, `theme_impact.csv`, and `detractor_theme_analysis.csv`.
 
+### Theme priority ranking (`impact_rank`)
+
+Intervention priority is **not** comment volume alone. `theme_priority_score()` in `src/metrics.py` blends:
+
+| Signal | Weight |
+|--------|--------|
+| Comment frequency (`share_of_comments`) | 15% |
+| Negative sentiment (`negative_share`) | 25% |
+| NPS drag below brand | 25% |
+| CSAT drag below brand | 15% |
+| Revisit-intent drag below brand | 20% |
+
+`impact_rank` in `theme_impact.csv` sorts themes by this composite score (1 = highest priority).
+
 ---
 
 ## 5. Driver Model Approach

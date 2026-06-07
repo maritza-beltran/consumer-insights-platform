@@ -232,6 +232,31 @@ Copy-ready bullets for analytics and insights roles:
 
 ---
 
+## Acceptance Checklist
+
+Verified end-to-end with `make data`, `make validate`, `make build`, `make test`, and `make app`:
+
+| # | Criterion | Status |
+|---|-----------|--------|
+| 1 | Repo structure (`src/`, `app/`, `data/`, `outputs/`, `sql/`, `reports/`, `tests/`, `notebooks/`) | Pass |
+| 2 | `requirements.txt` | Pass |
+| 3 | Synthetic raw datasets generated (5 CSVs + dictionary) | Pass |
+| 4 | `validation_summary.csv` produced (32 checks) | Pass |
+| 5 | VoC themes classified → `guest_surveys_classified.parquet` | Pass |
+| 6 | Processed parquet datasets in `data/processed/` | Pass |
+| 7 | Required analytical CSVs in `outputs/tables/` | Pass |
+| 8 | DuckDB SQL queries in `sql/` (+ `_duckdb.csv` exports) | Pass |
+| 9 | Streamlit app loads all required files | Pass |
+| 10 | Dashboard: Executive Readout, VoC Deep Dive, Drivers & Segments, Opportunities | Pass |
+| 11 | `executive_memo.md` — data-backed findings (not placeholders) | Pass |
+| 12 | `methodology.md` | Pass |
+| 13 | Portfolio-ready README | Pass |
+| 14 | Default impact case **>$100K** (~$393K at 30 stores / 90 days / 2% lift) | Pass |
+| 15 | Results match embedded patterns (speed theme volume, drink-quality driver, mall opportunities) | Pass |
+| 16 | No placeholder TODOs in codebase | Pass |
+
+---
+
 ## Further Reading
 
 - `reports/executive_memo.md` — business question, key insights, recommended actions, impact sizing
