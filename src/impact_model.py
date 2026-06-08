@@ -181,6 +181,9 @@ def main() -> None:
     summary = build_impact_summary(store_ranking, theme_impact)
     summary.to_csv(OUTPUT_TABLES / "impact_summary.csv", index=False)
 
+    sensitivity = build_impact_sensitivity(store_ranking)
+    sensitivity.to_csv(OUTPUT_TABLES / "impact_sensitivity.csv", index=False)
+
     impact = estimate_theme_impact(theme_impact, stores, surveys)
     (OUTPUT_TABLES / "impact_sizing.json").write_text(json.dumps(impact, indent=2))
     (OUTPUT_TABLES / "executive_recommendation_snippet.md").write_text(build_executive_recommendation(impact))

@@ -1,8 +1,8 @@
 {
-  "brand_nps_baseline": -44.8,
+  "brand_nps_baseline": -7.0,
   "recommended_focus_theme": "speed_of_service",
   "target_store_count": 30,
-  "estimated_incremental_revenue_usd": 393033.77,
+  "estimated_incremental_revenue_usd": 400209.41,
   "meets_100k_threshold": true,
-  "net_annual_impact_usd": 393033.77
+  "net_annual_impact_usd": 400209.41
 }

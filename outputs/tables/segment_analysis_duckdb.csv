@@ -1,7 +1,7 @@
 guest_segment,survey_count,segment_nps,segment_csat,segment_revisit_intent,top_theme
-at_risk_guest,1773,-99.7,1.89,1.18,speed_of_service
-price_sensitive_guest,1642,-88.4,2.78,2.02,mobile_app_issues
-occasional_guest,2657,-61.6,3.42,2.67,speed_of_service
-mobile_first_guest,1639,-49.7,3.49,2.5,mobile_app_issues
-seasonal_product_explorer,1420,-18.7,3.85,3.18,seasonal_menu_interest
-loyalty_regular,2869,19.7,4.38,3.69,rewards_value
+at_risk_guest,1773,-83.1,2.84,2.04,speed_of_service
+price_sensitive_guest,1642,-40.2,3.49,2.84,mobile_app_issues
+occasional_guest,2657,-13.6,3.86,3.18,speed_of_service
+mobile_first_guest,1639,-1.4,3.91,3.1,mobile_app_issues
+seasonal_product_explorer,1420,19.4,4.25,3.58,seasonal_menu_interest
+loyalty_regular,2869,48.7,4.57,3.87,rewards_value

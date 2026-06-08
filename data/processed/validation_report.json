@@ -1,9 +1,9 @@
 {
-  "validated_at": "2026-06-07T23:30:26.423520Z",
+  "validated_at": "2026-06-08T00:03:31.764054Z",
   "status": "pass",
   "fail_checks": 0,
   "warn_checks": 3,
-  "flagged_record_count": 58,
+  "flagged_record_count": 45,
   "record_counts": {
     "stores": 90,
     "guest_surveys": 12000,
@@ -12,9 +12,9 @@
     "loyalty_behavior": 12000
   },
   "quality_metrics": {
-    "brand_nps": -44.8,
-    "avg_csat": 3.4,
-    "avg_revisit_intent": 2.64,
+    "brand_nps": -7.0,
+    "avg_csat": 3.88,
+    "avg_revisit_intent": 3.17,
     "comment_linkage_rate": 0.9584
   }
 }

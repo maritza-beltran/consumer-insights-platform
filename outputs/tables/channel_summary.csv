@@ -1,5 +1,5 @@
 visit_channel,survey_count,avg_nps,avg_csat,avg_revisit,detractor_rate
-delivery,1093,6.118,3.4511,2.7063,0.5124
-drive_thru,3458,5.6001,3.4965,2.7516,0.6478
-in_store,3924,6.0584,3.3677,2.6335,0.5423
-mobile_order,3525,6.0854,3.3152,2.5248,0.5365
+delivery,1093,7.355,3.9058,3.1976,0.2964
+drive_thru,3458,7.0162,3.9746,3.2655,0.3748
+in_store,3924,7.3331,3.8609,3.1498,0.3094
+mobile_order,3525,7.3265,3.8051,3.0766,0.2993

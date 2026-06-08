@@ -1,0 +1,10 @@
+scenario,target_store_count,improvement_window_days,expected_repeat_visit_lift,avg_daily_transactions,avg_ticket,estimated_incremental_revenue,meets_100k_threshold
+10 stores / 1% lift,10,90,0.01,887.7,8.45,67469.64,False
+10 stores / 2% lift,10,90,0.02,887.7,8.45,134939.28,True
+10 stores / 3% lift,10,90,0.03,887.7,8.45,202408.92,True
+20 stores / 1% lift,20,90,0.01,837.4,9.33,140670.64,True
+20 stores / 2% lift,20,90,0.02,837.4,9.33,281341.28,True
+20 stores / 3% lift,20,90,0.03,837.4,9.33,422011.92,True
+30 stores / 1% lift,30,90,0.01,795.8,9.31,200104.71,True
+30 stores / 2% lift,30,90,0.02,795.8,9.31,400209.41,True
+30 stores / 3% lift,30,90,0.03,795.8,9.31,600314.12,True

@@ -2,5 +2,5 @@
 
 Prioritize **Speed Of Service** across **30 priority stores**.
 
-- Estimated incremental revenue: **$393,034**
+- Estimated incremental revenue: **$400,209**
 - **Meets $100K threshold: True**

@@ -73,7 +73,7 @@ Outputs:
 - `data/processed/*_clean.parquet` — cleaned datasets for downstream steps
 - `outputs/tables/validation_summary.csv` — tabular check log
 
-Current run: **33 checks**, **0 failures**, **3 warnings**, **58 flagged records** (suspicious but retained).
+Current run: **33 checks**, **0 failures**, **3 warnings**, **45 flagged records** (suspicious but retained).
 
 ---
 
@@ -124,7 +124,7 @@ Implemented in `src/driver_analysis.py`.
 
 **Interpretation:** Odds ratios express the multiplicative change in odds of high revisit intent per one standard-deviation increase in each rating. This is **associative**, not causal.
 
-Current model metrics: accuracy **83.8%**, precision **61.8%**, recall **86.8%**, ROC-AUC **91.9%**.
+Current model metrics: accuracy **78.7%**, precision **69.3%**, recall **81.5%**, ROC-AUC **88.6%**.
 
 ---
 
@@ -191,7 +191,9 @@ estimated_incremental_revenue =
 | `expected_repeat_visit_lift` | 2% (0.02) |
 | `min_incremental_revenue_usd` | $100,000 |
 
-With current data: **~$393,034** incremental revenue — exceeds the $100K threshold.
+With current data: **~$400,209** incremental revenue — exceeds the $100K threshold.
+
+`impact_sensitivity.csv` adds a simple scenario grid for 10, 20, and 30 target stores at 1%, 2%, and 3% repeat-visit lift. This makes the business case easier to pressure-test.
 
 ---
 

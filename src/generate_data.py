@@ -263,8 +263,8 @@ def _derive_outcomes(
 
     if scores["wait_time_rating"] <= 2:
         nps = int(np.clip(nps - 1, 0, 10))
-        elif scores["wait_time_rating"] == 3:
-            nps = int(np.clip(nps - .5, 0, 10))
+    elif scores["wait_time_rating"] == 3:
+        nps = int(np.clip(nps - .5, 0, 10))
 
     csat_base = np.mean(list(scores.values()))
     if scores["staff_friendliness_rating"] >= 4:

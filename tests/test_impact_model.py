@@ -60,7 +60,7 @@ def test_build_impact_sensitivity_creates_scenarios():
     assert len(sensitivity) == 4
     base = sensitivity[
         (sensitivity["target_store_count"] == 30)
-        & (sensitiviy["expected_repeat_visit_lift"] == .02)
+        & (sensitivity["expected_repeat_visit_lift"] == .02)
         ].iloc[0]
     assert base["estimated_incremental_revenue"] == pytest.approx(270_000)
     assert bool(base["meets_100k_threshold"]) is True

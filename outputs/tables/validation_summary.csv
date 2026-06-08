@@ -28,6 +28,6 @@ expected_row_count_guest_comments,pass,11501,0,"Expected 7,500–15,000; found 1
 expected_row_count_product_feedback,pass,7661,0,"Expected 5,000–12,000; found 7,661"
 expected_row_count_loyalty_behavior,pass,12000,0,"Expected 8,000–15,000; found 12,000"
 synthetic_data_label,pass,12000,0,All records must be labeled data_source=synthetic
-flag_straight_lining,warn,12000,57,All experience ratings identical on one survey
-flag_inconsistent_promoter_scores,warn,12000,1,NPS>=9 but CSAT<=2 and revisit_intent<=2
+flag_straight_lining,warn,12000,42,All experience ratings identical on one survey
+flag_inconsistent_promoter_scores,warn,12000,3,NPS>=9 but CSAT<=2 and revisit_intent<=2
 flag_surveys_without_comments,warn,12000,499,Surveys missing linked guest comment
