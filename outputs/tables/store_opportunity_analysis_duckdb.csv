@@ -79,7 +79,7 @@ BB-048,Phoenix Campus,Phoenix,West,campus,529,8.29,119,-1.7,4.2353,3.4874,0.3697
 BB-056,Dallas Suburban,Dallas,South,suburban,603,7.47,119,10.1,4.2941,3.5966,0.4286,mobile_app_issues,17.1,0.4306,0.5793,0.3184
 BB-033,Boston Urban,Boston,Northeast,urban,645,10.69,154,0.6,4.2922,3.526,0.3701,order_accuracy,7.6,0.36,0.6196,0.3182
 BB-025,Miami Urban,Miami,South,urban,431,11.1,110,1.8,4.3909,3.6727,0.4182,speed_of_service,8.8,0.5067,0.414,0.3163
-BB-038,Hartford Suburban,Hartford,Northeast,suburban,710,9.77,147,-4.8,4.2109,3.4558,0.3265,speed_of_service,2.2,0.2898,0.682,0.3154
+BB-038,Hartford Suburban,Hartford,Northeast,suburban,710,9.77,147,-4.8,4.2109,3.4558,0.3265,drink_consistency,2.2,0.2898,0.682,0.3154
 BB-085,New York Campus,New York,Northeast,campus,361,7.05,86,-2.3,4.2093,3.3488,0.3605,speed_of_service,4.7,0.1828,0.3468,0.3047
 BB-061,Portland Urban,Portland,West,urban,345,6.87,75,-2.7,4.24,3.4,0.36,order_accuracy,4.3,0.234,0.3314,0.2938
 BB-039,Portland Suburban,Portland,West,suburban,502,9.18,91,-3.3,4.2527,3.4945,0.3407,order_accuracy,3.7,0.3285,0.4822,0.2793
