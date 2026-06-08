@@ -220,43 +220,6 @@ Before/after pilot tracking covers NPS, CSAT, revisit intent, negative comment r
 
 ---
 
-## Resume Bullet Section
-
-Copy-ready bullets for analytics and insights roles:
-
-- Built a Voice of Customer Insights Platform using Python, SQL, and Streamlit to analyze simulated guest survey, review, product, and store-level data for a multi-location coffee brand; classified customer feedback themes, quantified NPS/CSAT impact, and identified top drivers of repeat visit intent.
-
-- Developed a research-style analytics workflow with data validation checks, VoC codebook design, detractor analysis, guest segmentation, logistic regression driver modeling, and executive recommendations tied to a $100K+ business impact case.
-
-- Created an executive dashboard and memo translating open-text guest feedback into prioritized actions for Marketing, Operations, Digital, and Strategy teams.
-
----
-
-## Acceptance Checklist
-
-Verified end-to-end with `make data`, `make validate`, `make build`, `make test`, and `make app`:
-
-| # | Criterion | Status |
-|---|-----------|--------|
-| 1 | Repo structure (`src/`, `app/`, `data/`, `outputs/`, `sql/`, `reports/`, `tests/`, `notebooks/`) | Pass |
-| 2 | `requirements.txt` | Pass |
-| 3 | Synthetic raw datasets generated (5 CSVs + dictionary) | Pass |
-| 4 | `validation_summary.csv` produced (32 checks) | Pass |
-| 5 | VoC themes classified → `guest_surveys_classified.parquet` | Pass |
-| 6 | Processed parquet datasets in `data/processed/` | Pass |
-| 7 | Required analytical CSVs in `outputs/tables/` | Pass |
-| 8 | DuckDB SQL queries in `sql/` (+ `_duckdb.csv` exports) | Pass |
-| 9 | Streamlit app loads all required files | Pass |
-| 10 | Dashboard: Executive Readout, VoC Deep Dive, Drivers & Segments, Opportunities | Pass |
-| 11 | `executive_memo.md` — data-backed findings (not placeholders) | Pass |
-| 12 | `methodology.md` | Pass |
-| 13 | Portfolio-ready README | Pass |
-| 14 | Default impact case **>$100K** (~$393K at 30 stores / 90 days / 2% lift) | Pass |
-| 15 | Results match embedded patterns (speed theme volume, drink-quality driver, mall opportunities) | Pass |
-| 16 | No placeholder TODOs in codebase | Pass |
-
----
-
 ## Further Reading
 
 - `reports/executive_memo.md` — business question, key insights, recommended actions, impact sizing
