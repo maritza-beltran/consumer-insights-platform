@@ -27,7 +27,7 @@ Most VoC work stops at word clouds or sentiment scores. This platform goes furth
 - **Prioritizes stores by opportunity** — composite scoring blends negative feedback rate, satisfaction gaps, and traffic weight.
 - **Sizes a decision-ready business case** — default assumptions produce a **$100K+** incremental revenue estimate tied to a measurement plan.
 
-The result is a portfolio-ready example of how insights teams translate open text into cross-functional recommendations.
+This platform is an example of how insights teams may translate open text into cross-functional recommendations.
 
 ---
 
